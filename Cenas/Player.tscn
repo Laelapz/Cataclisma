@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/creature-sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/PlayerControl.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.62962
+height = 3.61433
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 2.64752
+height = 9.92853
+
+[node name="Player" type="Node2D"]
+
+[node name="Body" type="KinematicBody2D" parent="."]
+position = Vector2( -4.48987, 15.7145 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Position2D" type="Position2D" parent="Body"]
+
+[node name="Sprite" type="Sprite" parent="Body/Position2D"]
+position = Vector2( 0.273041, -2.00226 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="HeadCollision" type="CollisionShape2D" parent="Body"]
+position = Vector2( 0.140312, -1.40308 )
+shape = SubResource( 1 )
+
+[node name="LegsCollision" type="CollisionShape2D" parent="Body"]
+position = Vector2( 0.140305, 6.59447 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Body"]
+current = true
+zoom = Vector2( 0.5, 0.5 )

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Shaders/OldTvShader.gdshader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/overlay = true
+shader_param/scanlines_opacity = 0.048
+shader_param/scanlines_width = 0.084
+shader_param/grille_opacity = 0.095
+shader_param/resolution = Vector2( 1080, 600 )
+shader_param/pixelate = false
+shader_param/roll = true
+shader_param/roll_speed = 8.0
+shader_param/roll_size = 36.508
+shader_param/roll_variation = 0.789
+shader_param/distort_intensity = 0.023
+shader_param/noise_opacity = 0.01
+shader_param/noise_speed = 4.0
+shader_param/static_noise_intensity = 0.01
+shader_param/aberration = 0.04
+shader_param/brightness = 1.2
+shader_param/discolor = false
+shader_param/warp_amount = 1.0
+shader_param/clip_warp = false
+shader_param/vignette_intensity = 0.4
+shader_param/vignette_opacity = 0.5
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource( 2 )
+margin_left = -1.0
+margin_top = 22.0
+margin_right = 287.0
+margin_bottom = 223.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
