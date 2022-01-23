@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.89761
+
+[sub_resource type="ShaderMaterial" id=2]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0936432, 0.374577 )
+shape = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 2 )
+scale = Vector2( 0.5, 0.5 )
+amount = 17
+lifetime = 5.0
+speed_scale = 1.93
+emission_shape = 1
+emission_sphere_radius = 4.42
+gravity = Vector2( 0, 0 )
+scale_amount = 5.0
+scale_amount_random = 0.12
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -5.50892
+margin_top = -5.35736
+margin_right = 23.4911
+margin_bottom = 31.6426
+rect_scale = Vector2( 0.394191, 0.292229 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
