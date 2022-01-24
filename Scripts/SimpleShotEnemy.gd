@@ -6,7 +6,7 @@ func _ready():
 	pass
 
 func _on_RigidBody2D_body_entered(body):
-	if "Enemy" in body.name:
+	if body.get_instance_id() == 1286:
 		body.damage()
 	queue_free()
 

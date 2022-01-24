@@ -62,6 +62,8 @@ Mouse_esq={
 2d_physics/layer_3="Inimigo"
 2d_render/layer_4="Tiro"
 2d_physics/layer_4="Tiro"
+2d_render/layer_5="TiroInimigo"
+2d_physics/layer_5="TiroInimigo"
 
 [physics]
 

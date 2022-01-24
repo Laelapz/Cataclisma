@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/EyeSprite.gd" type="Script" id=4]
 [ext_resource path="res://Shaders/OutlineShader.gdshader" type="Shader" id=5]
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 1, 1, 1, 1 )
@@ -15,7 +15,7 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Sprite
 onready var BULLET_SCENE = preload(\"res://Cenas/SimpleShot.tscn\")
 
@@ -37,11 +37,11 @@ func atirar():
 	get_parent().add_child(bullet_inst)
 "
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 6.34237
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 2.70649
 height = 9.92853
 
@@ -50,7 +50,6 @@ height = 9.92853
 [node name="Body" type="KinematicBody2D" parent="."]
 position = Vector2( 0.0360012, 0.0978374 )
 collision_layer = 2
-collision_mask = 5
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -59,7 +58,7 @@ __meta__ = {
 [node name="Position2D" type="Position2D" parent="Body"]
 
 [node name="Sprite" type="Sprite" parent="Body/Position2D"]
-material = SubResource( 5 )
+material = SubResource( 1 )
 position = Vector2( -0.0924141, -0.127162 )
 texture = ExtResource( 1 )
 hframes = 4
@@ -74,18 +73,18 @@ script = ExtResource( 4 )
 
 [node name="Aim" type="Sprite" parent="Body"]
 position = Vector2( 1.62457, 0.441405 )
-script = SubResource( 3 )
+script = SubResource( 2 )
 
 [node name="HeadCollision" type="CollisionShape2D" parent="Body"]
 visible = false
 position = Vector2( -0.0364649, -0.695972 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="LegsCollision" type="CollisionShape2D" parent="Body"]
 visible = false
 position = Vector2( -0.0364719, 8.45062 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="Body"]
 current = true

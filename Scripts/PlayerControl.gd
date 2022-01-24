@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var vel = 150
+var life = 10
 onready var sprite = $Position2D/Sprite	
 onready var eye_sprite = $Position2D/EyeSprite	
 onready var position2D = $Position2D
@@ -39,4 +40,12 @@ func _physics_process(delta):
 
 	mov = mov.normalized()
 	mov = move_and_slide(mov*vel);
+
+func damage():
+	life -= 1
 	
+	if life <= 0:
+		dead()
+
+func dead():
+	get_parent().queue_free()
