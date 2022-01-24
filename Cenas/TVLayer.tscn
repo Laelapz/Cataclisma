@@ -10,12 +10,12 @@ shader_param/scanlines_opacity = 0.4
 shader_param/scanlines_width = 0.25
 shader_param/grille_opacity = 0.3
 shader_param/resolution = Vector2( 640, 480 )
-shader_param/pixelate = true
+shader_param/pixelate = false
 shader_param/roll = true
 shader_param/roll_speed = 8.0
 shader_param/roll_size = 15.0
 shader_param/roll_variation = 1.8
-shader_param/distort_intensity = 0.02
+shader_param/distort_intensity = 0.021
 shader_param/noise_opacity = 0.01
 shader_param/noise_speed = 5.0
 shader_param/static_noise_intensity = 0.01
@@ -38,6 +38,6 @@ __meta__ = {
 }
 
 [node name="old-tv-1" type="Sprite" parent="."]
-position = Vector2( 583.94, 410.023 )
-scale = Vector2( 1.7941, 1.69309 )
+position = Vector2( 561.751, 393.734 )
+scale = Vector2( 1.77229, 1.72241 )
 texture = ExtResource( 1 )

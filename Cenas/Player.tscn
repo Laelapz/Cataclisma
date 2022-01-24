@@ -1,20 +1,56 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/creature-sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/PlayerControl.gd" type="Script" id=2]
+[ext_resource path="res://Assets/creature-eye.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/EyeSprite.gd" type="Script" id=4]
+[ext_resource path="res://Shaders/OutlineShader.gdshader" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 5 )
+shader_param/rainbow = false
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_scale = 0.8
+shader_param/frequency = 0.5
+shader_param/light_offset = 0.5
+shader_param/alpha = 1.0
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Sprite
+onready var BULLET_SCENE = preload(\"res://Cenas/SimpleShot.tscn\")
+
+func _ready():
+	pass 
+
+func _process(delta):
+	look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed(\"Mouse_esq\"):
+		atirar()
+		
+func atirar():
+	var bullet_inst = BULLET_SCENE.instance()
+	var mouse_pos = get_local_mouse_position().normalized()
+	
+	bullet_inst.position = position
+	bullet_inst.rotation_degrees = rotation_degrees
+	bullet_inst.apply_impulse(Vector2(), Vector2(bullet_inst.bullet_speed,0).rotated(rotation))
+	get_parent().add_child(bullet_inst)
+"
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 6.62962
-height = 3.61433
+radius = 6.34237
+height = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 2.64752
+radius = 2.70649
 height = 9.92853
 
 [node name="Player" type="Node2D"]
 
 [node name="Body" type="KinematicBody2D" parent="."]
-position = Vector2( -4.48987, 15.7145 )
+position = Vector2( 0.0360012, 0.0978374 )
+collision_layer = 2
+collision_mask = 5
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -23,17 +59,31 @@ __meta__ = {
 [node name="Position2D" type="Position2D" parent="Body"]
 
 [node name="Sprite" type="Sprite" parent="Body/Position2D"]
-position = Vector2( 0.273041, -2.00226 )
+material = SubResource( 5 )
+position = Vector2( -0.0924141, -0.127162 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 3
 
+[node name="EyeSprite" type="Sprite" parent="Body/Position2D"]
+position = Vector2( 0.880256, -0.288374 )
+scale = Vector2( 0.764636, 0.724377 )
+texture = ExtResource( 3 )
+hframes = 4
+script = ExtResource( 4 )
+
+[node name="Aim" type="Sprite" parent="Body"]
+position = Vector2( 1.62457, 0.441405 )
+script = SubResource( 3 )
+
 [node name="HeadCollision" type="CollisionShape2D" parent="Body"]
-position = Vector2( 0.140312, -1.40308 )
+visible = false
+position = Vector2( -0.0364649, -0.695972 )
 shape = SubResource( 1 )
 
 [node name="LegsCollision" type="CollisionShape2D" parent="Body"]
-position = Vector2( 0.140305, 6.59447 )
+visible = false
+position = Vector2( -0.0364719, 8.45062 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
