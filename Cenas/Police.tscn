@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Police.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Police.gd" type="Script" id=1]
 [ext_resource path="res://Assets/police_sheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -44,6 +44,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
 frames = SubResource( 6 )
 animation = "walking"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
