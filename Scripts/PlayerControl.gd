@@ -44,6 +44,7 @@ func _physics_process(delta):
 		mov = move_and_slide(mov*vel);
 
 func damage():
+	get_parent().get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
 	life -= 1
 	
 	if life <= 0:

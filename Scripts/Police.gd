@@ -29,6 +29,7 @@ func _process(delta):
 			self.global_position = lerp(global_position, player.global_position, delta)
 
 func damage():
+	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
 	life -= 1
 	
 	if life <= 0:
@@ -38,7 +39,6 @@ func dead():
 	queue_free()
 
 func _on_Area2D_body_entered(body):
-	print(body)
 	player = body
 
 
