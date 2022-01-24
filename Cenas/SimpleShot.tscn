@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/SimpleShot.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.89761
@@ -8,6 +10,8 @@ radius = 6.89761
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 5
+gravity_scale = 0.0
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0936432, 0.374577 )
@@ -26,10 +30,10 @@ scale_amount = 5.0
 scale_amount_random = 0.12
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -5.50892
-margin_top = -5.35736
-margin_right = 23.4911
-margin_bottom = 31.6426
+margin_left = -4.55229
+margin_top = -4.66591
+margin_right = 19.4477
+margin_bottom = 27.3341
 rect_scale = Vector2( 0.394191, 0.292229 )
 __meta__ = {
 "_edit_use_anchors_": false

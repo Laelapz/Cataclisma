@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Shaders/OldTvShader.gdshader" type="Shader" id=1]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.048
@@ -27,7 +27,7 @@ shader_param/vignette_intensity = 0.4
 shader_param/vignette_opacity = 0.5
 
 [node name="ColorRect" type="ColorRect"]
-material = SubResource( 2 )
+material = SubResource( 1 )
 margin_left = -1.0
 margin_top = 22.0
 margin_right = 287.0

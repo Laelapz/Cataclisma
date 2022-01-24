@@ -38,6 +38,6 @@ __meta__ = {
 }
 
 [node name="old-tv-1" type="Sprite" parent="."]
-position = Vector2( 572.828, 398.911 )
-scale = Vector2( 1.7941, 1.69309 )
+position = Vector2( 561.751, 393.734 )
+scale = Vector2( 1.77229, 1.72241 )
 texture = ExtResource( 1 )
