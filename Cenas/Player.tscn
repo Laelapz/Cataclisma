@@ -45,9 +45,7 @@ height = 0.0
 radius = 2.70649
 height = 9.92853
 
-[node name="Player" type="Node2D"]
-
-[node name="Body" type="KinematicBody2D" parent="."]
+[node name="Player" type="KinematicBody2D"]
 position = Vector2( 0.0360012, 0.0978374 )
 collision_layer = 2
 script = ExtResource( 2 )
@@ -55,37 +53,37 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Position2D" type="Position2D" parent="Body"]
+[node name="Position2D" type="Position2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Body/Position2D"]
+[node name="Sprite" type="Sprite" parent="Position2D"]
 material = SubResource( 1 )
 position = Vector2( -0.0924141, -0.127162 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 3
 
-[node name="EyeSprite" type="Sprite" parent="Body/Position2D"]
+[node name="EyeSprite" type="Sprite" parent="Position2D"]
 position = Vector2( 0.880256, -0.288374 )
 scale = Vector2( 0.764636, 0.724377 )
 texture = ExtResource( 3 )
 hframes = 4
 script = ExtResource( 4 )
 
-[node name="Aim" type="Sprite" parent="Body"]
+[node name="Aim" type="Sprite" parent="."]
 position = Vector2( 1.62457, 0.441405 )
 script = SubResource( 2 )
 
-[node name="HeadCollision" type="CollisionShape2D" parent="Body"]
+[node name="HeadCollision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -0.0364649, -0.695972 )
 shape = SubResource( 3 )
 
-[node name="LegsCollision" type="CollisionShape2D" parent="Body"]
+[node name="LegsCollision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -0.0364719, 8.45062 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
-[node name="Camera2D" type="Camera2D" parent="Body"]
+[node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )

@@ -13,4 +13,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$LifeBar.value = get_parent().find_node("Player").find_node("Body").life
+	$LifeBar.value = get_parent().find_node("Player").life

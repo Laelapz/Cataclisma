@@ -33,7 +33,10 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=7]
 radius = 161.165
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=[
+"minimap_objects",
+]]
+z_index = 1
 collision_layer = 4
 collision_mask = 9
 script = ExtResource( 1 )
