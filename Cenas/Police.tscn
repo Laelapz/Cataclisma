@@ -55,6 +55,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 7 )
 animation = "walking"
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -68,6 +69,11 @@ shape = SubResource( 8 )
 wait_time = 0.5
 one_shot = true
 
+[node name="RunerTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
+[connection signal="timeout" from="RunerTimer" to="." method="_on_RunerTimer_timeout"]
