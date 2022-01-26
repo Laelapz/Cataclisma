@@ -1,0 +1,21 @@
+extends RigidBody2D
+
+var hit = false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if hit:
+		if self.rotation_degrees < 90:
+			self.rotation_degrees += 0.1
+		else:
+			self.sleeping = true
+
+
+func _on_Poste_body_entered(body):
+	hit = true
