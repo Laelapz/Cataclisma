@@ -108,6 +108,8 @@ Mouse_esq={
 2d_physics/layer_4="Tiro"
 2d_render/layer_5="TiroInimigo"
 2d_physics/layer_5="TiroInimigo"
+2d_render/layer_6="Destruiveis"
+2d_physics/layer_6="Destruiveis"
 
 [physics]
 
