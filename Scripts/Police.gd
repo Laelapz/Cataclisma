@@ -7,6 +7,9 @@ var speed = 40
 var player = null
 var can_shot = true
 var velocity = Vector2()
+var minimap_icon = "enemy"
+
+signal removed
 
 const BULLET = preload("res://Cenas/SimpleShotEnemy.tscn")
 
@@ -15,6 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	return
 	if velocity.x < 0:
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
@@ -45,6 +49,7 @@ func damage():
 		dead()
 
 func dead():
+	emit_signal ("removed", self)
 	queue_free()
 
 func _on_Area2D_body_entered(body):

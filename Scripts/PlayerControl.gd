@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var vel = 150
+var vel = 350
 var life = 10
 onready var sprite = $Position2D/Sprite	
 onready var eye_sprite = $Position2D/EyeSprite	
@@ -8,6 +8,8 @@ onready var position2D = $Position2D
 var FPS = 60
 var FPS_counter = 0
 var can_move = true
+
+const POLICE = preload("res://Cenas/Police.tscn")
 
 func _ready():
 	pass 
@@ -40,11 +42,17 @@ func _physics_process(delta):
 			mov.y += 1
 			update_frame(4)
 			
+		if Input.is_action_just_pressed("ui_focus_next"):
+			var police = POLICE.instance()
+			police.global_position = Vector2(global_position.x + 50, global_position.y)
+			get_parent().add_child(police)
+			get_parent().find_node("MiniMap")._new_marker(police)
+
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel);
 
 func damage():
-	get_parent().get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
+	get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
 	life -= 1
 	
 	if life <= 0:

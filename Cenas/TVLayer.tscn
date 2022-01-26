@@ -33,6 +33,7 @@ shader_param/vignette_opacity = 0.5
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
