@@ -76,12 +76,10 @@ position = Vector2( 1.62457, 0.441405 )
 script = SubResource( 2 )
 
 [node name="HeadCollision" type="CollisionShape2D" parent="Body"]
-visible = false
 position = Vector2( -0.0364649, -0.695972 )
 shape = SubResource( 3 )
 
 [node name="LegsCollision" type="CollisionShape2D" parent="Body"]
-visible = false
 position = Vector2( -0.0364719, 8.45062 )
 rotation = 1.5708
 shape = SubResource( 4 )

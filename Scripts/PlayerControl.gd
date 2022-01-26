@@ -39,7 +39,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("baixo"):
 			mov.y += 1
 			update_frame(4)
-
+			
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel);
 
