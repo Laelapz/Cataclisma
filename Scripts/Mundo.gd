@@ -3,8 +3,11 @@ extends Node2D
 var cursor = load("res://Assets/mouse_sprite.png")
 
 func _ready():
+	var dialog = Dialogic.start("Dialogo1")
+	add_child(dialog)
+	dialog.connect("dialogic_signal", self, "_dialog_finished")
 	Input.set_custom_mouse_cursor(cursor)
-	pass # Replace with function body.
+	$Player/Camera2D.limit_left
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

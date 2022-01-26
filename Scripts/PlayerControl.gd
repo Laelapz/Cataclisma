@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var vel = 350
+var vel = 150
 var life = 10
 onready var sprite = $Position2D/Sprite	
 onready var eye_sprite = $Position2D/EyeSprite	

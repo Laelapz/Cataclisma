@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"character": "character-1643158118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Após anos de pesquisa finalmente terminei a minha maior criação. Vá meu filho e mostre aqueles super heróis a definição de desespero."
+		},
+		{
+			"character": "character-1643158010.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mas isso é só um teste."
+		},
+		{
+			"character": "character-1643158118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Putz é verdade."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1643158024.json",
+		"name": "Dialogo1"
+	}
+}

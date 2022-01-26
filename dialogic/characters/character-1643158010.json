@@ -1,0 +1,20 @@
+{
+	"color": "#ff3c982f",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1643158010.json",
+	"mirror_portraits": false,
+	"name": "Monstro",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

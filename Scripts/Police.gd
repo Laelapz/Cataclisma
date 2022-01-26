@@ -53,11 +53,13 @@ func dead():
 	queue_free()
 
 func _on_Area2D_body_entered(body):
+	$Atention.show()
 	speed = 110
 	player = body
 
 
 func _on_Area2D_body_exited(body):
+	$Atention.hide()
 	speed = 40
 	player = null
 
