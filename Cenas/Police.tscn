@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Police.gd" type="Script" id=1]
 [ext_resource path="res://Assets/police_sheet.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/Atention.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.7168, 12.0093 )
@@ -31,7 +32,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 161.165
+radius = 146.596
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "minimap_objects",
@@ -64,6 +65,11 @@ one_shot = true
 [node name="RunerTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Atention" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.424759, -25.6995 )
+texture = ExtResource( 3 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
