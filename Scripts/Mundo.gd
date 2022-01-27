@@ -3,19 +3,12 @@ extends Node2D
 var cursor = load("res://Assets/mouse_sprite.png")
 
 func _ready():
+	$"/root/AudioManager"._playMusic()
 	var dialog = Dialogic.start("Dialogo1")
 	add_child(dialog)
 	dialog.connect("dialogic_signal", self, "_dialog_finished")
 	Input.set_custom_mouse_cursor(cursor)
 	$Player/Camera2D.limit_left
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:

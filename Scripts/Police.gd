@@ -32,7 +32,7 @@ func _setStatus(type):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	return
+#	return
 	if velocity.x < 0:
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
@@ -57,6 +57,7 @@ func _process(delta):
 		velocity = move_and_slide(velocity)
 
 func damage():
+	$"/root/AudioManager"._enemyDamage()
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
 	life -= 1
 	

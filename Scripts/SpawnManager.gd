@@ -14,8 +14,10 @@ func _spawnEnemys(quantity, position, dificulty):
 		var index = round(rand_range(0, levels[dificulty].size()-1))
 		var enemy = ENEMY.instance()
 		enemy.type = levels[dificulty][index]
-		get_tree().get_root().get_child(1).add_child(enemy)
-		enemy.global_position = position;
+		get_tree().get_root().get_child(2).add_child(enemy)
+		enemy.global_position.x = round(rand_range(position.x-100, position.x+100))
+		enemy.global_position.y = round(rand_range(position.y-100, position.y+100))
+		
 
 func _spawnBoss():
 	pass

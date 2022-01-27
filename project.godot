@@ -57,6 +57,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SpawnManager="*res://Scripts/SpawnManager.gd"
+AudioManager="*res://Cenas/AudioManager.tscn"
 
 [display]
 
