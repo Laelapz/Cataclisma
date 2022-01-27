@@ -43,7 +43,7 @@ void fragment() {
 shader = SubResource( 1 )
 shader_param/bg_color = null
 
-[sub_resource type="StyleBoxFlat" id=22]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.203922, 0.521569, 0.196078, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -56,14 +56,14 @@ corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 125
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0, 0.627451, 0.0392157, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -76,7 +76,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.223529, 0.458824, 0.227451, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -89,80 +89,80 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 45
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 24, 24 )
-
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
-region = Rect2( 24, 0, 24, 24 )
+region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 24, 24 )
+region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
 } ]
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
-region = Rect2( 24, 0, 24, 24 )
+region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
-region = Rect2( 48, 0, 24, 24 )
+region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 5 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
 } ]
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 6 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 6 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 6 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=21]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
@@ -231,7 +231,7 @@ margin_bottom = 328.0
 rect_min_size = Vector2( 600, 0 )
 size_flags_horizontal = 4
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 22 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -242,7 +242,7 @@ margin_top = 25.4271
 margin_right = 562.379
 margin_bottom = 295.427
 rect_min_size = Vector2( 520, 100 )
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
@@ -272,10 +272,10 @@ margin_bottom = 214.0
 rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.968627, 0.894118, 0.6, 1 )
 text = "Jogar"
@@ -288,10 +288,10 @@ margin_bottom = 214.0
 rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.968627, 0.894118, 0.6, 1 )
 text = "Sair"
@@ -299,7 +299,7 @@ text = "Sair"
 [node name="Player" type="AnimatedSprite" parent="Menu/MarginContainer"]
 position = Vector2( 80.0686, 273.259 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 11 )
+frames = SubResource( 12 )
 frame = 3
 playing = true
 offset = Vector2( 0, -8 )
@@ -312,7 +312,7 @@ hframes = 4
 [node name="Police" type="AnimatedSprite" parent="Menu/MarginContainer"]
 position = Vector2( 841.378, 119.008 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 16 )
+frames = SubResource( 17 )
 frame = 2
 playing = true
 offset = Vector2( 0, -8 )
@@ -320,7 +320,7 @@ offset = Vector2( 0, -8 )
 [node name="FBI" type="AnimatedSprite" parent="Menu/MarginContainer"]
 position = Vector2( 718.892, 334.398 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 21 )
+frames = SubResource( 22 )
 frame = 1
 playing = true
 offset = Vector2( 0, -8 )

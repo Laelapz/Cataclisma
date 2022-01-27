@@ -8,6 +8,7 @@ onready var position2D = $Position2D
 var FPS = 60
 var FPS_counter = 0
 var can_move = true
+var can_damage = true
 
 const POLICE = preload("res://Cenas/Police.tscn")
 
@@ -41,18 +42,19 @@ func _physics_process(delta):
 			update_frame(4)
 			
 		if Input.is_action_just_pressed("ui_focus_next"):
-			$"/root/SpawnManager"._spawnEnemys(1, global_position, 0)
+			$"/root/SpawnManager"._spawnEnemys(10, global_position, 2)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
 
 func damage(damage):
-	$"/root/AudioManager"._playerDamage()
-	get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
-	life -= damage
-	
-	if life <= 0:
-		dead()
+	if can_damage:
+		$"/root/AudioManager"._playerDamage()
+		get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
+		life -= damage
+		
+		if life <= 0:
+			dead()
 
 func dead():
 	$HeadCollision.set_deferred("disabled", true)

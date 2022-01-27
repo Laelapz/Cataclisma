@@ -4,9 +4,10 @@ var cursor = load("res://Assets/mouse_sprite.png")
 
 func _ready():
 	$"/root/AudioManager"._playMusic()
-	var dialog = Dialogic.start("Dialogo1")
-	add_child(dialog)
-	dialog.connect("dialogic_signal", self, "_dialog_finished")
+	$Talk_With_Doctor.startConversation("Entrevista1")
+#	var dialog = Dialogic.start("Dialogo1")
+#	add_child(dialog)
+#	dialog.connect("dialogic_signal", self, "_dialog_finished")
 	Input.set_custom_mouse_cursor(cursor)
 	$Player/Camera2D.limit_left
 
@@ -16,3 +17,8 @@ func _input(event):
 			$HUD/MiniMap.set_less_zoom()
 		if event.button_index == BUTTON_WHEEL_DOWN:
 			$HUD/MiniMap.set_more_zoom()
+
+func _dialog_finished():
+	var player = find_node("Player")
+	player.can_damage = true
+	player.can_move = true

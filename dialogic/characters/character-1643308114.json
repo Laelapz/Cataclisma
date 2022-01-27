@@ -1,0 +1,20 @@
+{
+	"color": "#ffff6000",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1643308114.json",
+	"mirror_portraits": false,
+	"name": "Repórter",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}
