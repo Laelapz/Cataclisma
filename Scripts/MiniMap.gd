@@ -34,13 +34,27 @@ func _process(delta):
 	player_marker.rotation = get_node(player).rotation + PI / 2
 	
 	for item in markers:
+		var radius = grid.rect_size.x/2
 		var obj_pos = (item.position - get_node(player).position) * grid_scale + grid.rect_size / 2
-		obj_pos.x = clamp(obj_pos.x, 0, grid.rect_size.x)
-		obj_pos.y = clamp(obj_pos.y, 0, sqrt(pow(200, 2) - pow(obj_pos.x, 2)))
-#		if grid.get_rect().has_point(obj_pos + grid.rect_position):
-#			markers[item].scale = Vector2(0.75, 0.75)
-#		else:
-#			markers[item].scale = Vector2(2, 2)
+		
+		var pos = obj_pos - Vector2(radius, radius)
+		var lim =  sqrt(pos.x*pos.x + pos.y*pos.y) 
+		pos = pos.normalized()
+		
+		pos.x = ( pos.x * (sqrt(1 - (pos.y*pos.y)/2 )) )
+		pos.y = ( pos.y * (sqrt(1 - (pos.x*pos.x)/2 )) )
+		
+		pos *= Vector2(radius, radius)
+		pos += Vector2(radius, radius)
+		
+		if( lim > radius ):
+			obj_pos = pos
+
+#		obj_pos = pos
+
+		#obj_pos.x = clamp(obj_pos.x, 0, radius)
+#		obj_pos.y = clamp(obj_pos.y, 0, sqrt(pow(radius, 2) - pow(obj_pos.x, 2)))
+#		obj_pos.x = radius
 			
 		markers[item].position = obj_pos
 

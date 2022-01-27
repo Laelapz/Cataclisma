@@ -224,6 +224,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
 frames = SubResource( 38 )
 animation = "fbi1"
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
