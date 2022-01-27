@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var vel = 150
 var life = 10
-onready var sprite = $Position2D/Sprite	
-onready var eye_sprite = $Position2D/EyeSprite	
+onready var sprite = $Position2D/Sprite
+onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
 var FPS = 60
 var FPS_counter = 0
@@ -43,7 +43,7 @@ func _physics_process(delta):
 			update_frame(4)
 			
 		if Input.is_action_just_pressed("ui_focus_next"):
-			$"/root/SpawnManager"._spawnEnemys(1, global_position, 2)
+			$"/root/SpawnManager"._spawnEnemys(2, global_position, 0)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
