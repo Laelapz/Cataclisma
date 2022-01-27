@@ -9,8 +9,8 @@ func startConversation(Talk):
 	$ColorRect.show()
 	$Background.show()
 	var dialog = Dialogic.start(Talk)
-	get_parent().find_node("Player").can_move = true
-	get_parent().find_node("Player").can_damage = true
+	get_parent().find_node("Player").can_move = false
+	get_parent().find_node("Player").can_damage = false
 	add_child(dialog)
 	dialog.connect("dialogic_signal", self, "_dialog_finished")
 
