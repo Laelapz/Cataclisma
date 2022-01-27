@@ -2,20 +2,34 @@ extends KinematicBody2D
 
 var x = 1
 var y = 1
-var life = 5
-var speed = 40
+export var life = 5
+export var speed = 40
+export var damage = 1
+export var type = ""
 var player = null
 var can_shot = true
 var velocity = Vector2()
 var minimap_icon = "enemy"
+
+var atributes = {"police": {"life": 5, "speed": 40, "damage": 1}, "sheriff": {"life": 10, "speed": 20, "damage": 2}, "mercenary": {"life": 5, "speed": 60, "damage": 1}, "soldier": {"life": 10, "speed": 40, "damage": 3}, "robot": {"life": 15, "speed": 20, "damage": 4}, "fbi": {"life": 5, "speed": 70, "damage": 2}}
 
 signal removed
 
 const BULLET = preload("res://Cenas/SimpleShotEnemy.tscn")
 
 func _ready():
+	get_parent().find_node("MiniMap")._new_marker(self)
+	$CollisionShape2D/AnimatedSprite.play(type)
+	_setStatus(type)
 	$RunerTimer.start()
 
+func _setStatus(type):
+	type.erase(type.length()-1, 1)
+	life = atributes[type].life
+	speed = atributes[type].speed
+	damage = atributes[type].damage
+	print(life, " ", speed, " ", damage, " ")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	return
@@ -29,6 +43,7 @@ func _process(delta):
 		if sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2))) <= 100 && can_shot:
 			var bullet = BULLET.instance()
 			get_parent().add_child(bullet)
+			bullet.damage = damage
 			bullet.rotation_degrees = rotation_degrees
 			bullet.global_position = global_position
 			bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed, 0).rotated(get_angle_to(player.global_position)))

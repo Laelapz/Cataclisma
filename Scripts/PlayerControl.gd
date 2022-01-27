@@ -43,17 +43,14 @@ func _physics_process(delta):
 			update_frame(4)
 			
 		if Input.is_action_just_pressed("ui_focus_next"):
-			var police = POLICE.instance()
-			police.global_position = Vector2(global_position.x + 50, global_position.y)
-			get_parent().add_child(police)
-			get_parent().find_node("MiniMap")._new_marker(police)
+			$"/root/SpawnManager"._spawnEnemys(1, global_position, 2)
 
 		mov = mov.normalized()
-		mov = move_and_slide(mov*vel);
+		mov = move_and_slide(mov*vel)
 
-func damage():
+func damage(damage):
 	get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
-	life -= 1
+	life -= damage
 	
 	if life <= 0:
 		dead()

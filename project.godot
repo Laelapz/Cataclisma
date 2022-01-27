@@ -54,6 +54,10 @@ config/name="Cataclisma"
 run/main_scene="res://Cenas/Mundo.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SpawnManager="*res://Scripts/SpawnManager.gd"
+
 [display]
 
 window/size/height=700
