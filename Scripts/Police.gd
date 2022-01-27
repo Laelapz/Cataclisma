@@ -28,7 +28,6 @@ func _setStatus(type):
 	life = atributes[type].life
 	speed = atributes[type].speed
 	damage = atributes[type].damage
-	print(life, " ", speed, " ", damage, " ")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -10,7 +10,6 @@ func _spawnNpcs():
 func _spawnEnemys(quantity, position, dificulty):
 	randomize()
 	for i in quantity:
-		print(levels[dificulty])
 		var index = round(rand_range(0, levels[dificulty].size()-1))
 		var enemy = ENEMY.instance()
 		enemy.type = levels[dificulty][index]

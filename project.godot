@@ -51,13 +51,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Cataclisma"
-run/main_scene="res://Cenas/Mundo.tscn"
+run/main_scene="res://Cenas/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 SpawnManager="*res://Scripts/SpawnManager.gd"
-AudioManager="*res://Cenas/AudioManager.tscn"
+AudioManager="*res://Scripts/AudioManager.gd"
 
 [display]
 

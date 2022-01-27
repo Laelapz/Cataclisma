@@ -11,8 +11,6 @@ var can_move = true
 
 const POLICE = preload("res://Cenas/Police.tscn")
 
-func _ready():
-	pass 
 	
 func update_frame(limit):
 	if (FPS_counter > limit):
