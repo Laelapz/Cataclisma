@@ -1,11 +1,27 @@
 extends Node
 
 const ENEMY = preload("res://Cenas/Police.tscn")
+const NPC   = preload("res://Cenas/NPC.tscn")
+
 var levels = [["police1", "police2", "police3", "sheriff1"], ["mercenary1", "soldier1", "soldier2"], ["robot1", "fbi1"]]
+
+var npc_type = [["Menino", "Dona", "Professora", "Paramedico"], ["Egirl", "Punk", "Adolescente", "Artista"], ["Empresario", "Pedreiro", "Atriz"]]
 
 
 func _spawnNpcs():
 	pass
+	
+
+func _spawnNPCs(quantity, position, dificulty):
+	randomize()
+	for i in quantity:
+		var index = round(rand_range(0, npc_type[dificulty].size()-1))
+		var npc = NPC.instance()
+		npc.type = npc_type[dificulty][index]
+		get_tree().get_root().get_child(2).add_child(npc)
+		npc.global_position.x = round(rand_range(position.x-100, position.x+100))
+		npc.global_position.y = round(rand_range(position.y-100, position.y+100))
+		
 
 func _spawnEnemys(quantity, position, dificulty):
 	randomize()

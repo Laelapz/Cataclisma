@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/egirl-sheet.png-3f93420ba24b034646693f20d0ac658a.stex"
+path="res://.import/tiled.png-dbbabe58e4f927769540a522a2073689.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPCs/egirl-sheet.png"
-dest_files=[ "res://.import/egirl-sheet.png-3f93420ba24b034646693f20d0ac658a.stex" ]
+source_file="res://addons/vnen.tiled_importer/tiled.png"
+dest_files=[ "res://.import/tiled.png-dbbabe58e4f927769540a522a2073689.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
