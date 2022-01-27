@@ -12,8 +12,6 @@ var velocity = Vector2()
 var minimap_icon = "enemy"
 var rng = RandomNumberGenerator.new()
 
-var atributes = {"police": {"life": 5, "speed": 40, "damage": 0}, "sheriff": {"life": 10, "speed": 20, "damage": 2}, "mercenary": {"life": 5, "speed": 60, "damage": 1}, "soldier": {"life": 10, "speed": 40, "damage": 3}, "robot": {"life": 15, "speed": 20, "damage": 4}, "fbi": {"life": 5, "speed": 70, "damage": 2}}
-
 signal removed
 
 const BULLET = preload("res://Cenas/SimpleShotEnemy.tscn")
@@ -25,10 +23,10 @@ func _ready():
 	$RunerTimer.start()
 
 func _setStatus(type):
-	type.erase(type.length()-1, 1)
-	life = atributes[type].life
-	speed = atributes[type].speed
-	damage = atributes[type].damage
+	life = 5
+	speed = 40
+	damage = 0
+	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,30 +35,21 @@ func _process(delta):
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
 		$CollisionShape2D/AnimatedSprite.flip_h = false
-		
+	
+	rng.randomize()
+	var my_random_x = rng.randf_range(-150.0, 100.0)
+	var my_random_y = rng.randf_range(-150.0, 100.0)
+	var random_vel = Vector2(my_random_x, my_random_y)
+	
 	if player != null:
 		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
 		
-		if dist_from_player <= 200:		
-			if dist_from_player >= 80:
-				rng.randomize()
-				var my_random_x = rng.randf_range(-170.0, 170.0)
-				var my_random_y = rng.randf_range(-170.0, 170.0)
-				var random_vel = Vector2(my_random_x, my_random_y)
-				velocity = (player.global_position - global_position + random_vel).normalized() * speed
-				velocity = move_and_slide(velocity)
-	
-			if dist_from_player <= 150 && can_shot:
-				var bullet = BULLET.instance()
-				get_parent().add_child(bullet)
-				bullet.damage = damage
-				bullet.rotation_degrees = rotation_degrees
-				bullet.global_position = global_position
-				bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed, 0).rotated(get_angle_to(player.global_position)))
-				can_shot = false
-				$ShotTimer.start()
+		if dist_from_player <= 250:		
+			velocity = ( player.global_position - global_position ).normalized() * speed
+			velocity = -velocity
+			velocity = move_and_slide(velocity)
 	else:
-		velocity = Vector2(x, y).normalized() * speed
+		velocity = (Vector2(x, y) + random_vel).normalized() * speed
 		velocity = move_and_slide(velocity)
 
 func damage():

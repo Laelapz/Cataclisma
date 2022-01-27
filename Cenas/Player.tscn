@@ -41,14 +41,14 @@ func atirar():
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 6.34237
-height = 0.0
+height = 12.004
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 2.70649
 height = 9.92853
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0.0360012, 0.0978374 )
+position = Vector2( 0.0360012, -0.819865 )
 collision_layer = 2
 script = ExtResource( 2 )
 __meta__ = {
@@ -76,12 +76,10 @@ position = Vector2( 1.62457, 0.441405 )
 script = SubResource( 2 )
 
 [node name="HeadCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -0.0364649, -0.695972 )
+position = Vector2( 0.13039, 0.305158 )
 shape = SubResource( 3 )
 
 [node name="LegsCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -0.0364719, 8.45062 )
 rotation = 1.5708
 shape = SubResource( 4 )
