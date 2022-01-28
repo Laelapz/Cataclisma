@@ -48,8 +48,9 @@ func _process(delta):
 			velocity = ( player.global_position - global_position ).normalized() * speed
 			velocity = -velocity
 			velocity = move_and_slide(velocity)
+		
 	else:
-		velocity = (Vector2(x, y) + random_vel).normalized() * speed
+		velocity = (Vector2(x, y)).normalized() * speed
 		velocity = move_and_slide(velocity)
 
 func damage():
