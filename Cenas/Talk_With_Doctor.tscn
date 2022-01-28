@@ -1,58 +1,58 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Talk With_Doctor.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Talk With_Doctor.gd" type="Script" id=1]
 [ext_resource path="res://Assets/MadScientist-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Reporter-sheet.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
-region = Rect2( 24, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 48, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "fala",
 "speed": 14.0
 } ]
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "fala",
 "speed": 14.0
 } ]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=11]
 code = "// HSV to RBG from https://www.rapidtables.com/convert/color/hsv-to-rgb.html
 // Rotation matrix from https://en.wikipedia.org/wiki/Rotation_matrix
 
@@ -86,8 +86,8 @@ void fragment() {
 	COLOR = mix(color, vec4(rainbow, color.a), strength);
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
 shader_param/strength = 1.0
 shader_param/speed = 0.1
 shader_param/angle = 0.0
@@ -107,13 +107,13 @@ __meta__ = {
 visible = false
 position = Vector2( 242.171, 585.817 )
 scale = Vector2( 16, 16 )
-frames = SubResource( 7 )
+frames = SubResource( 5 )
 animation = "fala"
 
 [node name="Reporter" type="AnimatedSprite" parent="Background"]
 position = Vector2( 747.695, 576.698 )
 scale = Vector2( 16, 16 )
-frames = SubResource( 12 )
+frames = SubResource( 10 )
 animation = "fala"
 flip_h = true
 
@@ -124,7 +124,7 @@ one_shot = true
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 show_behind_parent = true
-material = SubResource( 2 )
+material = SubResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )

@@ -9,6 +9,8 @@ var FPS = 60
 var FPS_counter = 0
 var can_move = false
 var can_damage = true
+var headColliding = false
+var legsColliding = false
 
 const POLICE = preload("res://Cenas/Police.tscn")
 
@@ -47,6 +49,11 @@ func _physics_process(delta):
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
+	
+	if headColliding && !legsColliding:
+		z_index = 2
+	else:
+		z_index = 1
 
 func damage(damage):
 	if can_damage:
@@ -61,3 +68,19 @@ func dead():
 	$HeadCollision.set_deferred("disabled", true)
 	$LegsCollision.set_deferred("disabled", true)
 	can_move = false
+
+
+func _on_Head_body_entered(body):
+	headColliding = true
+
+
+func _on_Legs_body_entered(body):
+	legsColliding = true
+
+
+func _on_Head_body_exited(body):
+	headColliding = false
+
+
+func _on_Legs_body_exited(body):
+	legsColliding = false

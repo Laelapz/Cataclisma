@@ -300,10 +300,7 @@ text = "Sair"
 position = Vector2( 80.0686, 273.259 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 12 )
-<<<<<<< HEAD
-=======
-frame = 1
->>>>>>> b017351284e02cecd1cccba6861f049a78d7cf54
+frame = 2
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -316,10 +313,7 @@ hframes = 4
 position = Vector2( 841.378, 119.008 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 17 )
-<<<<<<< HEAD
-frame = 3
-=======
->>>>>>> b017351284e02cecd1cccba6861f049a78d7cf54
+frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -327,11 +321,6 @@ offset = Vector2( 0, -8 )
 position = Vector2( 718.892, 334.398 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 22 )
-<<<<<<< HEAD
-frame = 2
-=======
-frame = 3
->>>>>>> b017351284e02cecd1cccba6861f049a78d7cf54
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -339,11 +328,6 @@ offset = Vector2( 0, -8 )
 position = Vector2( 449.522, 610.053 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 27 )
-<<<<<<< HEAD
-frame = 2
-=======
-frame = 3
->>>>>>> b017351284e02cecd1cccba6861f049a78d7cf54
 playing = true
 offset = Vector2( 0, -8 )
 

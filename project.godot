@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cataclisma"
-run/main_scene="res://Cenas/Mundo.tscn"
+run/main_scene="res://Cenas/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -113,8 +113,8 @@ Mouse_esq={
 2d_physics/layer_4="Tiro"
 2d_render/layer_5="TiroInimigo"
 2d_physics/layer_5="TiroInimigo"
-2d_render/layer_6="Destruiveis"
-2d_physics/layer_6="Destruiveis"
+2d_render/layer_6="Ysort"
+2d_physics/layer_6="Ysort"
 
 [physics]
 
