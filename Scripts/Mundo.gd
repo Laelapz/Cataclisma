@@ -4,6 +4,7 @@ var cursor = load("res://Assets/mouse_sprite.png")
 
 func _ready():
 	$"/root/AudioManager"._playMusic()
+	$Player.can_move = false
 	$Talk_With_Doctor.startConversation("Entrevista1")
 #	var dialog = Dialogic.start("Dialogo1")
 #	add_child(dialog)

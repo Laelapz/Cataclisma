@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Talk With_Doctor.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Talk With_Doctor.gd" type="Script" id=1]
 [ext_resource path="res://Assets/MadScientist-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Reporter-sheet.png" type="Texture" id=3]
 
