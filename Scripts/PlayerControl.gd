@@ -9,6 +9,7 @@ var FPS = 60
 var FPS_counter = 0
 var can_move = false
 var can_damage = true
+var is_dead = false
 var headColliding = false
 var legsColliding = false
 
@@ -44,8 +45,8 @@ func _physics_process(delta):
 			update_frame(4)
 			
 		if Input.is_action_just_pressed("ui_focus_next"):
-			$"/root/SpawnManager"._spawnEnemys(10, global_position, 0)
-#			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
+#			$"/root/SpawnManager"._spawnEnemys(10, global_position, 0)
+			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
@@ -68,6 +69,7 @@ func dead():
 	$HeadCollision.set_deferred("disabled", true)
 	$LegsCollision.set_deferred("disabled", true)
 	can_move = false
+	is_dead = true
 
 
 func _on_Head_body_entered(body):

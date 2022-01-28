@@ -8,10 +8,10 @@ extends MarginContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused = false
 	$"/root/AudioManager"._playMenuMusic()
 	$Menu/Tween.interpolate_property($Menu/Path2D/PathFollow2D, "unit_offset", 0, 1, 50, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Menu/Tween.start()
-
 
 func _on_Jogar_pressed():
 	$"/root/AudioManager".get_child(0).queue_free()
