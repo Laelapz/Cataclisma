@@ -225,9 +225,16 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
+<<<<<<< HEAD
+material = SubResource( 2 )
+frames = SubResource( 39 )
+animation = "fbi1"
+frame = 2
+=======
 frames = SubResource( 9 )
 animation = "robot1"
 frame = 1
+>>>>>>> d9ecc71428258e8f1d4dce4a8050f8c5f655af6d
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
