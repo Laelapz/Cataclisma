@@ -9,7 +9,7 @@ export var type = ""
 var player = null
 var can_shot = true
 var velocity = Vector2()
-var minimap_icon = "npc"
+var minimap_icon = "hero"
 var rng = RandomNumberGenerator.new()
 
 signal removed
@@ -26,7 +26,6 @@ func _setStatus(type):
 	life = 5
 	speed = 40
 	damage = 0
-	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -35,21 +34,30 @@ func _process(delta):
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
 		$CollisionShape2D/AnimatedSprite.flip_h = false
-	
-	rng.randomize()
-	var my_random_x = rng.randf_range(-150.0, 100.0)
-	var my_random_y = rng.randf_range(-150.0, 100.0)
-	var random_vel = Vector2(my_random_x, my_random_y)
-	
+		
 	if player != null:
 		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
 		
-		if dist_from_player <= 250:		
-			velocity = ( player.global_position - global_position ).normalized() * speed
-			velocity = -velocity
-			velocity = move_and_slide(velocity)
+		if dist_from_player <= 200:		
+			if dist_from_player >= 80:
+				rng.randomize()
+				var my_random_x = rng.randf_range(-170.0, 170.0)
+				var my_random_y = rng.randf_range(-170.0, 170.0)
+				var random_vel = Vector2(my_random_x, my_random_y)
+				velocity = (player.global_position - global_position + random_vel).normalized() * speed
+				velocity = move_and_slide(velocity)
+	
+			if dist_from_player <= 150 && can_shot:
+				var bullet = BULLET.instance()
+				get_parent().add_child(bullet)
+				bullet.damage = damage
+				bullet.rotation_degrees = rotation_degrees
+				bullet.global_position = global_position
+				bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed, 0).rotated(get_angle_to(player.global_position)))
+				can_shot = false
+				$ShotTimer.start()
 	else:
-		velocity = (Vector2(x, y) + random_vel).normalized() * speed
+		velocity = Vector2(x, y).normalized() * speed
 		velocity = move_and_slide(velocity)
 
 func damage():

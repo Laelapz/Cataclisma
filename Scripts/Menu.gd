@@ -5,9 +5,10 @@ extends MarginContainer
 # var a = 2
 # var b = "text"
 
-
+var cursor = load("res://Assets/mouse_sprite.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_custom_mouse_cursor(cursor)
 	get_tree().paused = false
 	$"/root/AudioManager"._playMenuMusic()
 	$Menu/Tween.interpolate_property($Menu/Path2D/PathFollow2D, "unit_offset", 0, 1, 50, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)

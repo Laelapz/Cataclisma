@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/BossHomemSuper.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/BossHomemSuper.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/Atention.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/OutlineShader.gdshader" type="Shader" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.7168, 12.0093 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 12 )
+shader_param/rainbow = false
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_scale = 0.5
+shader_param/frequency = 0.5
+shader_param/light_offset = 0.5
+shader_param/alpha = 1.0
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "HomemSuper",
+"speed": 12.0
+} ]
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 199.004
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 12 )
+shader_param/rainbow = false
+shader_param/line_color = Color( 0.909804, 0.219608, 0.196078, 1 )
+shader_param/line_scale = 0.5
+shader_param/frequency = 0.5
+shader_param/light_offset = 0.5
+shader_param/alpha = 1.0
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Sprite
+
+var global_position_y = -16
+
+func _process(delta):
+	position.y = global_position_y + 2*sin(2*PI*delta)
+	pass
+"
+
+[node name="Boss" type="KinematicBody2D" groups=[
+"minimap_objects",
+]]
+z_index = 1
+collision_layer = 4
+collision_mask = 9
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
+material = SubResource( 2 )
+scale = Vector2( 1.7, 1.7 )
+frames = SubResource( 7 )
+animation = "HomemSuper"
+frame = 2
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 8 )
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RunerTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Atention" type="Sprite" parent="."]
+material = SubResource( 9 )
+position = Vector2( 0, -16 )
+texture = ExtResource( 3 )
+script = SubResource( 10 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
+[connection signal="timeout" from="RunerTimer" to="." method="_on_RunerTimer_timeout"]

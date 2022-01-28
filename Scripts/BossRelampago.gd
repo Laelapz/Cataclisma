@@ -2,14 +2,14 @@ extends KinematicBody2D
 
 var x = 1
 var y = 1
-export var life = 5
-export var speed = 40
-export var damage = 1
+var life = 5
+var speed = 500
+var damage = 1
 export var type = ""
 var player = null
 var can_shot = true
 var velocity = Vector2()
-var minimap_icon = "npc"
+var minimap_icon = "hero"
 var rng = RandomNumberGenerator.new()
 
 signal removed
@@ -19,15 +19,8 @@ const BULLET = preload("res://Cenas/SimpleShotEnemy.tscn")
 func _ready():
 	get_parent().find_node("MiniMap")._new_marker(self)
 	$CollisionShape2D/AnimatedSprite.play(type)
-	_setStatus(type)
 	$RunerTimer.start()
 
-func _setStatus(type):
-	life = 5
-	speed = 40
-	damage = 0
-	pass
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	return
@@ -35,21 +28,31 @@ func _process(delta):
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
 		$CollisionShape2D/AnimatedSprite.flip_h = false
-	
-	rng.randomize()
-	var my_random_x = rng.randf_range(-150.0, 100.0)
-	var my_random_y = rng.randf_range(-150.0, 100.0)
-	var random_vel = Vector2(my_random_x, my_random_y)
-	
+		
 	if player != null:
 		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
 		
-		if dist_from_player <= 250:		
-			velocity = ( player.global_position - global_position ).normalized() * speed
-			velocity = -velocity
-			velocity = move_and_slide(velocity)
+		if dist_from_player <= 200:		
+			if dist_from_player >= 80:
+				rng.randomize()
+				var my_random_x = rng.randf_range(-170.0, 170.0)
+				var my_random_y = rng.randf_range(-170.0, 170.0)
+				var random_vel = Vector2(my_random_x, my_random_y)
+				velocity = (player.global_position - global_position + random_vel).normalized()
+				print(speed)
+				velocity = move_and_slide(velocity*speed)
+	
+			if dist_from_player <= 150 && can_shot:
+				var bullet = BULLET.instance()
+				get_parent().add_child(bullet)
+				bullet.damage = damage
+				bullet.rotation_degrees = rotation_degrees
+				bullet.global_position = global_position
+				bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed, 0).rotated(get_angle_to(player.global_position)))
+				can_shot = false
+				$ShotTimer.start()
 	else:
-		velocity = (Vector2(x, y) + random_vel).normalized() * speed
+		velocity = Vector2(x, y).normalized() * speed
 		velocity = move_and_slide(velocity)
 
 func damage():
@@ -66,19 +69,16 @@ func dead():
 
 func _on_Area2D_body_entered(body):
 	$Atention.show()
-	speed = 110
+	speed = 200
 	player = body
-
 
 func _on_Area2D_body_exited(body):
 	$Atention.hide()
-	speed = 40
+	speed = 400
 	player = null
-
 
 func _on_ShotTimer_timeout():
 	can_shot = true
-
 
 func _on_RunerTimer_timeout():
 	randomize()

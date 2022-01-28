@@ -59,115 +59,115 @@ region = Rect2( 48, 0, 24, 24 )
 atlas = ExtResource( 4 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 6 )
-region = Rect2( 24, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 6 )
-region = Rect2( 48, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 6 )
-region = Rect2( 72, 0, 24, 24 )
-
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 6 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 6 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 6 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 2 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 5 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 5 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 5 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 11 )
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 11 )
+atlas = ExtResource( 8 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 11 )
+atlas = ExtResource( 8 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 11 )
+atlas = ExtResource( 8 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 11 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 11 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 11 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 9 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 9 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 9 )
 region = Rect2( 72, 0, 24, 24 )
 
@@ -215,37 +215,37 @@ animations = [ {
 "name": "Punk",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "Paramedico",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "Pedreiro",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "Menino",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
 "loop": true,
 "name": "Adolescente",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
 "loop": true,
 "name": "Atriz",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "Egirl",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
 "loop": true,
 "name": "Empresario",
 "speed": 10.0
@@ -298,7 +298,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 47 )
 animation = "Paramedico"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

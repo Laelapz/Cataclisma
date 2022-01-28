@@ -205,11 +205,11 @@ text = "Sair"
 
 [node name="Popup" type="Popup" parent="ColorRect/CenterContainer"]
 visible = true
-margin_left = 312.0
+margin_left = 262.0
 margin_top = 50.0
-margin_right = 712.0
+margin_right = 762.0
 margin_bottom = 650.0
-rect_min_size = Vector2( 400, 600 )
+rect_min_size = Vector2( 500, 600 )
 rect_clip_content = true
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -217,7 +217,7 @@ size_flags_vertical = 0
 [node name="Panel" type="Panel" parent="ColorRect/CenterContainer/Popup"]
 margin_right = 400.0
 margin_bottom = 502.0
-rect_min_size = Vector2( 400, 600 )
+rect_min_size = Vector2( 500, 600 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
@@ -247,7 +247,7 @@ __meta__ = {
 }
 
 [node name="MusicText" type="Label" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
-margin_right = 360.0
+margin_right = 460.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -260,13 +260,13 @@ align = 1
 
 [node name="Music" type="HBoxContainer" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
 margin_top = 76.0
-margin_right = 360.0
+margin_right = 460.0
 margin_bottom = 133.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="LessMusic" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music"]
-margin_right = 26.0
+margin_right = 76.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -278,8 +278,8 @@ custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
 text = "-"
 
 [node name="MusicBar" type="ProgressBar" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music"]
-margin_left = 30.0
-margin_right = 330.0
+margin_left = 80.0
+margin_right = 380.0
 margin_bottom = 57.0
 rect_min_size = Vector2( 300, 30 )
 size_flags_horizontal = 3
@@ -294,8 +294,8 @@ __meta__ = {
 }
 
 [node name="MoreMusic" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music"]
-margin_left = 334.0
-margin_right = 360.0
+margin_left = 384.0
+margin_right = 460.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -308,7 +308,7 @@ text = "+"
 
 [node name="EffectsText" type="Label" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
 margin_top = 153.0
-margin_right = 360.0
+margin_right = 460.0
 margin_bottom = 210.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -321,13 +321,13 @@ align = 1
 
 [node name="Effects" type="HBoxContainer" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
 margin_top = 230.0
-margin_right = 360.0
+margin_right = 460.0
 margin_bottom = 286.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="LessEffects" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects"]
-margin_right = 26.0
+margin_right = 76.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -339,8 +339,8 @@ custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
 text = "-"
 
 [node name="EffectsBar" type="ProgressBar" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects"]
-margin_left = 30.0
-margin_right = 330.0
+margin_left = 80.0
+margin_right = 380.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 300, 30 )
 size_flags_horizontal = 3
@@ -355,8 +355,8 @@ __meta__ = {
 }
 
 [node name="MoreEffects" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects"]
-margin_left = 334.0
-margin_right = 360.0
+margin_left = 384.0
+margin_right = 460.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -369,7 +369,7 @@ text = "+"
 
 [node name="FullScreenText" type="Label" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
 margin_top = 306.0
-margin_right = 360.0
+margin_right = 460.0
 margin_bottom = 363.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -382,7 +382,7 @@ align = 1
 
 [node name="FullScreen" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
 margin_top = 383.0
-margin_right = 360.0
+margin_right = 460.0
 margin_bottom = 440.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -395,16 +395,16 @@ text = "\"Clique Aqui\""
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
 margin_top = 460.0
-margin_right = 360.0
+margin_right = 460.0
 margin_bottom = 560.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SairPopup" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/CenterContainer"]
-margin_left = 80.0
+margin_left = 130.0
 margin_top = 25.0
-margin_right = 280.0
+margin_right = 330.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 200, 50 )
 size_flags_horizontal = 3

@@ -9,9 +9,9 @@ onready var grid = $MarginContainer/Grid
 onready var player_marker = $MarginContainer/Grid/PlayerMarker
 onready var enemy_marker = $MarginContainer/Grid/EnemyMarker
 onready var hero_marker = $MarginContainer/Grid/HeroMarker
+onready var npc_marker = $MarginContainer/Grid/NpcMarker
 
-onready var icons = {'enemy': enemy_marker, 'hero': hero_marker}
-
+onready var icons = {'enemy': enemy_marker, 'hero': hero_marker, 'npc': npc_marker}
 
 var grid_scale
 var markers = {}
