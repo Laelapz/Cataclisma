@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Outros/Bangers.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/PauseScreen.gd" type="Script" id=2]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.627451, 0.0392157, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -15,7 +16,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.223529, 0.458824, 0.227451, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -28,6 +29,44 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.137255, 0.152941, 0.133333, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.105882, 0.556863, 0.0705882, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="DynamicFont" id=7]
 size = 32
 outline_size = 2
@@ -35,9 +74,74 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.133333, 0.65098, 0.0941176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0980392, 0.439216, 0.0705882, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.105882, 0.556863, 0.0705882, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.129412, 0.67451, 0.0862745, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.129412, 0.67451, 0.0862745, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="PauseScreen" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 self_modulate = Color( 1, 1, 1, 0.333333 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,6 +153,8 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -3.93362
+margin_bottom = -3.93359
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -66,20 +172,22 @@ custom_constants/separation = 30
 margin_right = 250.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 250, 50 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
 text = "Resumir"
 
-[node name="Configurações" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="Configuracoes" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 250.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 0, 50 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
 text = "Configurações"
 
@@ -88,8 +196,232 @@ margin_top = 160.0
 margin_right = 250.0
 margin_bottom = 210.0
 rect_min_size = Vector2( 0, 50 )
-custom_styles/hover = SubResource( 5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
+text = "Sair"
+
+[node name="Popup" type="Popup" parent="ColorRect/CenterContainer"]
+visible = true
+margin_left = 312.0
+margin_top = 50.0
+margin_right = 712.0
+margin_bottom = 650.0
+rect_min_size = Vector2( 400, 600 )
+rect_clip_content = true
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="ColorRect/CenterContainer/Popup"]
+margin_right = 400.0
+margin_bottom = 502.0
+rect_min_size = Vector2( 400, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Container" parent="ColorRect/CenterContainer/Popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/Popup/Panel/Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicText" type="Label" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
+margin_right = 360.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+text = "Volume da Música"
+align = 1
+
+[node name="Music" type="HBoxContainer" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
+margin_top = 76.0
+margin_right = 360.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LessMusic" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music"]
+margin_right = 26.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
+text = "-"
+
+[node name="MusicBar" type="ProgressBar" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music"]
+margin_left = 30.0
+margin_right = 330.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 300, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
+min_value = -24.0
+max_value = 10.0
+value = -7.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoreMusic" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music"]
+margin_left = 334.0
+margin_right = 360.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
+text = "+"
+
+[node name="EffectsText" type="Label" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
+margin_top = 153.0
+margin_right = 360.0
+margin_bottom = 210.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+text = "Volume dos Efeitos"
+align = 1
+
+[node name="Effects" type="HBoxContainer" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
+margin_top = 230.0
+margin_right = 360.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LessEffects" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects"]
+margin_right = 26.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
+text = "-"
+
+[node name="EffectsBar" type="ProgressBar" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects"]
+margin_left = 30.0
+margin_right = 330.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 300, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
+min_value = -24.0
+max_value = 10.0
+value = -7.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoreEffects" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects"]
+margin_left = 334.0
+margin_right = 360.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
+text = "+"
+
+[node name="FullScreenText" type="Label" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
+margin_top = 306.0
+margin_right = 360.0
+margin_bottom = 363.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+text = "Tela Cheia"
+align = 1
+
+[node name="FullScreen" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
+margin_top = 383.0
+margin_right = 360.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
+text = "\"Clique Aqui\""
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer"]
+margin_top = 460.0
+margin_right = 360.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SairPopup" type="Button" parent="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/CenterContainer"]
+margin_left = 80.0
+margin_top = 25.0
+margin_right = 280.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 12 )
 custom_styles/normal = SubResource( 6 )
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_hover = Color( 1, 0.396078, 0, 1 )
 text = "Sair"
+
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Resumir" to="." method="_on_Resumir_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Configuracoes" to="." method="_on_Configuracoes_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Sair" to="." method="_on_Sair_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music/LessMusic" to="." method="_on_LessMusic_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Music/MoreMusic" to="." method="_on_MoreMusic_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects/LessEffects" to="." method="_on_LessEffects_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/Effects/MoreEffects" to="." method="_on_MoreEffects_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/FullScreen" to="." method="_on_FullScreen_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/Popup/Panel/Container/VBoxContainer/CenterContainer/SairPopup" to="." method="_on_SairPopup_pressed"]
