@@ -8,18 +8,18 @@ var closing = false
 
 func _openInkRay():
 	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 1000, 6, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.interpolate_property($Line2D, "width", 0, 20, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($Line2D, "width", 0, 5, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 	enabled = true
 	oppened = true
 	closing = false
 
-#func _closeInkRay():
-#	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 0, 6, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-#	$Tween.interpolate_property($Line2D, "width", 20, 0, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-#	$Tween.start()
-#	oppened = false
-#	closing = true
+func _closeInkRay():
+	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 0, 6, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($Line2D, "width", 20, 0, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.start()
+	oppened = false
+	closing = true
 
 func _process(delta):
 	if oppened:
@@ -37,7 +37,7 @@ func _process(delta):
 			$Line2D/Particles2D.emitting = false
 			$Tween.interpolate_property(self, "cast_to:y", get("cast_to").y, 1000, 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 			$Tween.start()
-			$Line2D.set_point_position(1, Vector2(0, get("cast_to").x))
+			$Line2D.set_point_position(1, Vector2(0, get("cast_to").y))
 
 func _on_Tween_tween_all_completed():
 	if closing:
