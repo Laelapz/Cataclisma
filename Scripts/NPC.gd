@@ -12,6 +12,9 @@ var velocity = Vector2()
 var minimap_icon = "npc"
 var rng = RandomNumberGenerator.new()
 
+var headColliding = false
+var legsColliding = false
+
 signal removed
 
 const BULLET = preload("res://Cenas/SimpleShotEnemy.tscn")
@@ -52,6 +55,11 @@ func _process(delta):
 	else:
 		velocity = (Vector2(x, y)).normalized() * speed
 		velocity = move_and_slide(velocity)
+	
+	if headColliding && !legsColliding:
+		self.z_index = 2
+	else:
+		self.z_index = 0
 
 func damage():
 	$"/root/AudioManager"._enemyDamage()
@@ -86,3 +94,19 @@ func _on_RunerTimer_timeout():
 	x = round(rand_range(-1, 1))
 	y = round(rand_range(-1, 1))
 	$RunerTimer.start()
+
+
+func _on_Head_body_entered(body):
+	headColliding = true
+
+
+func _on_Legs_body_entered(body):
+	legsColliding = true
+
+
+func _on_Head_body_exited(body):
+	headColliding = false
+
+
+func _on_Legs_body_exited(body):
+	legsColliding = false
