@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var vel = 150
-var life = 100
+var life = 1000
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
@@ -51,14 +51,10 @@ func _physics_process(delta):
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 0)
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 1)
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 2)
-#			$"/root/SpawnManager"._spawnNPCs(15, global_position, 0)
+			$"/root/SpawnManager"._spawnNPCs(15, global_position, 0)
 			$"/root/SpawnManager"._spawnBoss(global_position, 0)
-#			$"/root/SpawnManager"._spawnBoss(global_position, 1)
-			$"/root/SpawnManager"._spawnBoss(global_position, 2)
-#			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
-#			$"/root/SpawnManager"._spawnBoss(global_position, 0)
 			$"/root/SpawnManager"._spawnBoss(global_position, 1)
-#			$"/root/SpawnManager"._spawnBoss(global_position, 2)
+			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)

@@ -78,7 +78,7 @@ hframes = 4
 script = ExtResource( 4 )
 
 [node name="Aim" type="Sprite" parent="."]
-position = Vector2( 1.62457, 0.441405 )
+position = Vector2( -0.0548066, 0.794959 )
 script = SubResource( 2 )
 
 [node name="HeadCollision" type="CollisionShape2D" parent="."]

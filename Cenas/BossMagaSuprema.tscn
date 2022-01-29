@@ -100,7 +100,7 @@ position = Vector2( -112.551, -11.5 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 8 )
 animation = "MagaSuprema"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 80.3934, 8.21428 )
 
