@@ -52,9 +52,9 @@ func _physics_process(delta):
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 1)
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 2)
 #			$"/root/SpawnManager"._spawnNPCs(15, global_position, 0)
-			$"/root/SpawnManager"._spawnBoss(global_position, 0)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 1)
-			$"/root/SpawnManager"._spawnBoss(global_position, 2)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 #			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 0)
 			$"/root/SpawnManager"._spawnBoss(global_position, 1)
@@ -79,7 +79,7 @@ func evolve():
 		self.scale = Vector2(1.5, 1.5)
 
 func damage(damage):
-	if !can_damage:
+	if can_damage:
 		$"/root/AudioManager"._playerDamage()
 		get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
 		life -= damage

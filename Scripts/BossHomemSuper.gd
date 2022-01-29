@@ -99,6 +99,8 @@ func _on_Area2D_body_exited(body):
 
 func _on_ShotTimer_timeout():
 	can_shot = true
+	$LaserTimer.stop()
+	$RayCast2D._closeInkRay()
 
 
 func _on_RunerTimer_timeout():
@@ -120,12 +122,16 @@ func shotInFan():
 		$ShotTimer.start()
 
 func shotInRay():
-	$RayCast2D/Line2D.width = 10
+	print("entrou")
+	$RayCast2D/Line2D.width = 5
+	$RayCast2D/Line2D/Particles2D.scale = Vector2(0.01, 0.01)
 #	$RayCast2D.transform.rotated(get_angle_to(player.global_position))
 	$RayCast2D.rotation = (player.global_position - $RayCast2D.global_position).normalized().angle()
-	$RayCast2D.rotation_degrees += 270
-#	print($RayCast2D.rotation_degrees)
+	$RayCast2D.rotation_degrees += 230
 	$RayCast2D._openInkRay()
+	$LaserTimer.start()
+	can_shot = false
+	$ShotTimer.start(3)
 
 
 func _on_Head_body_entered(body):
@@ -142,3 +148,7 @@ func _on_Head_body_exited(body):
 
 func _on_Legs_body_exited(body):
 	legsColliding = false
+
+
+func _on_LaserTimer_timeout():
+	$RayCast2D.rotation_degrees += 3

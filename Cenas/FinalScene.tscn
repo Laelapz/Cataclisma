@@ -1,0 +1,227 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Outros/Mundo.tres" type="TileSet" id=1]
+[ext_resource path="res://Cenas/ScreenShake.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/creature-eye.png" type="Texture" id=3]
+[ext_resource path="res://Assets/creature-sheet-evol-2.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/FinalScene.gd" type="Script" id=5]
+[ext_resource path="res://Assets/BossHomemSuper.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Fogo.png" type="Texture" id=7]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 bg_color: hint_color;
+
+float rand(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+void fragment() {
+	float size = 800.0;
+	float prob = 0.5;
+	vec2 pos = floor(100.0 / size * FRAGCOORD.xy);
+	float color = 0.0;
+	float starValue = rand(pos);
+
+	if (starValue > prob)
+	{
+		vec2 center = size * pos + vec2(size, size) * 0.5;
+		float t = 0.9 + 0.2 * sin(TIME * 8.0 + (starValue - prob) / (1.0 - prob) * 45.0);
+		color = 1.0 - distance(FRAGCOORD.xy, center) / (0.5 * size);
+		color = color * t / (abs(FRAGCOORD.y - center.y)) * t / (abs(FRAGCOORD.x - center.x));
+	}
+	else if (rand(SCREEN_UV.xy / 20.0) > 0.996)
+	{
+		float r = rand(SCREEN_UV.xy);
+		color = r * (0.85 * sin(TIME * (r * 5.0) + 720.0 * r) + 0.95);
+	}
+	COLOR = vec4(vec3(color),1.0) + bg_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/bg_color = null
+
+[sub_resource type="Animation" id=3]
+length = 4.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 2, 3, 2, 3, 2, 3, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/creature-eye:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 2, 3, 2, 3, 2, 3, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/creature-eye:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("ScreenShake")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0.5, 5, 1 ],
+"method": "screen_shake"
+}, {
+"args": [ 0.5, 8, 1 ],
+"method": "screen_shake"
+}, {
+"args": [ 0.5, 5, 1 ],
+"method": "screen_shake"
+}, {
+"args": [ 0.5, 8, 1 ],
+"method": "screen_shake"
+} ]
+}
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[node name="FinalScene" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 2 )
+margin_left = -12.0
+margin_right = 1033.0
+margin_bottom = 714.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Destruicao = SubResource( 3 )
+
+[node name="CidadeBehind" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1441830, 1, 0, 1441831, 1, 1, 1441832, 1, 1, 1441833, 1, 1, 1441834, 1, 1, 1441835, 1, 1, 1441836, 1, 1, 1441837, 1, 1, 1441838, 1, 1, 1441839, 1, 2, 1507366, 1, 131072, 1507367, 1, 131073, 1507368, 1, 131073, 1507369, 1, 131073, 1507370, 1, 131073, 1507371, 1, 131073, 1507372, 1, 131073, 1507373, 1, 131073, 1507374, 1, 131073, 1507375, 1, 131074, 1572902, 50, 65536, 1572903, 50, 65537, 1572904, 50, 65537, 1572905, 50, 65537, 1572906, 50, 65537, 1572907, 50, 65537, 1572908, 50, 65537, 1572909, 50, 65537, 1572910, 50, 65537, 1572911, 50, 65538, 1638438, 50, 65536, 1638439, 50, 65537, 1638440, 50, 65537, 1638441, 50, 65537, 1638442, 50, 65537, 1638443, 50, 65537, 1638444, 50, 65537, 1638445, 50, 65537, 1638446, 50, 65537, 1638447, 50, 65538, 1703974, 50, 65536, 1703975, 21, 0, 1703976, 50, 65537, 1703977, 21, 0, 1703978, 50, 65537, 1703979, 50, 65537, 1703980, 21, 0, 1703981, 50, 65537, 1703982, 21, 0, 1703983, 50, 65538, 1769510, 50, 65536, 1769512, 50, 65537, 1769514, 50, 65537, 1769515, 50, 65537, 1769517, 50, 65537, 1769519, 50, 65538, 1769525, 6, 131072, 1769526, 6, 131073, 1769527, 6, 131073, 1769528, 6, 131073, 1769529, 6, 131073, 1769530, 6, 131073, 1769531, 6, 131073, 1769532, 6, 131073, 1769533, 6, 131073, 1769534, 6, 131073, 1769535, 6, 131074, 1835046, 50, 65536, 1835047, 50, 65537, 1835048, 50, 65537, 1835049, 50, 65537, 1835050, 50, 65537, 1835051, 50, 65537, 1835052, 50, 65537, 1835053, 50, 65537, 1835054, 50, 65537, 1835055, 50, 65538, 1835061, 6, 262144, 1835062, 6, 262145, 1835063, 6, 262145, 1835064, 6, 262145, 1835065, 6, 262145, 1835066, 6, 262145, 1835067, 6, 262145, 1835068, 6, 262145, 1835069, 6, 262145, 1835070, 6, 262145, 1835071, 6, 262146, 1900582, 50, 65536, 1900583, 50, 65537, 1900584, 50, 65537, 1900585, 50, 65537, 1900586, 50, 65537, 1900587, 50, 65537, 1900588, 50, 65537, 1900589, 50, 65537, 1900590, 50, 65537, 1900591, 50, 65537, 1900592, 1, 0, 1900593, 1, 1, 1900594, 1, 1, 1900595, 1, 2, 1900597, 0, 0, 1900598, 0, 1, 1900599, 0, 1, 1900600, 0, 1, 1900601, 0, 1, 1900602, 0, 1, 1900603, 0, 1, 1900604, 0, 1, 1900605, 0, 1, 1900606, 0, 1, 1900607, 0, 2, 1966118, 50, 65536, 1966119, 21, 0, 1966120, 50, 65537, 1966121, 21, 0, 1966122, 50, 65537, 1966123, 50, 65537, 1966124, 21, 0, 1966125, 50, 65537, 1966126, 21, 0, 1966127, 50, 65537, 1966128, 1, 131072, 1966129, 1, 131073, 1966130, 1, 131073, 1966131, 1, 131074, 1966133, 0, 0, 1966134, 0, 1, 1966135, 28, 0, 1966137, 0, 1, 1966138, 0, 1, 1966139, 0, 1, 1966140, 28, 0, 1966142, 0, 1, 1966143, 0, 2, 2031654, 50, 65536, 2031656, 50, 65537, 2031658, 50, 65537, 2031659, 50, 65537, 2031661, 50, 65537, 2031663, 50, 65537, 2031664, 50, 65537, 2031665, 50, 65537, 2031666, 50, 65537, 2031667, 50, 65538, 2031669, 0, 0, 2031670, 0, 1, 2031671, 0, 1, 2031672, 0, 1, 2031673, 0, 1, 2031674, 0, 1, 2031675, 0, 1, 2031676, 0, 1, 2031677, 0, 1, 2031678, 0, 1, 2031679, 0, 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 516.916, 304.156 )
+scale = Vector2( 20, 20 )
+texture = ExtResource( 4 )
+flip_h = true
+hframes = 4
+frame = 2
+
+[node name="creature-eye" type="Sprite" parent="Sprite"]
+position = Vector2( -0.20282, 0.761681 )
+texture = ExtResource( 3 )
+flip_h = true
+hframes = 4
+frame = 2
+
+[node name="CidadeFront" type="TileMap" parent="."]
+scale = Vector2( 4, 4 )
+z_index = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393216, 1, 262144, 393217, 1, 262145, 393218, 1, 262145, 393219, 1, 262145, 393220, 1, 262145, 393221, 1, 262145, 393222, 1, 262146, 458752, 1, 393216, 458753, 1, 393217, 458754, 1, 393217, 458755, 1, 393217, 458756, 1, 393217, 458757, 1, 393217, 458758, 1, 393218, 524288, 50, 0, 524289, 50, 1, 524290, 50, 1, 524291, 50, 1, 524292, 50, 1, 524293, 50, 1, 524294, 50, 2, 524295, 6, 131072, 524296, 6, 131073, 524297, 6, 131073, 524298, 6, 131073, 524299, 6, 131073, 524300, 6, 131073, 524301, 6, 131073, 524302, 6, 131073, 524303, 6, 131074, 589824, 50, 0, 589825, 26, 0, 589826, 50, 1, 589827, 50, 1, 589828, 50, 1, 589829, 26, 0, 589830, 50, 2, 589831, 6, 262144, 589832, 6, 262145, 589833, 6, 262145, 589834, 6, 262145, 589835, 6, 262145, 589836, 6, 262145, 589837, 6, 262145, 589838, 6, 262145, 589839, 6, 262146, 655360, 50, 0, 655362, 50, 1, 655363, 50, 1, 655364, 50, 1, 655366, 50, 2, 655367, 50, 131072, 655368, 50, 131073, 655369, 50, 131073, 655370, 50, 131073, 655371, 50, 131073, 655372, 50, 131073, 655373, 50, 131073, 655374, 50, 131073, 655375, 50, 131074 )
+
+[node name="ScreenShake" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 511.58, 349.234 )
+current = true
+
+[node name="Herói" type="Sprite" parent="."]
+position = Vector2( 791.51, 579.501 )
+rotation = 1.74533
+scale = Vector2( 3, 3 )
+z_index = 2
+texture = ExtResource( 6 )
+hframes = 2
+vframes = 2
+
+[node name="Fogo" type="AnimatedSprite" parent="."]
+position = Vector2( 896.306, 449.212 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 7 )
+playing = true
+
+[node name="Fogo2" type="AnimatedSprite" parent="Fogo"]
+position = Vector2( -227.102, 50.8343 )
+scale = Vector2( 3, 3 )
+z_index = 1
+frames = SubResource( 7 )
+playing = true
+flip_h = true
+
+[node name="Fogo4" type="AnimatedSprite" parent="Fogo"]
+position = Vector2( -32.4335, 22.4411 )
+scale = Vector2( 0.7, 0.7 )
+frames = SubResource( 7 )
+frame = 2
+playing = true
+
+[node name="Fogo3" type="AnimatedSprite" parent="Fogo"]
+position = Vector2( -44.8079, 16.0771 )
+scale = Vector2( 0.7, 0.7 )
+frames = SubResource( 7 )
+playing = true
+flip_h = true

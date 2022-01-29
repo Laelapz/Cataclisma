@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Particles/puff_smooth.png" type="Texture" id=2]
 
 [sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 0.280682 ), 0.0, 0.0700246, 0, 0, Vector2( 1, 0 ), -1.0085, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.125524 ), 0.0, 0.0700246, 0, 0, Vector2( 0.552632, 0 ), -0.33187, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
@@ -14,7 +14,7 @@ flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 60.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 25.0
+initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale_curve = SubResource( 2 )
@@ -39,10 +39,11 @@ end_cap_mode = 2
 
 [node name="Particles2D" type="Particles2D" parent="Line2D"]
 self_modulate = Color( 1.1, 0.34, 0.34, 1 )
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 0.1, 0.1 )
 emitting = false
 amount = 12
 lifetime = 2.0
+local_coords = false
 process_material = SubResource( 3 )
 texture = ExtResource( 2 )
 
