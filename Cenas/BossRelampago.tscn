@@ -89,11 +89,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-<<<<<<< HEAD
 frame = 1
-=======
-frame = 2
->>>>>>> 82a81832b41b05b43b6a5bf29c8c45d5fc95f2d6
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -5,36 +5,36 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.89761
 
-[sub_resource type="Curve" id=11]
+[sub_resource type="Curve" id=2]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0.00700934, -175.583 ), 0.0, 0.0, 0, 0, Vector2( 1, 142.454 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 11 )
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=4]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0.0257009, -61.8405 ), 0.0, 0.0, 0, 0, Vector2( 0.969626, 132.515 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 12 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.355556, 0.455556, 0.744444, 0.911111 )
 colors = PoolColorArray( 0.9375, 0.797281, 0.318604, 1, 0.8736, 0.767341, 0.282243, 0.824736, 0.905882, 0.476409, 0.266667, 0.67451, 0.875, 0.814491, 0.170898, 1, 0.843137, 0.741054, 0.0745098, 0.0352941 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 13 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="Curve" id=14]
+[sub_resource type="Curve" id=8]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.932243, 0.403374 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 14 )
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=15]
+[sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
 flag_disable_z = true
@@ -44,15 +44,15 @@ initial_velocity = 12.0
 initial_velocity_random = 0.11
 angular_velocity = 1.0
 angular_velocity_random = 0.14
-angular_velocity_curve = SubResource( 6 )
+angular_velocity_curve = SubResource( 5 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = -1.0
 angle = 45.0
-angle_curve = SubResource( 4 )
+angle_curve = SubResource( 3 )
 scale = 10.0
-scale_curve = SubResource( 10 )
-color_ramp = SubResource( 8 )
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 16
@@ -73,7 +73,7 @@ position = Vector2( -0.212364, -0.646196 )
 amount = 40
 lifetime = 0.2
 local_coords = false
-process_material = SubResource( 15 )
+process_material = SubResource( 10 )
 
 [connection signal="body_entered" from="." to="." method="_on_RigidBody2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

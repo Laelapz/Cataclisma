@@ -4,17 +4,17 @@
 [ext_resource path="res://Assets/Particles/puff_smooth.png" type="Texture" id=2]
 
 [sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 0.125524 ), 0.0, 0.0700246, 0, 0, Vector2( 0.552632, 0 ), -0.33187, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.280682 ), 0.0, 0.0700246, 0, 0, Vector2( 1, 0 ), -1.0085, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
-direction = Vector3( 0, 1, 0 )
+direction = Vector3( 0, -1, 0 )
 spread = 60.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 100.0
+initial_velocity = 25.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale_curve = SubResource( 2 )

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/SimpleShot.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/SimpleShotEnemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.89761
@@ -22,8 +22,8 @@ _data = [ Vector2( 0.0257009, -61.8405 ), 0.0, 0.0, 0, 0, Vector2( 0.969626, 132
 curve = SubResource( 4 )
 
 [sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0, 0.455556, 0.744444, 0.911111 )
-colors = PoolColorArray( 0.54376, 0.828125, 0.200562, 1, 0.403922, 0.905882, 0.266667, 0.67451, 0.316643, 0.835938, 0.300415, 1, 0.781052, 0.843262, 0.0757618, 0.117647 )
+offsets = PoolRealArray( 0, 0.355556, 0.455556, 0.744444, 0.911111 )
+colors = PoolColorArray( 0.880083, 0.318604, 0.9375, 1, 0.38908, 0.282243, 0.8736, 0.824736, 0.905882, 0.476409, 0.266667, 0.67451, 0.19909, 0.170898, 0.875, 1, 0.843137, 0.741054, 0.0745098, 0.0352941 )
 
 [sub_resource type="GradientTexture" id=7]
 gradient = SubResource( 6 )
@@ -55,12 +55,12 @@ scale_curve = SubResource( 9 )
 color_ramp = SubResource( 7 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
-collision_layer = 8
-collision_mask = 4
+collision_layer = 16
+collision_mask = 3
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0936432, 0.374577 )
@@ -73,7 +73,7 @@ margin_top = -6.34459
 margin_right = 27.4108
 margin_bottom = 38.6554
 rect_scale = Vector2( 0.394191, 0.292229 )
-color = Color( 0.243137, 0.717647, 0.176471, 1 )
+color = Color( 0.780392, 0.690196, 0.101961, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,7 +83,7 @@ __meta__ = {
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -0.212364, -0.646196 )
 amount = 40
-lifetime = 0.3
+lifetime = 0.2
 local_coords = false
 process_material = SubResource( 10 )
 
