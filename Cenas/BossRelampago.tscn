@@ -83,7 +83,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -109,9 +109,10 @@ texture = ExtResource( 3 )
 script = SubResource( 10 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 30
+amount = 40
 explosiveness = 0.44
 lifetime_randomness = 0.14
+local_coords = false
 emission_shape = 1
 emission_sphere_radius = 20.0
 spread = 154.57

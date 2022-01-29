@@ -6,19 +6,20 @@
 [ext_resource path="res://Assets/Particles/puff_smooth.png" type="Texture" id=4]
 [ext_resource path="res://Shaders/OutlineShader.gdshader" type="Shader" id=12]
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
-emission_sphere_radius = 40.0
+emission_sphere_radius = 15.62
 flag_disable_z = true
 gravity = Vector3( 0, -98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+scale = 0.4
 color = Color( 0.792157, 0.207843, 0.643137, 1 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11.7168, 12.0093 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 0.654902, 0.12549, 0.368627, 1 )
@@ -27,34 +28,34 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "MagaSuprema",
 "speed": 11.0
 } ]
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=9]
 radius = 199.004
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 0.909804, 0.219608, 0.196078, 1 )
@@ -63,7 +64,7 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=11]
 script/source = "extends Sprite
 
 var global_position_y = -16
@@ -83,20 +84,21 @@ script = ExtResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 scale = Vector2( 0.25, 0.25 )
-amount = 20
-lifetime = 2.5
+amount = 10
+lifetime = 1.2
 explosiveness = 0.28
-process_material = SubResource( 12 )
+local_coords = false
+process_material = SubResource( 1 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
-material = SubResource( 2 )
+material = SubResource( 3 )
 position = Vector2( -112.551, -11.5 )
 scale = Vector2( 1.4, 1.4 )
-frames = SubResource( 7 )
+frames = SubResource( 8 )
 animation = "MagaSuprema"
 frame = 2
 playing = true
@@ -108,7 +110,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -119,10 +121,10 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Atention" type="Sprite" parent="."]
-material = SubResource( 9 )
+material = SubResource( 10 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
-script = SubResource( 10 )
+script = SubResource( 11 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

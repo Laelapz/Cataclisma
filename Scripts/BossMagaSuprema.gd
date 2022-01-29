@@ -31,10 +31,10 @@ func _setStatus(type):
 func _process(delta):
 #	return
 	if velocity.x < 0:
-		$Particles2D.process_material.gravity.x = 100
+#		$Particles2D.process_material.gravity.x = 100
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
-		$Particles2D.process_material.gravity.x = -100
+#		$Particles2D.process_material.gravity.x = -100
 		$CollisionShape2D/AnimatedSprite.flip_h = false
 		
 	if player != null:
