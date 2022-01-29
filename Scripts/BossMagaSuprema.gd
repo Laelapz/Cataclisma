@@ -14,7 +14,7 @@ var rng = RandomNumberGenerator.new()
 
 signal removed
 
-const BULLET = preload("res://Cenas/SimpleShotEnemy.tscn")
+const BULLET = preload("res://Cenas/MagaSupremaShot.tscn")
 
 func _ready():
 	get_parent().find_node("MiniMap")._new_marker(self)

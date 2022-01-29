@@ -69,7 +69,7 @@ func _process(delta):
 				bullet.damage = damage
 				bullet.rotation_degrees = rotation_degrees
 				bullet.global_position = global_position
-				bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed*1.25, 0).rotated(get_angle_to(player.global_position)))
+				bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed*1.5, 0).rotated(get_angle_to(player.global_position)))
 				can_shot = false
 				$ShotTimer.start()
 	else:
