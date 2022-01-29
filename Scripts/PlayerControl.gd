@@ -5,6 +5,7 @@ var life = 100
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
+var mov = null
 var FPS = 60
 var FPS_counter = 0
 var can_move = false
@@ -28,7 +29,7 @@ func _physics_process(delta):
 	if can_move:
 		update_frame(6)
 				
-		var mov  = Vector2()
+		mov  = Vector2()
 		if Input.is_action_pressed("esq"):
 			mov.x -= 1
 			update_frame(4)
@@ -46,7 +47,7 @@ func _physics_process(delta):
 			
 		if Input.is_action_just_pressed("ui_focus_next"):
 			$"/root/SpawnManager"._spawnEnemys(1, global_position, 0)
-			$"/root/SpawnManager"._spawnNPCs(1, global_position, 0)
+#			$"/root/SpawnManager"._spawnNPCs(1, global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 1)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 2)

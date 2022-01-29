@@ -304,6 +304,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 47 )
 animation = "Paramedico"
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

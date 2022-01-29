@@ -32,15 +32,33 @@ func _process(delta):
 		$CollisionShape2D/AnimatedSprite.flip_h = false
 		
 	if player != null:
-		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
+		rng.randomize()
+		var angle = rng.randf_range(0, PI/2)
+		
+		print(player.mov)
+			
+		var dirx = abs( (player.mov).x )
+		var diry = abs( (player.mov).y )
+		var maxdir = max(dirx, diry) 
+		var dir = 0
+		
+		if maxdir != 0:
+			if maxdir == dirx:
+				dir = sign((player.mov).x)
+			elif maxdir == diry:
+				dir = sign((player.mov).y)
+				
+		var R = 120
+		var destino = Vector2(player.global_position.x + dir*R*cos(angle), player.global_position.y + dir*R*sin(angle) )
+		var dist_from_player = sqrt((pow((global_position.x - destino.x), 2) + pow((global_position.y - destino.y), 2)))
 		
 		if dist_from_player <= 200:		
-			if dist_from_player >= 80:
+			if dist_from_player >= 100:
 				rng.randomize()
 				var my_random_x = rng.randf_range(-70.0, 70.0)
 				var my_random_y = rng.randf_range(-70.0, 70.0)
 				var random_vel = Vector2(my_random_x, my_random_y)
-				velocity = (player.global_position - global_position + random_vel).normalized()
+				velocity = (destino - global_position + random_vel).normalized()
 				print(speed)
 				velocity = move_and_slide(velocity*speed)
 	
@@ -71,7 +89,7 @@ func dead():
 
 func _on_Area2D_body_entered(body):
 	$Atention.show()
-	speed = 200
+	speed = 300
 	player = body
 
 func _on_Area2D_body_exited(body):
