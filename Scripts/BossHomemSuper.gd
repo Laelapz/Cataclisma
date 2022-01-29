@@ -62,6 +62,7 @@ func _process(delta):
 
 func damage():
 	$"/root/AudioManager"._enemyDamage()
+	$Spa
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
 	life -= 1
 	
@@ -70,6 +71,7 @@ func damage():
 
 func dead():
 	emit_signal ("removed", self)
+	$"/root/SpawnManager"._evol_player()
 	queue_free()
 
 func _on_Area2D_body_entered(body):

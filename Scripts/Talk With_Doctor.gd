@@ -19,6 +19,7 @@ func fadeIn():
 	$Tween.start()
 func fadeOut():
 	$Tween.interpolate_property($ColorRect, "modulate:a", $ColorRect.modulate.a, 1, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($Background, "modulate:a", $Background.modulate.a, 1, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 
 func falaDoc():

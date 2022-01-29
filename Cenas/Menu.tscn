@@ -1,5 +1,6 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=73 format=2]
 
+[ext_resource path="res://Cenas/MiniMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
 [ext_resource path="res://Assets/creature-sheet.png" type="Texture" id=3]
 [ext_resource path="res://Assets/creature-eye.png" type="Texture" id=4]
@@ -1407,19 +1408,19 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=45]
@@ -1431,19 +1432,19 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=49]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=50]
@@ -1455,19 +1456,19 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=51]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=53]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=54]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 3 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=55]
@@ -1478,11 +1479,30 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="DynamicFont" id=56]
+[sub_resource type="GDScript" id=56]
+script/source = "extends AnimatedSprite
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="DynamicFont" id=57]
 size = 80
 font_data = ExtResource( 11 )
 
-[sub_resource type="StyleBoxFlat" id=57]
+[sub_resource type="StyleBoxFlat" id=58]
 bg_color = Color( 0.498039, 0.211765, 0.890196, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -1493,7 +1513,7 @@ border_blend = true
 corner_radius_top_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id=58]
+[sub_resource type="StyleBoxFlat" id=59]
 bg_color = Color( 0.160784, 0.678431, 0.356863, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -1506,14 +1526,14 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="DynamicFont" id=59]
+[sub_resource type="DynamicFont" id=60]
 size = 45
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 11 )
 
-[sub_resource type="Curve2D" id=60]
+[sub_resource type="Curve2D" id=61]
 _data = {
 "points": PoolVector2Array( -25.4846, -218.979, 25.4846, 218.979, -182.932, 116.54, -97.6117, 88.593, 97.6117, -88.593, 129.42, 79.1646, -261.924, 57.0175, 261.924, -57.0175, 652.677, -78.3465, -12.5992, 79.375, 12.5992, -79.375, 959.698, -271.811, -22.653, 160.459, 22.653, -160.459, 915.451, -554.804, 0, 0, 0, 0, 964.374, -1039, 200.818, 89.0955, -200.818, -89.0955, 924.056, -1507.69, 105.511, 31.4289, -105.511, -31.4289, 317.191, -1469.15, 142.553, -187.451, -142.553, 187.451, -584.342, -1588.78, -7.55099, -50.0253, 7.55099, 50.0253, -871.132, -947.575, 57.9163, -138.661, -57.9163, 138.661, -756.527, -660.965, -177.789, 31.748, 177.789, -31.748, -715.254, -283.164, -54, -56, 54, 56, -444.561, 57.8071, 0, 0, 0, 0, -241.665, 92.5129, 0, 0, 0, 0, -182.932, 116.54 )
 }
@@ -1588,7 +1608,7 @@ tile_data = PoolIntArray( -6619172, 46, 0, -6619171, 46, 0, -6619170, 46, 0, -66
 position = Vector2( -79.0663, -957.499 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 35 )
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1596,36 +1616,38 @@ offset = Vector2( 0, -8 )
 position = Vector2( -600.495, -1043.46 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 40 )
+frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
-[node name="Player" type="AnimatedSprite" parent="Menu/TileMap"]
-position = Vector2( -360.807, -163.37 )
+[node name="Police" type="AnimatedSprite" parent="Menu/TileMap"]
+position = Vector2( 179.269, -330.477 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 45 )
 frame = 2
 playing = true
 offset = Vector2( 0, -8 )
 
-[node name="Sprite" type="Sprite" parent="Menu/TileMap/Player"]
-position = Vector2( -0.035099, -8.91539 )
-texture = ExtResource( 4 )
-hframes = 4
-
-[node name="Police" type="AnimatedSprite" parent="Menu/TileMap"]
-position = Vector2( 179.269, -330.477 )
-scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 50 )
-frame = 1
-playing = true
-offset = Vector2( 0, -8 )
-
 [node name="Cientista2" type="AnimatedSprite" parent="Menu/TileMap"]
 position = Vector2( -131.964, -967.666 )
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 55 )
-frame = 1
+frames = SubResource( 50 )
+frame = 2
 playing = true
+
+[node name="Player" type="AnimatedSprite" parent="Menu"]
+position = Vector2( 125.361, 280.599 )
+scale = Vector2( 2.78978, 2.57955 )
+frames = SubResource( 55 )
+frame = 3
+playing = true
+offset = Vector2( 0, -8 )
+script = SubResource( 56 )
+
+[node name="Sprite" type="Sprite" parent="Menu/Player"]
+position = Vector2( -0.035099, -8.91539 )
+texture = ExtResource( 4 )
+hframes = 4
 
 [node name="CanvasLayer" parent="Menu" instance=ExtResource( 9 )]
 pause_mode = 2
@@ -1659,7 +1681,7 @@ margin_right = 680.0
 margin_bottom = 328.0
 rect_min_size = Vector2( 300, 200 )
 rect_clip_content = false
-custom_fonts/normal_font = SubResource( 56 )
+custom_fonts/normal_font = SubResource( 57 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
@@ -1695,10 +1717,10 @@ margin_bottom = 149.0
 rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_styles/hover = SubResource( 57 )
-custom_styles/pressed = SubResource( 58 )
-custom_styles/normal = SubResource( 58 )
-custom_fonts/font = SubResource( 59 )
+custom_styles/hover = SubResource( 58 )
+custom_styles/pressed = SubResource( 59 )
+custom_styles/normal = SubResource( 59 )
+custom_fonts/font = SubResource( 60 )
 custom_colors/font_color_hover = Color( 0.890196, 0.854902, 0.211765, 1 )
 custom_colors/font_color_pressed = Color( 0.890196, 0.427451, 0.211765, 1 )
 text = "Jogar"
@@ -1711,10 +1733,10 @@ margin_bottom = 149.0
 rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_styles/hover = SubResource( 57 )
-custom_styles/pressed = SubResource( 58 )
-custom_styles/normal = SubResource( 58 )
-custom_fonts/font = SubResource( 59 )
+custom_styles/hover = SubResource( 58 )
+custom_styles/pressed = SubResource( 59 )
+custom_styles/normal = SubResource( 59 )
+custom_fonts/font = SubResource( 60 )
 custom_colors/font_color_hover = Color( 0.890196, 0.854902, 0.211765, 1 )
 custom_colors/font_color_pressed = Color( 0.890196, 0.427451, 0.211765, 1 )
 text = "Sair"
@@ -1725,7 +1747,7 @@ playback/repeat = true
 
 [node name="Path2D" type="Path2D" parent="Menu"]
 position = Vector2( 53.9717, 15.874 )
-curve = SubResource( 60 )
+curve = SubResource( 61 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Menu/Path2D"]
 position = Vector2( -663.508, -1465.85 )
@@ -1734,6 +1756,11 @@ offset = 4368.74
 
 [node name="Camera2D" type="Camera2D" parent="Menu/Path2D/PathFollow2D"]
 current = true
+
+[node name="MiniMap" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_right = 1024.0
+margin_bottom = 700.0
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/HBoxContainer/Jogar" to="." method="_on_Jogar_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/HBoxContainer/Sair" to="." method="_on_Sair_pressed"]

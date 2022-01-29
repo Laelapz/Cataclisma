@@ -8,7 +8,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": ".."
+			"text": "..."
 		},
 		{
 			"emit_signal": "fade_in",
@@ -22,7 +22,7 @@
 			"character": "character-1643308114.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Interrompemos as notícias para uma notícia urgente"
+			"text": "Interrompemos as noticias para um anuncio urgente"
 		},
 		{
 			"emit_signal": "talk_rep",
@@ -32,7 +32,7 @@
 			"character": "character-1643308114.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Nosso prédio está sendo atacado agora mesmo por..."
+			"text": "Nosso predio esta sendo atacado agora mesmo por..."
 		},
 		{
 			"emit_signal": "show_doc",
@@ -56,7 +56,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Me permita interromper sua transmissão por algum momento sra. repórter"
+			"text": "Me permita interromper sua transmissao por algum momento sra. reporter"
 		},
 		{
 			"emit_signal": "fade_out",

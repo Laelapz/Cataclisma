@@ -31,8 +31,10 @@ func _setStatus(type):
 func _process(delta):
 #	return
 	if velocity.x < 0:
+		$Particles2D.process_material.gravity.x = 100
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
+		$Particles2D.process_material.gravity.x = -100
 		$CollisionShape2D/AnimatedSprite.flip_h = false
 		
 	if player != null:
@@ -70,6 +72,7 @@ func damage():
 
 func dead():
 	emit_signal ("removed", self)
+	$"/root/SpawnManager"._evol_player()
 	queue_free()
 
 func _on_Area2D_body_entered(body):
@@ -77,12 +80,10 @@ func _on_Area2D_body_entered(body):
 	speed = 110
 	player = body
 
-
 func _on_Area2D_body_exited(body):
 	$Atention.hide()
 	speed = 40
 	player = null
-
 
 func _on_ShotTimer_timeout():
 	can_shot = true

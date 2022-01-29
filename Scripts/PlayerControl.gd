@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var vel = 150
-var life = 100
+var life = 100000
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
@@ -13,6 +13,8 @@ var can_damage = true
 var is_dead = false
 var headColliding = false
 var legsColliding = false
+
+var evolucao = 0
 
 const POLICE = preload("res://Cenas/Police.tscn")
 
@@ -46,19 +48,31 @@ func _physics_process(delta):
 			update_frame(4)
 			
 		if Input.is_action_just_pressed("ui_focus_next"):
-			$"/root/SpawnManager"._spawnEnemys(1, global_position, 0)
-#			$"/root/SpawnManager"._spawnNPCs(1, global_position, 0)
+#			$"/root/SpawnManager"._spawnEnemys(5, global_position, 0)
+#			$"/root/SpawnManager"._spawnEnemys(5, global_position, 1)
+#			$"/root/SpawnManager"._spawnEnemys(5, global_position, 2)
+#			$"/root/SpawnManager"._spawnNPCs(15, global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 1)
-#			$"/root/SpawnManager"._spawnBoss(global_position, 2)
+			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
+		evolve()
 	
 	if headColliding && !legsColliding:
 		z_index = 2
 	else:
 		z_index = 1
+
+func evolve():
+	var evo = $"/root/SpawnManager"._get_evolution()
+	if evo == 1:
+		sprite.texture = load("res://Assets/creature-sheet-evol-1.png")
+		self.scale = Vector2(1.25, 1.25)
+	elif evo == 2:
+		sprite.texture = load("res://Assets/creature-sheet-evol-2.png")
+		self.scale = Vector2(1.5, 1.5)
 
 func damage(damage):
 	if can_damage:
@@ -72,6 +86,7 @@ func damage(damage):
 func dead():
 	$HeadCollision.set_deferred("disabled", true)
 	$LegsCollision.set_deferred("disabled", true)
+	sprite.texture = load("res://Assets/creature-sheet-dead.png")
 	can_move = false
 	is_dead = true
 
