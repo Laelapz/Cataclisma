@@ -101,6 +101,7 @@ func _on_ShotTimer_timeout():
 	can_shot = true
 	$LaserTimer.stop()
 	$RayCast2D._closeInkRay()
+	$RayCast2D/Line2D/ParticlesEye.emitting = false
 
 
 func _on_RunerTimer_timeout():
@@ -124,6 +125,7 @@ func shotInFan():
 func shotInRay():
 	print("entrou")
 	$RayCast2D/Line2D.width = 5
+	$RayCast2D/Line2D/ParticlesEye.emitting = true
 	$RayCast2D/Line2D/Particles2D.scale = Vector2(0.01, 0.01)
 #	$RayCast2D.transform.rotated(get_angle_to(player.global_position))
 	$RayCast2D.rotation = (player.global_position - $RayCast2D.global_position).normalized().angle()

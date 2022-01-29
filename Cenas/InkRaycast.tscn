@@ -11,7 +11,7 @@ curve = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
+direction = Vector3( 0, 1, 0 )
 spread = 60.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 100.0
@@ -36,6 +36,16 @@ points = PoolVector2Array( 0, 0, 0, 0 )
 default_color = Color( 0.631373, 0.207843, 0.207843, 1 )
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="ParticlesEye" type="Particles2D" parent="Line2D"]
+self_modulate = Color( 1.1, 0.34, 0.34, 1 )
+scale = Vector2( 0.01, 0.01 )
+emitting = false
+amount = 12
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="Line2D"]
 self_modulate = Color( 1.1, 0.34, 0.34, 1 )
