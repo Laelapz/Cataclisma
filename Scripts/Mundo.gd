@@ -13,6 +13,9 @@ func _ready():
 	$Player/Camera2D.limit_left
 
 func _input(event):
+	if(event.is_pressed() && find_node("Player").is_dead):
+		get_tree().change_scene("res://Cenas/Menu.tscn")
+	
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == BUTTON_WHEEL_UP:
 			$HUD/MiniMap.set_less_zoom()

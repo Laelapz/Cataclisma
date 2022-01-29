@@ -46,11 +46,13 @@ func _physics_process(delta):
 			update_frame(4)
 			
 		if Input.is_action_just_pressed("ui_focus_next"):
-			$"/root/SpawnManager"._spawnEnemys(1, global_position, 0)
-#			$"/root/SpawnManager"._spawnNPCs(1, global_position, 0)
-#			$"/root/SpawnManager"._spawnBoss(global_position, 0)
-#			$"/root/SpawnManager"._spawnBoss(global_position, 1)
-#			$"/root/SpawnManager"._spawnBoss(global_position, 2)
+			$"/root/SpawnManager"._spawnEnemys(5, global_position, 0)
+			$"/root/SpawnManager"._spawnEnemys(5, global_position, 1)
+			$"/root/SpawnManager"._spawnEnemys(5, global_position, 2)
+			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
+			$"/root/SpawnManager"._spawnBoss(global_position, 0)
+			$"/root/SpawnManager"._spawnBoss(global_position, 1)
+			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
