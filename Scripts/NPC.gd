@@ -44,12 +44,13 @@ func _process(delta):
 	if player != null:
 		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
 		
-		if dist_from_player <= 250:		
+		if dist_from_player <= 300:		
 			velocity = ( player.global_position - global_position ).normalized() * speed
 			velocity = -velocity
 			velocity = move_and_slide(velocity)
+		
 	else:
-		velocity = (Vector2(x, y) + random_vel).normalized() * speed
+		velocity = (Vector2(x, y)).normalized() * speed
 		velocity = move_and_slide(velocity)
 
 func damage():

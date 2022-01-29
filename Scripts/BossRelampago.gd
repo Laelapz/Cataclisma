@@ -4,7 +4,7 @@ var x = 1
 var y = 1
 var life = 5
 var speed = 500
-var damage = 1
+var damage = 0
 export var type = ""
 var player = null
 var can_shot = true
@@ -14,7 +14,7 @@ var rng = RandomNumberGenerator.new()
 
 signal removed
 
-const BULLET = preload("res://Cenas/SimpleShotEnemy.tscn")
+const BULLET = preload("res://Cenas/RelampagoShot.tscn")
 
 func _ready():
 	get_parent().find_node("MiniMap")._new_marker(self)
@@ -25,8 +25,10 @@ func _ready():
 func _process(delta):
 #	return
 	if velocity.x < 0:
+		$CPUParticles2D.gravity.x = 100
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
+		$CPUParticles2D.gravity.x = -100
 		$CollisionShape2D/AnimatedSprite.flip_h = false
 		
 	if player != null:
@@ -35,8 +37,8 @@ func _process(delta):
 		if dist_from_player <= 200:		
 			if dist_from_player >= 80:
 				rng.randomize()
-				var my_random_x = rng.randf_range(-170.0, 170.0)
-				var my_random_y = rng.randf_range(-170.0, 170.0)
+				var my_random_x = rng.randf_range(-70.0, 70.0)
+				var my_random_y = rng.randf_range(-70.0, 70.0)
 				var random_vel = Vector2(my_random_x, my_random_y)
 				velocity = (player.global_position - global_position + random_vel).normalized()
 				print(speed)

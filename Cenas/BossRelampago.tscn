@@ -12,7 +12,7 @@ extents = Vector2( 11.7168, 12.0093 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
-shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_color = Color( 0.886275, 0.654902, 0.0941176, 1 )
 shader_param/line_scale = 0.5
 shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
@@ -64,8 +64,8 @@ func _process(delta):
 	pass
 "
 
-[sub_resource type="Gradient" id=11]
-colors = PoolColorArray( 0.94902, 0.321569, 0.0784314, 0, 0.898039, 0.509804, 0.054902, 1 )
+[sub_resource type="Gradient" id=13]
+colors = PoolColorArray( 0.94902, 0.321569, 0.0784314, 0, 0.898039, 0.647059, 0.054902, 1 )
 
 [node name="Boss" type="KinematicBody2D" groups=[
 "minimap_objects",
@@ -83,7 +83,6 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -108,7 +107,9 @@ texture = ExtResource( 3 )
 script = SubResource( 10 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-explosiveness = 0.28
+amount = 20
+explosiveness = 0.44
+lifetime_randomness = 0.14
 emission_shape = 1
 emission_sphere_radius = 20.0
 spread = 154.57
@@ -120,10 +121,11 @@ color = Color( 1, 0.917647, 0.384314, 1 )
 [node name="Trail" parent="." instance=ExtResource( 4 )]
 z_index = -1
 points = PoolVector2Array( 117.613, 49.1675 )
-width = 18.0
-default_color = Color( 0.898039, 0.745098, 0.054902, 1 )
-gradient = SubResource( 11 )
+width = 15.0
+default_color = Color( 0.898039, 0.647059, 0.054902, 1 )
+gradient = SubResource( 13 )
 targetPath = NodePath("..")
+traillen = 100
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

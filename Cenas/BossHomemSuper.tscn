@@ -11,7 +11,7 @@ extents = Vector2( 11.7168, 12.0093 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
-shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_color = Color( 0.156863, 0.470588, 0.666667, 1 )
 shader_param/line_scale = 0.5
 shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
@@ -79,7 +79,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 7 )
 animation = "HomemSuper"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
