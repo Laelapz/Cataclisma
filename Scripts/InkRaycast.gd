@@ -2,21 +2,25 @@ extends RayCast2D
 
 var oppened = false
 var closing = false
+var oppening = false
+var fast = false
+
+signal fechou
 
 #func _ready():
 #	_openInkRay()
 
-func _openInkRay():
-	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 1000, 6, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.interpolate_property($Line2D, "width", 0, 5, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+func _openInkRay(velocity = 6):
+	set_deferred("enabled", false)
+	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 1000, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($Line2D, "width", 0, 5, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
-	enabled = true
 	oppened = true
 	closing = false
 
 func _closeInkRay():
-	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 0, 6, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.interpolate_property($Line2D, "width", 20, 0, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 0, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($Line2D, "width", 5, 0, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 	oppened = false
 	closing = true
@@ -32,6 +36,9 @@ func _process(delta):
 			$Line2D.set_point_position(1, Vector2(0, abs((maxpoint))))
 			if get_collider().get_instance_id() == get_parent().get_parent().find_node("Player").get_instance_id():
 				get_collider().damage(1)
+				if fast:
+					enabled = false
+					_closeInkRay()
 
 		else:
 			$Line2D/Particles2D.emitting = false
@@ -43,3 +50,4 @@ func _on_Tween_tween_all_completed():
 	if closing:
 		closing = false
 		enabled = false
+		emit_signal("fechou")
