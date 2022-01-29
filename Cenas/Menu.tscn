@@ -1588,7 +1588,7 @@ tile_data = PoolIntArray( -6619172, 46, 0, -6619171, 46, 0, -6619170, 46, 0, -66
 position = Vector2( -79.0663, -957.499 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 35 )
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1596,7 +1596,6 @@ offset = Vector2( 0, -8 )
 position = Vector2( -600.495, -1043.46 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 40 )
-frame = 2
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1604,6 +1603,7 @@ offset = Vector2( 0, -8 )
 position = Vector2( -360.807, -163.37 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 45 )
+frame = 2
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1616,7 +1616,7 @@ hframes = 4
 position = Vector2( 179.269, -330.477 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 50 )
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1624,7 +1624,7 @@ offset = Vector2( 0, -8 )
 position = Vector2( -131.964, -967.666 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 55 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="CanvasLayer" parent="Menu" instance=ExtResource( 9 )]
