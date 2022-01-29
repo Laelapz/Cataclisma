@@ -1,5 +1,7 @@
 extends Node
 
+var player_evol = 0
+
 const ENEMY = preload("res://Cenas/Police.tscn")
 const NPC   = preload("res://Cenas/NPC.tscn")
 
@@ -10,6 +12,12 @@ const BOSS_MAGA_SUPREMA = preload("res://Cenas/BossMagaSuprema.tscn")
 var levels = [["police1", "police2", "police3", "sheriff1"], ["mercenary1", "soldier1", "soldier2"], ["robot1", "fbi1"]]
 var npc_type = [["Menino", "Dona", "Professora", "Paramedico"], ["Egirl", "Punk", "Adolescente", "Artista"], ["Empresario", "Pedreiro", "Atriz"]]
 var boss_type = ["BossRelampago", "BossHomemSuper", "BossMagaSuprema"]
+
+func _evol_player():
+	player_evol += 1
+	
+func _get_evolution():
+	return player_evol
 
 func _spawnBoss(position, dificulty):
 	var boss = null
@@ -33,7 +41,6 @@ func _spawnNPCs(quantity, position, dificulty):
 		npc.global_position.x = round(rand_range(position.x-100, position.x+100))
 		npc.global_position.y = round(rand_range(position.y-100, position.y+100))
 		
-
 func _spawnEnemys(quantity, position, dificulty):
 	randomize()
 	for i in quantity:

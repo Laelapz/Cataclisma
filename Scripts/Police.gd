@@ -42,6 +42,12 @@ func _process(delta):
 		$CollisionShape2D/AnimatedSprite.flip_h = false
 		
 	if player != null:
+		$CollisionShape2D/AnimatedSprite/gun_sprite.look_at(player.global_position)
+		if (player.global_position.x < global_position.x):
+			$CollisionShape2D/AnimatedSprite/gun_sprite.flip_v = true
+		else:
+			$CollisionShape2D/AnimatedSprite/gun_sprite.flip_v = false
+		
 		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
 		
 		if dist_from_player <= 200:		

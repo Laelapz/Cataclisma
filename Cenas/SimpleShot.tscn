@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/SimpleShot.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Particles/basic_circle.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.89761
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 1.38
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.901961, 0.992157, 0.121569, 1 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 8
@@ -19,29 +27,24 @@ script = ExtResource( 1 )
 position = Vector2( -0.0936432, 0.374577 )
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-material = SubResource( 2 )
-scale = Vector2( 0.5, 0.5 )
-amount = 17
-lifetime = 5.0
-speed_scale = 1.93
-emission_shape = 1
-emission_sphere_radius = 4.42
-gravity = Vector2( 0, 0 )
-scale_amount = 5.0
-scale_amount_random = 0.12
-
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_left = -4.55229
 margin_top = -4.66591
 margin_right = 19.4477
 margin_bottom = 27.3341
 rect_scale = Vector2( 0.394191, 0.292229 )
+color = Color( 0.243137, 0.717647, 0.176471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 0.2, 0.2 )
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_RigidBody2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

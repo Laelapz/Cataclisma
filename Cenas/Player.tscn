@@ -62,16 +62,16 @@ __meta__ = {
 }
 
 [node name="Position2D" type="Position2D" parent="."]
+scale = Vector2( -1, 1 )
 
 [node name="Sprite" type="Sprite" parent="Position2D"]
 material = SubResource( 1 )
 position = Vector2( -0.0924141, -0.127162 )
 texture = ExtResource( 1 )
 hframes = 4
-frame = 3
 
 [node name="EyeSprite" type="Sprite" parent="Position2D"]
-position = Vector2( 0.880256, -0.288374 )
+position = Vector2( 0.898837, -0.0839792 )
 scale = Vector2( 0.764636, 0.724377 )
 texture = ExtResource( 3 )
 hframes = 4
@@ -82,10 +82,12 @@ position = Vector2( 1.62457, 0.441405 )
 script = SubResource( 2 )
 
 [node name="HeadCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.13039, 0.305158 )
 shape = SubResource( 3 )
 
 [node name="LegsCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.0364719, 8.45062 )
 rotation = 1.5708
 shape = SubResource( 4 )

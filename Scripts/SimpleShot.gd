@@ -10,6 +10,8 @@ func _on_RigidBody2D_body_entered(body):
 		body.damage()
 	if "NPC" in body.name:
 		body.damage()
+	if "Boss" in body.name:
+		body.damage()
 	queue_free()
 
 

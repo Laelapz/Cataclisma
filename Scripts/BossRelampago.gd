@@ -85,6 +85,7 @@ func damage():
 
 func dead():
 	emit_signal ("removed", self)
+	$"/root/SpawnManager"._evol_player()
 	queue_free()
 
 func _on_Area2D_body_entered(body):

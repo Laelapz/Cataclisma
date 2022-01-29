@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/BossHomemSuper.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/BossHomemSuper.gd" type="Script" id=2]
@@ -63,6 +63,9 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="CanvasItemMaterial" id=11]
+light_mode = 1
+
 [node name="Boss" type="KinematicBody2D" groups=[
 "minimap_objects",
 ]]
@@ -79,7 +82,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 7 )
 animation = "HomemSuper"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -102,6 +105,19 @@ material = SubResource( 9 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
 script = SubResource( 10 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 11 )
+amount = 20
+explosiveness = 0.44
+lifetime_randomness = 0.14
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 154.57
+gravity = Vector2( 0, -98 )
+scale_amount = 2.0
+scale_amount_random = 1.0
+color = Color( 0.384314, 0.607843, 1, 1 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

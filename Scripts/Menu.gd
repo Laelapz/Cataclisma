@@ -13,7 +13,6 @@ func _ready():
 	$"/root/AudioManager"._playMenuMusic()
 	$Menu/Tween.interpolate_property($Menu/Path2D/PathFollow2D, "unit_offset", 0, 1, 50, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Menu/Tween.start()
-#	$"/root/SpawnManager"._spawnNPCs(5, Vector2(-300, -300), 0)
 	
 func _on_Jogar_pressed():
 	$"/root/AudioManager".get_child(0).queue_free()

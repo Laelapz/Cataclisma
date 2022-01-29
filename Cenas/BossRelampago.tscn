@@ -64,7 +64,7 @@ func _process(delta):
 	pass
 "
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=11]
 colors = PoolColorArray( 0.94902, 0.321569, 0.0784314, 0, 0.898039, 0.647059, 0.054902, 1 )
 
 [node name="Boss" type="KinematicBody2D" groups=[
@@ -83,10 +83,11 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -108,13 +109,14 @@ texture = ExtResource( 3 )
 script = SubResource( 10 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 20
+amount = 30
 explosiveness = 0.44
 lifetime_randomness = 0.14
 emission_shape = 1
 emission_sphere_radius = 20.0
 spread = 154.57
 gravity = Vector2( 0, -98 )
+initial_velocity = 20.0
 scale_amount = 2.0
 scale_amount_random = 1.0
 color = Color( 1, 0.917647, 0.384314, 1 )
@@ -124,7 +126,7 @@ z_index = -1
 points = PoolVector2Array( 117.613, 49.1675 )
 width = 15.0
 default_color = Color( 0.898039, 0.647059, 0.054902, 1 )
-gradient = SubResource( 13 )
+gradient = SubResource( 11 )
 targetPath = NodePath("..")
 traillen = 100
 
