@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var vel = 150
-var life = 100000
+var life = 100
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
@@ -55,6 +55,10 @@ func _physics_process(delta):
 			$"/root/SpawnManager"._spawnBoss(global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 1)
 			$"/root/SpawnManager"._spawnBoss(global_position, 2)
+#			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 0)
+			$"/root/SpawnManager"._spawnBoss(global_position, 1)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
@@ -75,7 +79,7 @@ func evolve():
 		self.scale = Vector2(1.5, 1.5)
 
 func damage(damage):
-	if can_damage:
+	if !can_damage:
 		$"/root/AudioManager"._playerDamage()
 		get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
 		life -= damage
