@@ -104,3 +104,18 @@ func _on_RunerTimer_timeout():
 	x = round(rand_range(-1, 1))
 	y = round(rand_range(-1, 1))
 	$RunerTimer.start()
+
+func _on_Head_body_entered(body):
+	headColliding = true
+
+
+func _on_Legs_body_entered(body):
+	legsColliding = true
+
+
+func _on_Head_body_exited(body):
+	headColliding = false
+
+
+func _on_Legs_body_exited(body):
+	legsColliding = false

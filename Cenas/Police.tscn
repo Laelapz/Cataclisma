@@ -243,7 +243,7 @@ func _process(delta):
 extents = Vector2( 14.4756, 10 )
 
 [sub_resource type="RectangleShape2D" id=44]
-extents = Vector2( 13.7265, 6.7677 )
+extents = Vector2( 13.7265, 2.74716 )
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "minimap_objects",
@@ -260,7 +260,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 39 )
 animation = "fbi1"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -289,7 +289,7 @@ collision_layer = 4
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
-position = Vector2( -0.980991, -9.63978 )
+position = Vector2( -0.715828, -5.13198 )
 shape = SubResource( 43 )
 
 [node name="Legs" type="Area2D" parent="."]
@@ -297,10 +297,14 @@ collision_layer = 4
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Legs"]
-position = Vector2( -0.749146, 7.11696 )
+position = Vector2( -0.483982, 8.53117 )
 shape = SubResource( 44 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
 [connection signal="timeout" from="RunerTimer" to="." method="_on_RunerTimer_timeout"]
+[connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
+[connection signal="body_exited" from="Head" to="." method="_on_Head_body_exited"]
+[connection signal="body_entered" from="Legs" to="." method="_on_Legs_body_entered"]
+[connection signal="body_exited" from="Legs" to="." method="_on_Legs_body_exited"]
