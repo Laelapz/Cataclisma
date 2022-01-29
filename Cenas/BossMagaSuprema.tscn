@@ -79,7 +79,6 @@ material = SubResource( 2 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 7 )
 animation = "MagaSuprema"
-frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

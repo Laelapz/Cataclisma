@@ -172,7 +172,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+[node name="CenterContainer" type="Container" parent="ColorRect"]
+anchor_left = -0.05
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -30.0
@@ -184,10 +185,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
-margin_left = 372.0
-margin_top = 245.0
-margin_right = 622.0
-margin_bottom = 455.0
+margin_left = 420.0
+margin_top = 230.0
+margin_right = 670.0
+margin_bottom = 440.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
@@ -231,10 +232,9 @@ custom_colors/font_color_pressed = Color( 0.890196, 0.427451, 0.211765, 1 )
 text = "Sair"
 
 [node name="Popup" type="Popup" parent="ColorRect/CenterContainer"]
-visible = true
-margin_left = 247.0
-margin_top = 100.0
-margin_right = 747.0
+margin_left = 200.0
+margin_top = 110.0
+margin_right = 772.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 500, 500 )
 rect_clip_content = true
