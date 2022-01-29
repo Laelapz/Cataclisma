@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Scripts/Police.gd" type="Script" id=1]
 [ext_resource path="res://Assets/police_sheet.png" type="Texture" id=2]
@@ -42,115 +42,115 @@ atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 9 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 9 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 9 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 10 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 7 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 7 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 7 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 8 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 8 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 8 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 6 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 6 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 10 )
+atlas = ExtResource( 6 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 4 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 4 )
 region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 8 )
+atlas = ExtResource( 4 )
 region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=35]
@@ -178,37 +178,37 @@ animations = [ {
 }, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
-"name": "police2",
+"name": "police3",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
-"name": "soldier2",
+"name": "fbi1",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
-"name": "soldier1",
+"name": "sheriff1",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
-"name": "police3",
+"name": "robot1",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
 "loop": true,
-"name": "fbi1",
+"name": "police2",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
 "loop": true,
-"name": "sheriff1",
+"name": "soldier2",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
-"name": "robot1",
+"name": "soldier1",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
@@ -239,6 +239,12 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 14.4756, 10 )
+
+[sub_resource type="RectangleShape2D" id=44]
+extents = Vector2( 13.7265, 6.7677 )
+
 [node name="Enemy" type="KinematicBody2D" groups=[
 "minimap_objects",
 ]]
@@ -254,7 +260,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 39 )
 animation = "fbi1"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -277,6 +283,22 @@ material = SubResource( 41 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
 script = SubResource( 42 )
+
+[node name="Head" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2( -0.980991, -9.63978 )
+shape = SubResource( 43 )
+
+[node name="Legs" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Legs"]
+position = Vector2( -0.749146, 7.11696 )
+shape = SubResource( 44 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

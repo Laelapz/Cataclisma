@@ -12,6 +12,9 @@ var velocity = Vector2()
 var minimap_icon = "enemy"
 var rng = RandomNumberGenerator.new()
 
+var headColliding = false
+var legsColliding = false
+
 var atributes = {"police": {"life": 5, "speed": 40, "damage": 0}, "sheriff": {"life": 10, "speed": 20, "damage": 2}, "mercenary": {"life": 5, "speed": 60, "damage": 1}, "soldier": {"life": 10, "speed": 40, "damage": 3}, "robot": {"life": 15, "speed": 20, "damage": 4}, "fbi": {"life": 5, "speed": 70, "damage": 2}}
 
 signal removed
@@ -62,6 +65,11 @@ func _process(delta):
 	else:
 		velocity = Vector2(x, y).normalized() * speed
 		velocity = move_and_slide(velocity)
+		
+	if headColliding && !legsColliding:
+		self.z_index = 2
+	else:
+		self.z_index = 0
 
 func damage():
 	$"/root/AudioManager"._enemyDamage()
