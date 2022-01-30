@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+=[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Outros/Mundo.tres" type="TileSet" id=1]
 [ext_resource path="res://Cenas/ScreenShake.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/BossRelampago-sheet.png" type="Texture" id=10]
 [ext_resource path="res://Assets/BossMagaSuprema.png" type="Texture" id=11]
 [ext_resource path="res://Shaders/OutlineShader.gdshader" type="Shader" id=12]
+[ext_resource path="res://Assets/MadScientist-sheet.png" type="Texture" id=13]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -111,6 +112,7 @@ font_data = ExtResource( 8 )
 [sub_resource type="Animation" id=12]
 length = 4.5
 loop = true
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect/Sprite:frame")
 tracks/0/interp = 1
@@ -182,6 +184,30 @@ tracks/4/keys = {
 "method": "screen_shake"
 } ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("ColorRect/Sprite/Sprite:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect/Sprite/Sprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.49, 0.5, 0.99, 1, 1.49, 1.5, 1.99, 2, 2.49, 2.5, 2.99, 3, 3.49, 3.5, 3.99, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.392464, -6.78064 ), Vector2( -0.392464, -6.78064 ), Vector2( -0.922195, -5.85361 ), Vector2( -0.922195, -5.85361 ), Vector2( -0.392464, -6.78064 ), Vector2( -0.392464, -6.78064 ), Vector2( -0.922195, -5.85361 ), Vector2( -0.922195, -5.85361 ), Vector2( -0.392464, -6.78064 ), Vector2( -0.392464, -6.78064 ), Vector2( -0.392, -5.854 ), Vector2( -0.392, -5.854 ), Vector2( -0.392464, -6.78064 ), Vector2( -0.392464, -6.78064 ), Vector2( -0.392, -5.854 ), Vector2( -0.392, -5.854 ), Vector2( -0.392464, -6.78064 ) ]
+}
 
 [node name="FinalScene" type="Node2D"]
 script = ExtResource( 5 )
@@ -210,14 +236,21 @@ scale = Vector2( 20, 20 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 4
-frame = 2
+frame = 3
 
 [node name="creature-eye" type="Sprite" parent="ColorRect/Sprite"]
 position = Vector2( -0.20282, 0.761681 )
 texture = ExtResource( 3 )
 flip_h = true
 hframes = 4
-frame = 2
+frame = 3
+
+[node name="Sprite" type="Sprite" parent="ColorRect/Sprite"]
+position = Vector2( -0.922195, -5.85361 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 13 )
+flip_h = true
+hframes = 4
 
 [node name="CidadeFront" type="TileMap" parent="ColorRect"]
 position = Vector2( 12, 0 )
@@ -258,7 +291,7 @@ material = SubResource( 4 )
 position = Vector2( 908.306, 449.212 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Fogo2" type="AnimatedSprite" parent="ColorRect/Fogo"]

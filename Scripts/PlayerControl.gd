@@ -106,8 +106,11 @@ func evolve():
 			$"/root/SpawnManager"._spawnEnemys(1, pos, 0)
 			$"/root/SpawnManager"._spawnEnemys(3, pos, 1)
 			$"/root/SpawnManager"._spawnEnemys(6, pos, 1)
-
-
+	elif evo == 5:
+		can_move = false
+		can_damage = false
+		get_parent().find_node("Talk_With_Doctor").startConversation("Entrevista2")
+		
 func damage(damage):
 	if can_damage:
 		$"/root/AudioManager"._playerDamage()
@@ -122,6 +125,7 @@ func damage(damage):
 			dead()
 
 func dead():
+	$"/root/AudioManager"._playerDeath()
 	$HeadCollision.set_deferred("disabled", true)
 	$LegsCollision.set_deferred("disabled", true)
 	sprite.texture = load("res://Assets/creature-sheet-dead.png")

@@ -150,6 +150,7 @@ scale = Vector2( 1.24836, 1.38659 )
 texture = ExtResource( 5 )
 
 [node name="Doc" type="AnimatedSprite" parent="Background"]
+visible = false
 material = SubResource( 3 )
 position = Vector2( 316.24, 475.93 )
 scale = Vector2( 8.56017, 8.70199 )

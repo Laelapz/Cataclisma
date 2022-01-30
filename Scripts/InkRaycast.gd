@@ -11,6 +11,7 @@ signal fechou
 #	_openInkRay()
 
 func _openInkRay(velocity = 6):
+	$Line2D/Particles2D.emitting = true
 	set_deferred("enabled", false)
 	$Tween.interpolate_property(self, "cast_to:y", self.get("cast_to").y, 1000, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.interpolate_property($Line2D, "width", 0, 5, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
@@ -50,4 +51,5 @@ func _on_Tween_tween_all_completed():
 	if closing:
 		closing = false
 		enabled = false
+		$Line2D/Particles2D.emitting = false
 		emit_signal("fechou")

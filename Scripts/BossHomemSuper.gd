@@ -63,7 +63,7 @@ func _process(delta):
 				velocity = (player.global_position - global_position + random_vel).normalized() * speed
 				velocity = move_and_slide(velocity)
 			if dist_from_player <= 150 && can_shot:
-				shotInFan()
+                shotInFan()
 		else:
 			velocity = Vector2(x, y).normalized() * speed
 			velocity = move_and_slide(velocity)
@@ -169,7 +169,8 @@ func _on_LaserTimer_timeout():
 
 func _on_RayCast2D_fechou():
 	if !can_shot:
-		$LaserTimer.stop()
+        $LaserTimer.stop()
 		can_shot = true
 		lasers = 0
 		$RayCast2D/Line2D/ParticlesEye.emitting = false
+

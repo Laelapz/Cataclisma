@@ -57,7 +57,16 @@ func _playerDamage():
 	p.volume_db = volumeEfeitos
 	p.play(0)
 	p.connect("finished", self, "_queueFreeAudioPlayer", [p])
-	
+
+func _playerDeath():
+	var p = AudioStreamPlayer.new()
+	get_tree().get_root().get_child(get_tree().get_root().get_child_count()-1).add_child(p)
+	song = load("res://Audios/Game-Over.ogg")
+	p.set_stream(song)
+	p.volume_db = volumeEfeitos
+	p.play(0)
+	p.connect("finished", self, "_queueFreeAudioPlayer", [p])
+		
 func _enemyDamage():
 	var p = AudioStreamPlayer.new()
 	get_tree().get_root().get_child(get_tree().get_root().get_child_count()-1).add_child(p)
