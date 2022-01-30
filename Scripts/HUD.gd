@@ -24,6 +24,6 @@ func _on_Timer_timeout():
 func _on_Tween_tween_completed(object, key):
 	if !subiu:
 		subiu = true
+		$Timer.start()
 	else:
 		subiu = false
-		$Timer.start()

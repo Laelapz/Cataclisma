@@ -93,8 +93,9 @@ func damage():
 		dead()
 
 func dead():
-	get_parent().find_node("Player").life += 5
+	get_parent().find_node("Player").life += 7*lvl
 	get_parent().find_node("Player").currentXP += 2*lvl
+	print(get_parent().find_node("Player").currentXP)
 	emit_signal ("removed", self)
 	queue_free()
 

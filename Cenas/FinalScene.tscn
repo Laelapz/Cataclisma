@@ -291,7 +291,7 @@ material = SubResource( 4 )
 position = Vector2( 908.306, 449.212 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 8 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Fogo2" type="AnimatedSprite" parent="ColorRect/Fogo"]
@@ -300,7 +300,7 @@ position = Vector2( -227.102, 50.501 )
 scale = Vector2( 3, 3 )
 z_index = 1
 frames = SubResource( 8 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 
@@ -309,6 +309,7 @@ material = SubResource( 10 )
 position = Vector2( -29.7668, 19.9411 )
 scale = Vector2( 0.866667, 0.85625 )
 frames = SubResource( 8 )
+frame = 2
 playing = true
 
 [node name="Fogo5" type="AnimatedSprite" parent="ColorRect/Fogo"]
@@ -316,6 +317,7 @@ material = SubResource( 10 )
 position = Vector2( -50.4335, 17.9411 )
 scale = Vector2( 0.866667, 0.85625 )
 frames = SubResource( 8 )
+frame = 2
 playing = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]

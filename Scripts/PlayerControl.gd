@@ -32,7 +32,7 @@ func update_frame(limit):
 		FPS_counter += 1
 	
 func _physics_process(delta):
-	if currentXP == maxXP:
+	if currentXP >= maxXP:
 		updateLvl()
 	
 	if can_move:
@@ -82,7 +82,7 @@ func updateLvl():
 	playerDamage = 1 + 2*lvl
 	scale *= 1.05
 	life = 500 + 2*lvl
-	currentXP = 0
+	currentXP = currentXP - maxXP
 	maxXP = pow(2, lvl)
 	print("lvl: ", lvl," damage: ", playerDamage, " life:", life)
 
