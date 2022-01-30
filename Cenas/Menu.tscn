@@ -1608,10 +1608,6 @@ tile_data = PoolIntArray( -6619172, 46, 0, -6619171, 46, 0, -6619170, 46, 0, -66
 position = Vector2( -79.0663, -957.499 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 35 )
-<<<<<<< HEAD
-=======
-frame = 1
->>>>>>> 4aa7a1077a81bcddfded48ede3301526e77d3d25
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1619,10 +1615,7 @@ offset = Vector2( 0, -8 )
 position = Vector2( -600.495, -1043.46 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 40 )
-<<<<<<< HEAD
 frame = 3
-=======
->>>>>>> 4aa7a1077a81bcddfded48ede3301526e77d3d25
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1630,10 +1623,7 @@ offset = Vector2( 0, -8 )
 position = Vector2( 179.269, -330.477 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 45 )
-<<<<<<< HEAD
 frame = 3
-=======
->>>>>>> 4aa7a1077a81bcddfded48ede3301526e77d3d25
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1641,11 +1631,7 @@ offset = Vector2( 0, -8 )
 position = Vector2( 1169.52, -428.752 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 50 )
-<<<<<<< HEAD
 frame = 2
-=======
-frame = 3
->>>>>>> 4aa7a1077a81bcddfded48ede3301526e77d3d25
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -1653,21 +1639,13 @@ offset = Vector2( 0, -8 )
 position = Vector2( -131.964, -967.666 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 50 )
-<<<<<<< HEAD
-=======
-frame = 1
->>>>>>> 4aa7a1077a81bcddfded48ede3301526e77d3d25
 playing = true
 
 [node name="Player" type="AnimatedSprite" parent="Menu"]
 position = Vector2( 125.361, 280.599 )
 scale = Vector2( 2.78978, 2.57955 )
 frames = SubResource( 55 )
-<<<<<<< HEAD
 frame = 1
-=======
-frame = 2
->>>>>>> 4aa7a1077a81bcddfded48ede3301526e77d3d25
 playing = true
 offset = Vector2( 0, -8 )
 script = SubResource( 56 )
@@ -1681,6 +1659,7 @@ hframes = 4
 pause_mode = 2
 
 [node name="MarginContainer" type="CanvasLayer" parent="Menu"]
+layer = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
 margin_left = -40.0

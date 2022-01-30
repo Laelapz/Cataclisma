@@ -27,7 +27,7 @@ func _ready():
 	#Spawn Enemies
 	for i in range(1, 7):
 		var pos = $EnemySpawns.get_child(i).position
-		$"/root/SpawnManager"._spawnEnemys(10, pos, 0)
+		$"/root/SpawnManager"._spawnEnemys(7, pos, 0)
 
 func _input(event):
 	if(event.is_pressed() && find_node("Player").is_dead):

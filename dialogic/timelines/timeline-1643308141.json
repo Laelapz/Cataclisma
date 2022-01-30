@@ -22,7 +22,7 @@
 			"character": "character-1643308114.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Interrompemos a novela das sete para um anuncio urgente"
+			"text": "Interrompemos a novela das sete para um aviso urgente !!!"
 		},
 		{
 			"emit_signal": "talk_rep",
@@ -32,7 +32,7 @@
 			"character": "character-1643308114.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Nossa cidade Santa Joana da Conceicao esta sendo invadida agora mesmo por uma coi-"
+			"text": "Nossa cidade, Santa Joana da Conceicao esta sendo invadida agora mesmo por uma coi-"
 		},
 		{
 			"emit_signal": "show_doc",
@@ -56,7 +56,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Me permita interromper sua transmissao por algum momento sra. reporter"
+			"text": "Me permita interromper sua transmissao por algum momento Sra. reporter !!!"
 		},
 		{
 			"emit_signal": "talk_doc",
@@ -66,7 +66,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "EU O DOUTOR WILLOW. "
+			"text": "EU O DOUTOR WILLOW !!!"
 		},
 		{
 			"emit_signal": "talk_doc",
@@ -86,7 +86,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "VIM DAR A VOCêS O GOSTO DA MINHA MAIS NOVA CRIACAO!!!"
+			"text": "VIM DAR A VOCES O GOSTO DA MINHA MAIS NOVA CRIACAO !!!"
 		},
 		{
 			"emit_signal": "talk_rep",
@@ -116,7 +116,7 @@
 			"character": "character-1643308114.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "A LIGA DOS SUPER AMIGOS VAI IMPEDI-LO!!!!!"
+			"text": "A LIGA DOS SUPER AMIGOS VAI IMPEDI-LO !!!"
 		},
 		{
 			"emit_signal": "talk_doc",
@@ -126,7 +126,13 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "CONTEMPLEM O [wave]CATACLISMA!!![/wave]"
+			"text": "MEU FILHO VAI ACABAR COM TODOS E FICAR MAIS FORTE !!!"
+		},
+		{
+			"character": "character-1643158118.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "CONTEMPLEM O [rainbow][wave]CATACLISMA !!![/wave][/rainbow]"
 		},
 		{
 			"emit_signal": "fade_out",

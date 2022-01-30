@@ -3,28 +3,28 @@
 [ext_resource path="res://Scripts/InkRaycast.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Particles/puff_smooth.png" type="Texture" id=2]
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=1]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.988318, 344.54 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0, 0.6, 1 )
-colors = PoolColorArray( 0.95166, 0.524157, 0.524157, 1, 0.986816, 0.501118, 0.501118, 1, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
-
-[sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 0.125524 ), 0.0, 0.0700246, 0, 0, Vector2( 0.552632, 0 ), -0.33187, 0.0, 0, 0 ]
-
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.6, 1 )
+colors = PoolColorArray( 0.95166, 0.524157, 0.524157, 1, 0.986816, 0.501118, 0.501118, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.125524 ), 0.0, 0.0700246, 0, 0, Vector2( 0.552632, 0 ), -0.33187, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
 flag_disable_z = true
@@ -33,12 +33,12 @@ spread = 180.0
 gravity = Vector3( 0, 10, 0 )
 initial_velocity = 258.73
 angular_velocity = 45.71
-angular_velocity_curve = SubResource( 5 )
+angular_velocity_curve = SubResource( 2 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 20.0
-scale_curve = SubResource( 2 )
-color_ramp = SubResource( 7 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
 
 [node name="RayCast2D" type="RayCast2D"]
 position = Vector2( 35.5959, 68.5675 )
@@ -64,7 +64,7 @@ scale = Vector2( 0.01, 0.01 )
 amount = 20
 lifetime = 2.0
 local_coords = false
-process_material = SubResource( 3 )
+process_material = SubResource( 7 )
 
 [node name="Particles2D" type="Particles2D" parent="Line2D"]
 self_modulate = Color( 1.1, 0.34, 0.34, 1 )
@@ -73,7 +73,7 @@ emitting = false
 amount = 12
 lifetime = 2.0
 local_coords = false
-process_material = SubResource( 3 )
+process_material = SubResource( 7 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]

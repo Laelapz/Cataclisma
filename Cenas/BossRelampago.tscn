@@ -89,7 +89,6 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-frame = 2
 playing = true
 
 [node name="ShotTimer" type="Timer" parent="."]

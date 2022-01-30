@@ -72,7 +72,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "EU SOU O [tornado radius=5]DEUS DO NOVO MUNDO[/tornado]"
+			"text": "EU SOU O [wave]DEUS DO NOVO MUNDO[/wave]"
 		},
 		{
 			"emit_signal": "talk_doc",

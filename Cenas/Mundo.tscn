@@ -401,7 +401,7 @@ player = NodePath("../../Player")
 [node name="PauseScreen" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 38.4233, -93.0512 )
+position = Vector2( 1307.46, -216.547 )
 z_index = 1
 
 [node name="Postes" type="TileMap" parent="."]

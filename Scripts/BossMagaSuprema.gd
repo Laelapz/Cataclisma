@@ -6,7 +6,7 @@ var returning = false
 
 var x = 1
 var y = 1
-export var life = 5
+export var life = 100
 export var speed = 40
 export var damage = 1
 export var type = ""

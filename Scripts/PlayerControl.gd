@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var vel = 150
+var vel = 100
 var life = 500
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
@@ -81,7 +81,7 @@ func updateLvl():
 	lvl += 1
 	playerDamage = 1 + 2*lvl
 	scale *= 1.05
-	life = 100 + 2*lvl
+	life = 500 + 2*lvl
 	currentXP = 0
 	maxXP = pow(2, lvl)
 	print("lvl: ", lvl," damage: ", playerDamage, " life:", life)
