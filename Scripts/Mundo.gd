@@ -15,7 +15,7 @@ func _ready():
 	#Spawn Bosses
 	$"/root/SpawnManager"._spawnBoss($BossesSpawns/RelampagoArea.position, 0)
 	$"/root/SpawnManager"._spawnBoss($BossesSpawns/HomemSuperArea.position, 1)
-	$"/root/SpawnManager"._spaaaaaaaaaawnBoss($BossesSpawns/MagaSupremaArea.position, 2)
+	$"/root/SpawnManager"._spawnBoss($BossesSpawns/MagaSupremaArea.position, 2)
 	
 	#Spawn NPCs
 	for i in range(1, 11):

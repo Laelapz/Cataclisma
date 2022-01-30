@@ -89,6 +89,8 @@ func damage():
 		dead()
 
 func dead():
+	get_parent().find_node("Player").life += 50
+	get_parent().find_node("Player").currentXP += 50
 	emit_signal ("removed", self)
 	$"/root/SpawnManager"._evol_player()
 	queue_free()

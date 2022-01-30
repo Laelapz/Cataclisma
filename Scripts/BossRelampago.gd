@@ -49,6 +49,10 @@ func _process(delta):
 		var player_dist_from_origem = sqrt((pow((player.global_position.x - origem.x), 2) + pow((player.global_position.y - origem.y), 2)))
 		rng.randomize()
 		var angle = rng.randf_range(0, PI/2)
+		
+		if player_dist_from_origem < raio_limite:
+			get_parent().find_node("HUD")._showBossBar(150)
+			get_parent().find_node("HUD")._actualBossLife(life)
 			
 		var dirx = abs( (player.mov).x )
 		var diry = abs( (player.mov).y )
@@ -63,9 +67,9 @@ func _process(delta):
 				
 		var R = 120
 		var destino = Vector2(player.global_position.x + dir*R*cos(angle), player.global_position.y + dir*R*sin(angle) )
-		var dist_from_player = sqrt((pow((global_position.x - destino.x), 2) + pow((global_position.y - destino.y), 2)))	
+		var dist_from_player = sqrt((pow((global_position.x - destino.x), 2) + pow((global_position.y - destino.y), 2)))
 		
-		if dist_from_player <= 240 and (player_dist_from_origem < raio_limite):		
+		if dist_from_player <= 240 and (player_dist_from_origem < raio_limite):
 			if dist_from_player >= 100:
 				rng.randomize()
 				var my_random_x = rng.randf_range(-70.0, 70.0)
@@ -84,6 +88,7 @@ func _process(delta):
 				can_shot = false
 				$ShotTimer.start()
 		else:
+			get_parent().find_node("HUD")._hideBossBar()
 			velocity = Vector2(x, y).normalized() * speed
 			velocity = move_and_slide(velocity)
 	else:
@@ -96,6 +101,7 @@ func _process(delta):
 		z_index = 0
 
 func damage():
+	get_parent().find_node("HUD")._actualBossLife(life)
 	$"/root/AudioManager"._enemyDamage()
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
 	var blood = BLOOD.instance()
@@ -108,6 +114,8 @@ func damage():
 		dead()
 
 func dead():
+	get_parent().find_node("Player").life += 50
+	get_parent().find_node("Player").currentXP += 50
 	emit_signal ("removed", self)
 	$"/root/SpawnManager"._evol_player()
 	queue_free()

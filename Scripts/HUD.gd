@@ -20,6 +20,16 @@ func _on_Timer_timeout():
 	$Tween.interpolate_property($LvlUpSign, "rect_position:x", 50, -150, 3,Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 
+func _showBossBar(maxvalue):
+	$BossBar.max_value = maxvalue
+	$BossBar.show()
+
+func _actualBossLife(actual_life):
+	$BossBar.value = actual_life
+
+func _hideBossBar():
+	$BossBar.hide()
+
 
 func _on_Tween_tween_completed(object, key):
 	if !subiu:
