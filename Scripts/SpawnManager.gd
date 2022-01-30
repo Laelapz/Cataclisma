@@ -35,7 +35,6 @@ func _spawnBoss(position, dificulty):
 	boss.global_position.x = position.x
 	boss.global_position.y = position.y
 
-
 func _spawnNPCs(quantity, position, dificulty):
 	randomize()
 	for i in quantity:
@@ -43,7 +42,7 @@ func _spawnNPCs(quantity, position, dificulty):
 		var npc = NPC.instance()
 		npc.type = npc_type[dificulty][index]
 		get_tree().get_root().get_child(2).add_child(npc)
-		var R = 80
+		var R = 100
 		npc.global_position.x = round(rand_range(position.x-R, position.x+R))
 		npc.global_position.y = round(rand_range(position.y-R, position.y+R))
 		
@@ -54,7 +53,7 @@ func _spawnEnemys(quantity, position, dificulty):
 		var enemy = ENEMY.instance()
 		enemy.type = levels[dificulty][index]
 		get_tree().get_root().get_child(2).add_child(enemy)
-		var R = 80
+		var R = 150
 		enemy.global_position.x = round(rand_range(position.x-R, position.x+R))
 		enemy.global_position.y = round(rand_range(position.y-R, position.y+R))
 		

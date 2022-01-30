@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var vel = 150
-var life = 100
+var life = 500
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
@@ -93,10 +93,20 @@ func evolve():
 		sprite.texture = load("res://Assets/creature-sheet-evol-1.png")
 		scale *= 1.2
 		$"/root/SpawnManager".player_evol += 1
+		for i in range(1, 7):
+			var pos = get_parent().find_node("EnemySpawns").get_child(i).position
+			$"/root/SpawnManager"._spawnEnemys(5, pos, 0)
+			$"/root/SpawnManager"._spawnEnemys(7, pos, 1)
 	elif evo == 3:
 		sprite.texture = load("res://Assets/creature-sheet-evol-2.png")
 		scale *= 1.2
 		$"/root/SpawnManager".player_evol += 1
+		for i in range(1, 7):
+			var pos = get_parent().find_node("EnemySpawns").get_child(i).position
+			$"/root/SpawnManager"._spawnEnemys(1, pos, 0)
+			$"/root/SpawnManager"._spawnEnemys(3, pos, 1)
+			$"/root/SpawnManager"._spawnEnemys(6, pos, 1)
+
 
 func damage(damage):
 	if can_damage:

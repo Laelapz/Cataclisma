@@ -5,36 +5,36 @@
 [ext_resource path="res://Assets/UI/Atention.png" type="Texture" id=3]
 [ext_resource path="res://Shaders/OutlineShader.gdshader" type="Shader" id=12]
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=1]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0.00700934, -175.583 ), 0.0, 0.0, 0, 0, Vector2( 1, 142.454 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=13]
-curve = SubResource( 12 )
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
 
-[sub_resource type="Curve" id=14]
+[sub_resource type="Curve" id=3]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0.0257009, -61.8405 ), 0.0, 0.0, 0, 0, Vector2( 0.969626, 132.515 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=15]
-curve = SubResource( 14 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.177778, 0.433333, 0.588889, 0.744444, 0.911111 )
 colors = PoolColorArray( 0.880083, 0.318604, 0.9375, 1, 0.552748, 0.294363, 0.8949, 0.883157, 0.484988, 0.0593948, 0.506836, 0.824736, 0.905882, 0.476409, 0.266667, 0.67451, 0.19909, 0.170898, 0.875, 1, 0.843137, 0.741054, 0.0745098, 0.0352941 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
 
-[sub_resource type="Curve" id=18]
+[sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.932243, 0.403374 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=19]
-curve = SubResource( 18 )
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=20]
+[sub_resource type="ParticlesMaterial" id=9]
 emission_shape = 2
 emission_box_extents = Vector3( 2, 2, 2 )
 flag_disable_z = true
@@ -45,20 +45,20 @@ initial_velocity = 30.0
 initial_velocity_random = 0.11
 angular_velocity = 1.0
 angular_velocity_random = 0.14
-angular_velocity_curve = SubResource( 15 )
+angular_velocity_curve = SubResource( 4 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = -1.0
 angle = 45.0
-angle_curve = SubResource( 13 )
+angle_curve = SubResource( 2 )
 scale = 10.0
-scale_curve = SubResource( 19 )
-color_ramp = SubResource( 17 )
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 11.7168, 12.0093 )
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 0.654902, 0.12549, 0.368627, 1 )
@@ -67,34 +67,34 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 1 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "MagaSuprema",
 "speed": 11.0
 } ]
 
-[sub_resource type="CircleShape2D" id=9]
-radius = 435.864
+[sub_resource type="CircleShape2D" id=17]
+radius = 500.0
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=18]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 0.909804, 0.219608, 0.196078, 1 )
@@ -103,7 +103,7 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="GDScript" id=11]
+[sub_resource type="GDScript" id=19]
 script/source = "extends Sprite
 
 var global_position_y = -16
@@ -127,17 +127,18 @@ amount = 80
 lifetime = 1.2
 explosiveness = 0.23
 local_coords = false
-process_material = SubResource( 20 )
+process_material = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
-material = SubResource( 3 )
+material = SubResource( 11 )
 position = Vector2( -112.551, -11.5 )
 scale = Vector2( 1.4, 1.4 )
-frames = SubResource( 8 )
+frames = SubResource( 16 )
 animation = "MagaSuprema"
+frame = 2
 playing = true
 offset = Vector2( 80.3934, 8.21428 )
 
@@ -146,7 +147,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 9 )
+shape = SubResource( 17 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -157,10 +158,10 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Atention" type="Sprite" parent="."]
-material = SubResource( 10 )
+material = SubResource( 18 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
-script = SubResource( 11 )
+script = SubResource( 19 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 40

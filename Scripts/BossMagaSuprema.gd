@@ -67,7 +67,7 @@ func _process(delta):
 				can_shot = false
 				$ShotTimer.start()
 				
-			if dist_from_player > 150 and player_dist_from_origem < raio_limite - 75:
+			if dist_from_player > 120 and player_dist_from_origem < raio_limite - 75:
 				global_position.x = player.global_position.x + rng.randf_range(50.0, 50.0)
 				global_position.y = player.global_position.y + rng.randf_range(50.0, 50.0)
 		else:

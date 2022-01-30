@@ -43,7 +43,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 342.97
+radius = 450.0
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )
@@ -83,6 +83,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 7 )
 animation = "HomemSuper"
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

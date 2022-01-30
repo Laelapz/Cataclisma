@@ -1,6 +1,7 @@
 extends Node2D
 
 var cursor = load("res://Assets/mouse_sprite.png")
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	$"/root/AudioManager"._playMusic()
@@ -10,16 +11,23 @@ func _ready():
 #	add_child(dialog)
 #	dialog.connect("dialogic_signal", self, "_dialog_finished")
 	Input.set_custom_mouse_cursor(cursor)
-
 	
 	#Spawn Bosses
-	$"/root/SpawnManager"._spawnBoss($RelampagoArea.position, 0)
-	$"/root/SpawnManager"._spawnBoss($HomemSuperArea.position, 1)
-	$"/root/SpawnManager"._spawnBoss($MagaSupremaArea.position, 2)
+	$"/root/SpawnManager"._spawnBoss($BossesSpawns/RelampagoArea.position, 0)
+	$"/root/SpawnManager"._spawnBoss($BossesSpawns/HomemSuperArea.position, 1)
+	$"/root/SpawnManager"._spawnBoss($BossesSpawns/MagaSupremaArea.position, 2)
 	
 	#Spawn NPCs
-	
+	for i in range(1, 11):
+		var pos = $NPCsSpawns.get_child(i).position
+		for j in range(0, 30):
+			var tipo = round(rng.randf_range(0, 2))
+			$"/root/SpawnManager"._spawnNPCs(1, pos, tipo)
+		
 	#Spawn Enemies
+	for i in range(1, 7):
+		var pos = $EnemySpawns.get_child(i).position
+		$"/root/SpawnManager"._spawnEnemys(10, pos, 0)
 
 func _input(event):
 	if(event.is_pressed() && find_node("Player").is_dead):

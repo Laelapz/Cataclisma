@@ -63,13 +63,7 @@ func _process(delta):
 				velocity = (player.global_position - global_position + random_vel).normalized() * speed
 				velocity = move_and_slide(velocity)
 			if dist_from_player <= 150 && can_shot:
-				var num  = round(rand_range(1, 5))
-				if num == 1:
-					fastRay()
-				elif num == 2:
-					shotInRay()
-				else:
-					shotInFan()
+				shotInFan()
 		else:
 			velocity = Vector2(x, y).normalized() * speed
 			velocity = move_and_slide(velocity)
@@ -113,6 +107,8 @@ func _on_Area2D_body_exited(body):
 
 func _on_ShotTimer_timeout():
 	can_shot = true
+	$LaserTimer.stop()
+	$RayCast2D._closeInkRay()
 
 
 func _on_RunerTimer_timeout():
@@ -134,29 +130,19 @@ func shotInFan():
 		$ShotTimer.start()
 
 func shotInRay():
-	$RayCast2D/Line2D.width = 5
-	$RayCast2D/Line2D/ParticlesEye.emitting = true
-	$RayCast2D/Line2D/Particles2D.scale = Vector2(0.01, 0.01)
-	$RayCast2D.rotation = (player.global_position - $RayCast2D.global_position).normalized().angle()
-	$RayCast2D.rotation_degrees += 230
-	$RayCast2D._openInkRay()
-	$LaserTimer.start()
-	can_shot = false
-	$ShotTimer.start(3)
+	if player:
+		$RayCast2D.fast = false
+		$RayCast2D/Line2D.width = 5
+		$RayCast2D/Line2D/ParticlesEye.emitting = true
+		$RayCast2D/Line2D/Particles2D.scale = Vector2(0.01, 0.01)
+		$RayCast2D.rotation = (player.global_position - $RayCast2D.global_position).normalized().angle()
+		$RayCast2D.rotation_degrees += 230
+		$RayCast2D._openInkRay()
+		$LaserTimer.one_shot = false
+		$LaserTimer.start(0.1)
+		can_shot = false
+		$ShotTimer.start(3)
 	
-func fastRay() -> void:
-	lasers += 1
-	$RayCast2D.enabled = false
-	$RayCast2D.fast = true
-	$RayCast2D/Line2D/ParticlesEye.emitting = true
-	$RayCast2D/Line2D/Particles2D.scale = Vector2(0.01, 0.01)
-	$RayCast2D.rotation = (player.global_position - $RayCast2D.global_position).normalized().angle()
-	$RayCast2D.rotation_degrees += 270
-	$RayCast2D._openInkRay()
-	can_shot = false
-	$LaserTimer.start(1.5)
-
-
 func _on_Head_body_entered(body):
 	headColliding = true
 
@@ -182,10 +168,8 @@ func _on_LaserTimer_timeout():
 
 
 func _on_RayCast2D_fechou():
-	if lasers > 3:
+	if !can_shot:
 		$LaserTimer.stop()
 		can_shot = true
 		lasers = 0
 		$RayCast2D/Line2D/ParticlesEye.emitting = false
-	else:
-		shotInRay()

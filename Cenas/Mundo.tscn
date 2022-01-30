@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Outros/Mundo.tres" type="TileSet" id=2]
@@ -354,6 +354,12 @@ shader_param/offset = 0.0
 [sub_resource type="CircleShape2D" id=5]
 radius = 500.0
 
+[sub_resource type="CircleShape2D" id=6]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 150.0
+
 [node name="Mundo" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -452,14 +458,111 @@ tile_data = PoolIntArray( -16711876, 58, 0, -15007886, 57, 0, -14614647, 5368709
 
 [node name="ScreenShake" parent="." instance=ExtResource( 7 )]
 
-[node name="RelampagoArea" type="CollisionShape2D" parent="."]
+[node name="BossesSpawns" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MagaSupremaArea" type="CollisionShape2D" parent="BossesSpawns"]
+position = Vector2( -1350, -1750 )
+shape = SubResource( 5 )
+
+[node name="RelampagoArea" type="CollisionShape2D" parent="BossesSpawns"]
 position = Vector2( -320, 405 )
 shape = SubResource( 5 )
 
-[node name="HomemSuperArea" type="CollisionShape2D" parent="."]
+[node name="HomemSuperArea" type="CollisionShape2D" parent="BossesSpawns"]
 position = Vector2( 138, -1050 )
 shape = SubResource( 5 )
 
-[node name="MagaSupremaArea" type="CollisionShape2D" parent="."]
-position = Vector2( -1350, -1750 )
-shape = SubResource( 5 )
+[node name="NPCsSpawns" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="npcSpawn1" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -988.046, -1110 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn2" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -1384.1, -421.693 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn3" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( 173.152, -235.25 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn4" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -673.564, -499.254 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn5" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -202.638, -487.362 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn6" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -1473.27, -940.837 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn7" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -1164.03, -1723.23 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn8" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -104.741, -1155.54 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn9" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -489.754, -71.8348 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn10" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -137.436, 388.144 )
+shape = SubResource( 6 )
+
+[node name="npcSpawn11" type="CollisionShape2D" parent="NPCsSpawns"]
+position = Vector2( -1549.31, -1883.32 )
+shape = SubResource( 6 )
+
+[node name="EnemySpawns" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemySpawn1" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( -744.296, -1348.83 )
+shape = SubResource( 7 )
+
+[node name="enemySpawn2" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( -1235.15, -1307.7 )
+shape = SubResource( 7 )
+
+[node name="enemySpawn8" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( 141.719, -447.215 )
+shape = SubResource( 7 )
+
+[node name="enemySpawn3" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( -1159.04, -832.035 )
+shape = SubResource( 7 )
+
+[node name="enemySpawn4" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( -151.701, -40.568 )
+shape = SubResource( 7 )
+
+[node name="enemySpawn5" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( -605.833, -346.1 )
+shape = SubResource( 7 )
+
+[node name="enemySpawn6" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( -1371.58, -1668.4 )
+shape = SubResource( 7 )
+
+[node name="enemySpawn7" type="CollisionShape2D" parent="EnemySpawns"]
+position = Vector2( -1371.58, -1668.4 )
+shape = SubResource( 7 )

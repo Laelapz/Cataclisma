@@ -16,7 +16,7 @@ var rng = RandomNumberGenerator.new()
 var headColliding = false
 var legsColliding = false
 
-var atributes = {"police": {"life": 5, "speed": 40, "damage": 0, "lvl": 1}, "sheriff": {"life": 10, "speed": 20, "damage": 2, "lvl": 1}, "mercenary": {"life": 5, "speed": 60, "damage": 1, "lvl": 2}, "soldier": {"life": 10, "speed": 40, "damage": 3, "lvl": 2}, "robot": {"life": 15, "speed": 20, "damage": 4, "lvl": 1}, "fbi": {"life": 5, "speed": 70, "damage": 2, "lvl": 1}}
+var atributes = {"police": {"life": 5, "speed": 40, "damage": 1, "lvl": 1}, "sheriff": {"life": 10, "speed": 20, "damage": 2, "lvl": 1}, "mercenary": {"life": 5, "speed": 60, "damage": 1, "lvl": 2}, "soldier": {"life": 10, "speed": 40, "damage": 3, "lvl": 2}, "robot": {"life": 15, "speed": 20, "damage": 4, "lvl": 1}, "fbi": {"life": 5, "speed": 70, "damage": 2, "lvl": 1}}
 
 signal removed
 
