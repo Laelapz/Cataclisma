@@ -15,6 +15,8 @@ var can_shot = true
 var velocity = Vector2()
 var minimap_icon = "hero"
 var rng = RandomNumberGenerator.new()
+var legsColliding = false
+var headColliding = false
 
 signal removed
 
@@ -76,6 +78,11 @@ func _process(delta):
 	else:
 		velocity = Vector2(x, y).normalized() * speed
 		velocity = move_and_slide(velocity)
+	
+	if headColliding && !legsColliding:
+		z_index = 1
+	else:
+		z_index = 0
 
 func shotInFan():
 	for i in [-180, -90, -45, -30, 0, 30, 90, 45, 180]:
@@ -126,3 +133,19 @@ func _on_RunerTimer_timeout():
 	x = round(rand_range(-1, 1))
 	y = round(rand_range(-1, 1))
 	$RunerTimer.start()
+
+
+func _on_Legs_body_entered(body):
+	legsColliding = true
+
+
+func _on_Legs_body_exited(body):
+	legsColliding = false
+
+
+func _on_Head_body_entered(body):
+	headColliding = true
+
+
+func _on_Head_body_exited(body):
+	headColliding = false

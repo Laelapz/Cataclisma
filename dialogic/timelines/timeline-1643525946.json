@@ -1,14 +1,14 @@
 {
 	"events": [
 		{
-			"emit_signal": "talk_rep",
-			"event_id": "dialogic_040"
-		},
-		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "!!!"
+		},
+		{
+			"emit_signal": "show_doc",
+			"event_id": "dialogic_040"
 		},
 		{
 			"emit_signal": "fade_in",
@@ -22,7 +22,7 @@
 			"character": "character-1643308114.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Interrompemos a novela das sete para um anuncio urgente"
+			"text": "isso... isso nao e possivel..."
 		},
 		{
 			"emit_signal": "talk_rep",
@@ -32,11 +32,17 @@
 			"character": "character-1643308114.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Nossa cidade Santa Joana da Conceicao esta sendo invadida agora mesmo por uma coi-"
+			"text": "o bem sempre vence..."
 		},
 		{
-			"emit_signal": "show_doc",
+			"emit_signal": "talk_rep",
 			"event_id": "dialogic_040"
+		},
+		{
+			"character": "character-1643308114.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "homem super se levante...nao desista...relampago...maga suprema..."
 		},
 		{
 			"emit_signal": "talk_doc",
@@ -56,7 +62,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Me permita interromper sua transmissao por algum momento sra. reporter"
+			"text": "GuARDE SUAS LAGRIMAS, POIS ESTE E SO O COMECO"
 		},
 		{
 			"emit_signal": "talk_doc",
@@ -66,7 +72,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "EU O DOUTOR WILLOW. "
+			"text": "EU SOU O [tornado radius=5]DEUS DO NOVO MUNDO[/tornado]"
 		},
 		{
 			"emit_signal": "talk_doc",
@@ -76,7 +82,7 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "O MAIOR [wave]ARQUI-INIMIGO[/wave] DA LIGA DOS SUPER AMIGOS."
+			"text": "CAFELANDIA, PINHALZINHO NENHUMA CIDADE E NENHUM HEROI PODERA ME PARAR"
 		},
 		{
 			"emit_signal": "talk_doc",
@@ -86,56 +92,20 @@
 			"character": "character-1643158118.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "VIM DAR A VOCêS O GOSTO DA MINHA MAIS NOVA CRIACAO!!!"
-		},
-		{
-			"emit_signal": "talk_rep",
-			"event_id": "dialogic_040"
-		},
-		{
-			"character": "character-1643308114.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Mais que porr-"
-		},
-		{
-			"emit_signal": "talk_doc",
-			"event_id": "dialogic_040"
-		},
-		{
-			"character": "character-1643158118.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "NESTE EXATO MOMENTO MEU [rainbow]ANJINHO[/rainbow] JA BLOQUEOU TODAS AS SAIDAS DA CIDADE."
-		},
-		{
-			"emit_signal": "talk_rep",
-			"event_id": "dialogic_040"
-		},
-		{
-			"character": "character-1643308114.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "A LIGA DOS SUPER AMIGOS VAI IMPEDI-LO!!!!!"
-		},
-		{
-			"emit_signal": "talk_doc",
-			"event_id": "dialogic_040"
-		},
-		{
-			"character": "character-1643158118.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "CONTEMPLEM O [wave]CATACLISMA!!![/wave]"
+			"text": "FINALMENTE A SOCIEDADE SE CURVARA AO REGIME DO [rainbow][wave]BANHO COM CHINELO[/wave][/rainbow]"
 		},
 		{
 			"emit_signal": "fade_out",
 			"event_id": "dialogic_040"
+		},
+		{
+			"change_scene": "res://Cenas/FinalScene.tscn",
+			"event_id": "dialogic_041"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.3",
-		"file": "timeline-1643308141.json",
-		"name": "Entrevista1"
+		"file": "timeline-1643525946.json",
+		"name": "Entrevista2"
 	}
 }
