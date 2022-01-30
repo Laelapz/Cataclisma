@@ -1629,7 +1629,7 @@ playing = true
 offset = Vector2( 0, -8 )
 
 [node name="Police" type="AnimatedSprite" parent="Menu/TileMap"]
-position = Vector2( 926.255, -201.093 )
+position = Vector2( 1169.52, -428.752 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 50 )
 frame = 1

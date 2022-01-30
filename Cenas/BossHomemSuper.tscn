@@ -43,7 +43,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=8]
+<<<<<<< HEAD
 radius = 226.716
+=======
+radius = 342.97
+>>>>>>> da4739d6b51b4b24739b0280c05538fafcc57669
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )
@@ -55,6 +59,7 @@ shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
 [sub_resource type="GDScript" id=10]
+<<<<<<< HEAD
 script/source = "extends Sprite
 
 var global_position_y = -16
@@ -62,6 +67,15 @@ var global_position_y = -16
 func _process(delta):
 	position.y = global_position_y + 2*sin(2*PI*delta)
 	pass
+=======
+script/source = "extends Sprite
+
+var global_position_y = -16
+
+func _process(delta):
+	position.y = global_position_y + 2*sin(2*PI*delta)
+	pass
+>>>>>>> da4739d6b51b4b24739b0280c05538fafcc57669
 "
 
 [sub_resource type="CanvasItemMaterial" id=11]
@@ -83,7 +97,10 @@ material = SubResource( 2 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 7 )
 animation = "HomemSuper"
+<<<<<<< HEAD
 frame = 2
+=======
+>>>>>>> da4739d6b51b4b24739b0280c05538fafcc57669
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

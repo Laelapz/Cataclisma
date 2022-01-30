@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+var origem = null
+var raio_limite = 480 
+var returning = false
+
 var x = 1
 var y = 1
 export var life = 5
@@ -24,6 +28,7 @@ func _ready():
 	get_parent().find_node("MiniMap")._new_marker(self)
 	$CollisionShape2D/AnimatedSprite.play(type)
 	_setStatus(type)
+	origem = Vector2(138, -1050)
 	$RunerTimer.start()
 
 func _setStatus(type):
@@ -33,16 +38,23 @@ func _setStatus(type):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	return
+	var dist_from_origem = sqrt((pow((position.x - origem.x), 2) + pow((position.y - origem.y), 2)))
+	
+	if(dist_from_origem + 5 >= raio_limite):
+		velocity = -(global_position - origem).normalized()
+		velocity = move_and_slide(velocity*speed)
+		returning = true
+
 	if velocity.x < 0:
 		$CollisionShape2D/AnimatedSprite.flip_h = true
 	else:
 		$CollisionShape2D/AnimatedSprite.flip_h = false
 		
 	if player != null:
+		var player_dist_from_origem = sqrt((pow((player.global_position.x - origem.x), 2) + pow((player.global_position.y - origem.y), 2)))
 		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
 		
-		if dist_from_player <= 250:
+		if dist_from_player <= 250 and (player_dist_from_origem < raio_limite):
 			if dist_from_player >= 80:
 				rng.randomize()
 				var my_random_x = rng.randf_range(-170.0, 170.0)
@@ -58,6 +70,9 @@ func _process(delta):
 					shotInRay()
 				else:
 					shotInFan()
+		else:
+			velocity = Vector2(x, y).normalized() * speed
+			velocity = move_and_slide(velocity)
 	else:
 		velocity = Vector2(x, y).normalized() * speed
 		velocity = move_and_slide(velocity)
