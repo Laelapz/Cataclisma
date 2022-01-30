@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var vel = 150
-var life = 1000
+var life = 100
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
@@ -13,6 +13,10 @@ var can_damage = true
 var is_dead = false
 var headColliding = false
 var legsColliding = false
+var playerDamage = 1
+var lvl = 0
+var currentXP = 0
+var maxXP = pow(2, lvl)
 
 var evolucao = 0
 
@@ -28,6 +32,9 @@ func update_frame(limit):
 		FPS_counter += 1
 	
 func _physics_process(delta):
+	if currentXP == maxXP:
+		updateLvl()
+	
 	if can_move:
 		update_frame(6)
 				
@@ -51,14 +58,14 @@ func _physics_process(delta):
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 0)
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 1)
 #			$"/root/SpawnManager"._spawnEnemys(5, global_position, 2)
-#			$"/root/SpawnManager"._spawnNPCs(15, global_position, 0)
+			$"/root/SpawnManager"._spawnNPCs(15, global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 0)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 1)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 #			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
-			$"/root/SpawnManager"._spawnBoss(global_position, 0)
-			$"/root/SpawnManager"._spawnBoss(global_position, 1)
-			$"/root/SpawnManager"._spawnBoss(global_position, 2)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 0)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 1)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 
 		mov = mov.normalized()
 		mov = move_and_slide(mov*vel)
@@ -68,6 +75,16 @@ func _physics_process(delta):
 		z_index = 2
 	else:
 		z_index = 1
+
+func updateLvl():
+	print("upou")
+	lvl += 1
+	playerDamage = 1 + 2*lvl
+	life = 100 + 2*lvl
+	currentXP = 0
+	maxXP = pow(2, lvl)
+	print("lvl: ", lvl," damage: ", playerDamage, " life:", life)
+
 
 func evolve():
 	var evo = $"/root/SpawnManager"._get_evolution()

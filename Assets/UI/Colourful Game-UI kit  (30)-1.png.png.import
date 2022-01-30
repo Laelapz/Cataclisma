@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player.png-d5c990441431318df54319206b788b9f.stex"
+path="res://.import/Colourful Game-UI kit  (30)-1.png.png-da712601098bb2ab74bee31971d3f5cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Player.png"
-dest_files=[ "res://.import/Player.png-d5c990441431318df54319206b788b9f.stex" ]
+source_file="res://Assets/UI/Colourful Game-UI kit  (30)-1.png.png"
+dest_files=[ "res://.import/Colourful Game-UI kit  (30)-1.png.png-da712601098bb2ab74bee31971d3f5cb.stex" ]
 
 [params]
 

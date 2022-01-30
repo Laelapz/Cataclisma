@@ -70,6 +70,8 @@ func damage():
 		dead()
 
 func dead():
+	get_parent().find_node("Player").life += 5
+	get_parent().find_node("Player").currentXP += 1
 	emit_signal ("removed", self)
 	queue_free()
 

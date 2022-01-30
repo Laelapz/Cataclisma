@@ -24,6 +24,14 @@ func _playMusic():
 	p.play(0)
 	musicPlayer = p
 
+func _playFinalSceneMusic():
+	var p = AudioStreamPlayer.new()
+	get_tree().get_root().get_child(get_tree().get_root().get_child_count()-2).add_child(p)
+	song = load("res://Musics/Chiptune Dream Loop.wav")
+	p.set_stream(song)
+	p.volume_db = volumeMusicas
+	p.play(0) 
+
 func _refreshMusicVolume():
 	musicPlayer.volume_db = volumeMusicas
 
