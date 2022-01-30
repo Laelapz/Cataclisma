@@ -12,7 +12,6 @@ func _ready():
 	Input.set_custom_mouse_cursor(cursor)
 
 	
-<<<<<<< HEAD
 	#Spawn Bosses
 	$"/root/SpawnManager"._spawnBoss($RelampagoArea.position, 0)
 	$"/root/SpawnManager"._spawnBoss($HomemSuperArea.position, 1)
@@ -21,8 +20,6 @@ func _ready():
 	#Spawn NPCs
 	
 	#Spawn Enemies
-=======
->>>>>>> c59cfadc74121b4f7f465bbf1b6bc456805f9e55
 
 func _input(event):
 	if(event.is_pressed() && find_node("Player").is_dead):

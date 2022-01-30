@@ -70,13 +70,8 @@ extents = Vector2( 15.8216, 10.5797 )
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 15.7554, 4.15129 )
 
-<<<<<<< HEAD
-[sub_resource type="CircleShape2D" id=14]
-radius = 378.626
-=======
 [sub_resource type="CircleShape2D" id=13]
-radius = 199.004
->>>>>>> c59cfadc74121b4f7f465bbf1b6bc456805f9e55
+radius = 377.999
 
 [node name="Boss" type="KinematicBody2D" groups=[
 "minimap_objects",
@@ -94,11 +89,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-<<<<<<< HEAD
 frame = 3
-=======
-frame = 1
->>>>>>> c59cfadc74121b4f7f465bbf1b6bc456805f9e55
 playing = true
 
 [node name="ShotTimer" type="Timer" parent="."]
