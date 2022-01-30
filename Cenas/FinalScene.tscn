@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Outros/Mundo.tres" type="TileSet" id=1]
 [ext_resource path="res://Cenas/ScreenShake.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Cenas/TVLayer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/BossRelampago-sheet.png" type="Texture" id=10]
 [ext_resource path="res://Assets/BossMagaSuprema.png" type="Texture" id=11]
+[ext_resource path="res://Shaders/OutlineShader.gdshader" type="Shader" id=12]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -47,33 +48,67 @@ void fragment() {
 shader = SubResource( 1 )
 shader_param/bg_color = null
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 12 )
+shader_param/rainbow = false
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_scale = 0.5
+shader_param/frequency = 0.5
+shader_param/light_offset = 0.5
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 12 )
+shader_param/rainbow = false
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_scale = 0.5
+shader_param/frequency = 0.5
+shader_param/light_offset = 0.5
+shader_param/alpha = 1.0
+
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 7 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
 } ]
 
-[sub_resource type="DynamicFont" id=8]
-size = 128
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 12 )
+shader_param/rainbow = false
+shader_param/line_color = Color( 1, 0.898039, 0.85098, 1 )
+shader_param/line_scale = 0.5
+shader_param/frequency = 0.5
+shader_param/light_offset = 0.5
+shader_param/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 12 )
+shader_param/rainbow = false
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_scale = 0.5
+shader_param/frequency = 0.5
+shader_param/light_offset = 0.5
+shader_param/alpha = 1.0
+
+[sub_resource type="DynamicFont" id=13]
+size = 120
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=8]
 length = 4.5
 loop = true
 tracks/0/type = "value"
@@ -169,6 +204,7 @@ format = 1
 tile_data = PoolIntArray( 1441830, 1, 0, 1441831, 1, 1, 1441832, 1, 1, 1441833, 1, 1, 1441834, 1, 1, 1441835, 1, 1, 1441836, 1, 1, 1441837, 1, 1, 1441838, 1, 1, 1441839, 1, 2, 1507366, 1, 131072, 1507367, 1, 131073, 1507368, 1, 131073, 1507369, 1, 131073, 1507370, 1, 131073, 1507371, 1, 131073, 1507372, 1, 131073, 1507373, 1, 131073, 1507374, 1, 131073, 1507375, 1, 131074, 1572902, 50, 65536, 1572903, 50, 65537, 1572904, 50, 65537, 1572905, 50, 65537, 1572906, 50, 65537, 1572907, 50, 65537, 1572908, 50, 65537, 1572909, 50, 65537, 1572910, 50, 65537, 1572911, 50, 65538, 1638438, 50, 65536, 1638439, 50, 65537, 1638440, 50, 65537, 1638441, 50, 65537, 1638442, 50, 65537, 1638443, 50, 65537, 1638444, 50, 65537, 1638445, 50, 65537, 1638446, 50, 65537, 1638447, 50, 65538, 1703974, 50, 65536, 1703975, 21, 0, 1703976, 50, 65537, 1703977, 21, 0, 1703978, 50, 65537, 1703979, 50, 65537, 1703980, 21, 0, 1703981, 50, 65537, 1703982, 21, 0, 1703983, 50, 65538, 1769510, 50, 65536, 1769512, 50, 65537, 1769514, 50, 65537, 1769515, 50, 65537, 1769517, 50, 65537, 1769519, 50, 65538, 1769525, 6, 131072, 1769526, 6, 131073, 1769527, 6, 131073, 1769528, 6, 131073, 1769529, 6, 131073, 1769530, 6, 131073, 1769531, 6, 131073, 1769532, 6, 131073, 1769533, 6, 131073, 1769534, 6, 131073, 1769535, 6, 131074, 1835046, 50, 65536, 1835047, 50, 65537, 1835048, 50, 65537, 1835049, 50, 65537, 1835050, 50, 65537, 1835051, 50, 65537, 1835052, 50, 65537, 1835053, 50, 65537, 1835054, 50, 65537, 1835055, 50, 65538, 1835061, 6, 262144, 1835062, 6, 262145, 1835063, 6, 262145, 1835064, 6, 262145, 1835065, 6, 262145, 1835066, 6, 262145, 1835067, 6, 262145, 1835068, 6, 262145, 1835069, 6, 262145, 1835070, 6, 262145, 1835071, 6, 262146, 1900582, 50, 65536, 1900583, 50, 65537, 1900584, 50, 65537, 1900585, 50, 65537, 1900586, 50, 65537, 1900587, 50, 65537, 1900588, 50, 65537, 1900589, 50, 65537, 1900590, 50, 65537, 1900591, 50, 65537, 1900592, 1, 0, 1900593, 1, 1, 1900594, 1, 1, 1900595, 1, 2, 1900597, 0, 0, 1900598, 0, 1, 1900599, 0, 1, 1900600, 0, 1, 1900601, 0, 1, 1900602, 0, 1, 1900603, 0, 1, 1900604, 0, 1, 1900605, 0, 1, 1900606, 0, 1, 1900607, 0, 2, 1966118, 50, 65536, 1966119, 21, 0, 1966120, 50, 65537, 1966121, 21, 0, 1966122, 50, 65537, 1966123, 50, 65537, 1966124, 21, 0, 1966125, 50, 65537, 1966126, 21, 0, 1966127, 50, 65537, 1966128, 1, 131072, 1966129, 1, 131073, 1966130, 1, 131073, 1966131, 1, 131074, 1966133, 0, 0, 1966134, 0, 1, 1966135, 28, 0, 1966137, 0, 1, 1966138, 0, 1, 1966139, 0, 1, 1966140, 28, 0, 1966142, 0, 1, 1966143, 0, 2, 2031654, 50, 65536, 2031656, 50, 65537, 2031658, 50, 65537, 2031659, 50, 65537, 2031661, 50, 65537, 2031663, 50, 65537, 2031664, 50, 65537, 2031665, 50, 65537, 2031666, 50, 65537, 2031667, 50, 65538, 2031669, 0, 0, 2031670, 0, 1, 2031671, 0, 1, 2031672, 0, 1, 2031673, 0, 1, 2031674, 0, 1, 2031675, 0, 1, 2031676, 0, 1, 2031677, 0, 1, 2031678, 0, 1, 2031679, 0, 2 )
 
 [node name="Sprite" type="Sprite" parent="ColorRect"]
+material = SubResource( 14 )
 position = Vector2( 477.916, 304.156 )
 scale = Vector2( 20, 20 )
 texture = ExtResource( 4 )
@@ -193,76 +229,85 @@ format = 1
 tile_data = PoolIntArray( 393216, 1, 262144, 393217, 1, 262145, 393218, 1, 262145, 393219, 1, 262145, 393220, 1, 262145, 393221, 1, 262145, 393222, 1, 262146, 458752, 1, 393216, 458753, 1, 393217, 458754, 1, 393217, 458755, 1, 393217, 458756, 1, 393217, 458757, 1, 393217, 458758, 1, 393218, 524288, 50, 0, 524289, 50, 1, 524290, 50, 1, 524291, 50, 1, 524292, 50, 1, 524293, 50, 1, 524294, 50, 2, 524295, 6, 131072, 524296, 6, 131073, 524297, 6, 131073, 524298, 6, 131073, 524299, 6, 131073, 524300, 6, 131073, 524301, 6, 131073, 524302, 6, 131073, 524303, 6, 131074, 589824, 50, 0, 589825, 26, 0, 589826, 50, 1, 589827, 50, 1, 589828, 50, 1, 589829, 26, 0, 589830, 50, 2, 589831, 6, 262144, 589832, 6, 262145, 589833, 6, 262145, 589834, 6, 262145, 589835, 6, 262145, 589836, 6, 262145, 589837, 6, 262145, 589838, 6, 262145, 589839, 6, 262146, 655360, 50, 0, 655362, 50, 1, 655363, 50, 1, 655364, 50, 1, 655366, 50, 2, 655367, 50, 131072, 655368, 50, 131073, 655369, 50, 131073, 655370, 50, 131073, 655371, 50, 131073, 655372, 50, 131073, 655373, 50, 131073, 655374, 50, 131073, 655375, 50, 131074 )
 
 [node name="Herói" type="Sprite" parent="ColorRect"]
-position = Vector2( 803.51, 579.501 )
+position = Vector2( 795.51, 570.001 )
 rotation = 1.74533
-scale = Vector2( 3, 3 )
+scale = Vector2( 3.97292, 4.44083 )
 z_index = 2
 texture = ExtResource( 6 )
 hframes = 2
 vframes = 2
 
 [node name="Herói2" type="Sprite" parent="ColorRect"]
-position = Vector2( 498.639, 598.378 )
+position = Vector2( 513.639, 580.878 )
 rotation = -2.0944
-scale = Vector2( 3, 3 )
+scale = Vector2( 3.86861, 4.07885 )
 z_index = 2
 texture = ExtResource( 10 )
 hframes = 4
 
 [node name="Herói3" type="Sprite" parent="ColorRect"]
-position = Vector2( 196.465, 439.628 )
+position = Vector2( 215.539, 428.965 )
 rotation = -1.5708
-scale = Vector2( 3, 3 )
+scale = Vector2( 3.51433, 3.65309 )
 z_index = 2
 texture = ExtResource( 11 )
 hframes = 4
 
 [node name="Fogo" type="AnimatedSprite" parent="ColorRect"]
+material = SubResource( 9 )
 position = Vector2( 908.306, 449.212 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 7 )
+frames = SubResource( 6 )
 playing = true
 
 [node name="Fogo2" type="AnimatedSprite" parent="ColorRect/Fogo"]
-position = Vector2( -227.102, 50.8343 )
+material = SubResource( 10 )
+position = Vector2( -227.102, 50.501 )
 scale = Vector2( 3, 3 )
 z_index = 1
-frames = SubResource( 7 )
+frames = SubResource( 6 )
 playing = true
 flip_h = true
 
 [node name="Fogo4" type="AnimatedSprite" parent="ColorRect/Fogo"]
-position = Vector2( -32.4335, 22.4411 )
-scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 7 )
+material = SubResource( 11 )
+position = Vector2( -29.7668, 19.9411 )
+scale = Vector2( 0.866667, 0.85625 )
+frames = SubResource( 6 )
 frame = 2
 playing = true
 
-[node name="Fogo3" type="AnimatedSprite" parent="ColorRect/Fogo"]
-position = Vector2( -44.8079, 16.0771 )
-scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 7 )
+[node name="Fogo5" type="AnimatedSprite" parent="ColorRect/Fogo"]
+material = SubResource( 11 )
+position = Vector2( -50.4335, 17.9411 )
+scale = Vector2( 0.866667, 0.85625 )
+frames = SubResource( 6 )
+frame = 2
 playing = true
-flip_h = true
 
-[node name="Label" type="Label" parent="ColorRect"]
-margin_left = 74.1425
-margin_top = 136.704
-margin_right = 839.142
-margin_bottom = 444.704
-custom_fonts/font = SubResource( 8 )
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+margin_left = -97.6518
+margin_top = 172.775
+margin_right = 900.348
+margin_bottom = 582.775
+rect_min_size = Vector2( 300, 200 )
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 13 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 8
-text = "The End"
-align = 1
-valign = 1
+bbcode_enabled = true
+bbcode_text = " [wave] The end"
+text = "  The end"
+fit_content_height = true
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Destruicao = SubResource( 3 )
+anims/Destruicao = SubResource( 8 )
 
 [node name="ScreenShake" parent="." instance=ExtResource( 2 )]
 

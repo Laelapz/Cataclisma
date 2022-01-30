@@ -15,6 +15,7 @@ var rng = RandomNumberGenerator.new()
 signal removed
 
 const BULLET = preload("res://Cenas/MagaSupremaShot.tscn")
+const BLOOD = preload("res://Cenas/BloodParticle.tscn")
 
 func _ready():
 	get_parent().find_node("MiniMap")._new_marker(self)
@@ -50,21 +51,33 @@ func _process(delta):
 				velocity = move_and_slide(velocity)
 	
 			if dist_from_player <= 150 && can_shot:
-				var bullet = BULLET.instance()
-				get_parent().add_child(bullet)
-				bullet.damage = damage
-				bullet.rotation_degrees = rotation_degrees
-				bullet.global_position = global_position
-				bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed, 0).rotated(get_angle_to(player.global_position)))
+				shotInFan()
 				can_shot = false
 				$ShotTimer.start()
 	else:
 		velocity = Vector2(x, y).normalized() * speed
 		velocity = move_and_slide(velocity)
 
+func shotInFan():
+	for i in [-180, -90, -45, -30, 0, 30, 90, 45, 180]:
+		var bullet = BULLET.instance()
+		get_parent().add_child(bullet)
+		rng.randomize()
+		bullet.bullet_speed = rng.randf_range(100.0, 250.0)
+		bullet.damage = damage
+		bullet.rotation_degrees = rotation_degrees
+		bullet.global_position = global_position
+		bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed, 0).rotated(get_angle_to(player.global_position)+i))
+		can_shot = false
+		$ShotTimer.start()
+
 func damage():
 	$"/root/AudioManager"._enemyDamage()
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
+	var blood = BLOOD.instance()
+	add_child(blood)
+	blood.emitting = true
+	blood.global_position = global_position
 	life -= 1
 	
 	if life <= 0:

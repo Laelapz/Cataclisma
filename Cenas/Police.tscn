@@ -218,7 +218,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="ShaderMaterial" id=46]
+[sub_resource type="ShaderMaterial" id=40]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 1, 1, 1, 1 )
@@ -227,17 +227,17 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="GDScript" id=40]
+[sub_resource type="GDScript" id=41]
 script/source = "extends Sprite
 
 func _process(delta):
 	pass
 "
 
-[sub_resource type="CircleShape2D" id=41]
+[sub_resource type="CircleShape2D" id=42]
 radius = 199.004
 
-[sub_resource type="ShaderMaterial" id=42]
+[sub_resource type="ShaderMaterial" id=43]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 0.909804, 0.219608, 0.196078, 1 )
@@ -246,7 +246,7 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="GDScript" id=43]
+[sub_resource type="GDScript" id=44]
 script/source = "extends Sprite
 
 var global_position_y = -16
@@ -256,10 +256,10 @@ func _process(delta):
 	pass
 "
 
-[sub_resource type="RectangleShape2D" id=44]
+[sub_resource type="RectangleShape2D" id=45]
 extents = Vector2( 14.4756, 10 )
 
-[sub_resource type="RectangleShape2D" id=45]
+[sub_resource type="RectangleShape2D" id=46]
 extents = Vector2( 13.7265, 2.74716 )
 
 [node name="Enemy" type="KinematicBody2D" groups=[
@@ -277,22 +277,22 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 39 )
 animation = "fbi1"
-frame = 3
+frame = 2
 playing = true
 
 [node name="gun_sprite" type="Sprite" parent="CollisionShape2D/AnimatedSprite"]
-material = SubResource( 46 )
+material = SubResource( 40 )
 position = Vector2( 4.46837, 3.51907 )
 scale = Vector2( 0.770743, 0.682354 )
 texture = ExtResource( 13 )
-script = SubResource( 40 )
+script = SubResource( 41 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 41 )
+shape = SubResource( 42 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -303,10 +303,10 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Atention" type="Sprite" parent="."]
-material = SubResource( 42 )
+material = SubResource( 43 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
-script = SubResource( 43 )
+script = SubResource( 44 )
 
 [node name="Head" type="Area2D" parent="."]
 collision_layer = 4
@@ -314,7 +314,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
 position = Vector2( -0.715828, -5.13198 )
-shape = SubResource( 44 )
+shape = SubResource( 45 )
 
 [node name="Legs" type="Area2D" parent="."]
 collision_layer = 4
@@ -322,7 +322,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Legs"]
 position = Vector2( -0.483982, 8.53117 )
-shape = SubResource( 45 )
+shape = SubResource( 46 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

@@ -42,9 +42,6 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="CircleShape2D" id=8]
-radius = 199.004
-
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
@@ -73,6 +70,9 @@ extents = Vector2( 15.8216, 10.5797 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 15.7554, 4.15129 )
 
+[sub_resource type="CircleShape2D" id=14]
+radius = 199.004
+
 [node name="Boss" type="KinematicBody2D" groups=[
 "minimap_objects",
 ]]
@@ -89,16 +89,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-frame = 1
 playing = true
-
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 8 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -153,8 +144,15 @@ collision_mask = 32
 position = Vector2( -0.463513, 14.3027 )
 shape = SubResource( 13 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 14 )
+
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
 [connection signal="timeout" from="RunerTimer" to="." method="_on_RunerTimer_timeout"]
 [connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

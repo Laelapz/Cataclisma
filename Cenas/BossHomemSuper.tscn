@@ -83,6 +83,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 7 )
 animation = "HomemSuper"
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -108,7 +109,7 @@ script = SubResource( 10 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 material = SubResource( 11 )
-amount = 20
+amount = 30
 explosiveness = 0.44
 lifetime_randomness = 0.14
 emission_shape = 1

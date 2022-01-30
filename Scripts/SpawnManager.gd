@@ -25,11 +25,16 @@ func _spawnBoss(position, dificulty):
 		boss = BOSS_RELAMPAGO.instance()
 	elif dificulty == 1:
 		boss = BOSS_HOMEM_SUPER.instance()
+		boss.connect("_on_AreaHomemSuper_body_entered", boss, "_on_Area2D_body_entered")
+		boss.connect("_on_AreaHomemSuper_body_exited", boss, "_on_Area2D_body_exited")
 	elif dificulty == 2:
 		boss = BOSS_MAGA_SUPREMA.instance()
+		boss.connect("_on_AreaMagaSuprema_body_entered", boss, "_on_Area2D_body_entered")
+		boss.connect("_on_AreaMagaSuprema_body_exited", boss, "_on_Area2D_body_exited")
 	get_tree().get_root().get_child(2).add_child(boss)
-	boss.global_position.x = round(rand_range(position.x-100, position.x+100))
-	boss.global_position.y = round(rand_range(position.y-100, position.y+100))
+	boss.global_position.x = position.x
+	boss.global_position.y = position.y
+
 
 func _spawnNPCs(quantity, position, dificulty):
 	randomize()
@@ -38,8 +43,9 @@ func _spawnNPCs(quantity, position, dificulty):
 		var npc = NPC.instance()
 		npc.type = npc_type[dificulty][index]
 		get_tree().get_root().get_child(2).add_child(npc)
-		npc.global_position.x = round(rand_range(position.x-100, position.x+100))
-		npc.global_position.y = round(rand_range(position.y-100, position.y+100))
+		var R = 80
+		npc.global_position.x = round(rand_range(position.x-R, position.x+R))
+		npc.global_position.y = round(rand_range(position.y-R, position.y+R))
 		
 func _spawnEnemys(quantity, position, dificulty):
 	randomize()
@@ -48,6 +54,7 @@ func _spawnEnemys(quantity, position, dificulty):
 		var enemy = ENEMY.instance()
 		enemy.type = levels[dificulty][index]
 		get_tree().get_root().get_child(2).add_child(enemy)
-		enemy.global_position.x = round(rand_range(position.x-100, position.x+100))
-		enemy.global_position.y = round(rand_range(position.y-100, position.y+100))
+		var R = 80
+		enemy.global_position.x = round(rand_range(position.x-R, position.x+R))
+		enemy.global_position.y = round(rand_range(position.y-R, position.y+R))
 		

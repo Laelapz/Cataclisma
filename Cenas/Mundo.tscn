@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Outros/Mundo.tres" type="TileSet" id=2]
@@ -351,6 +351,9 @@ shader_param/distortion = 0.084
 shader_param/heightOffset = 0.465
 shader_param/offset = 0.0
 
+[sub_resource type="CircleShape2D" id=5]
+radius = 450.0
+
 [node name="Mundo" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -363,10 +366,11 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="Water"]
 material = SubResource( 2 )
-margin_left = -2161.0
-margin_top = -2510.0
-margin_right = 1667.0
-margin_bottom = 1078.0
+margin_left = -2137.84
+margin_top = -2518.91
+margin_right = 1690.16
+margin_bottom = 1069.09
+rect_rotation = -0.0255202
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -392,7 +396,7 @@ player = NodePath("../../Player")
 [node name="PauseScreen" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 38.4233, -93.0512 )
+position = Vector2( -113.924, 53.768 )
 z_index = 1
 
 [node name="Postes" type="TileMap" parent="."]
@@ -448,3 +452,24 @@ format = 1
 tile_data = PoolIntArray( -16711876, 58, 0, -15007886, 57, 0, -14614647, 536870971, 0, -13697238, 536870969, 0, -13172892, 536870969, 0, -13172766, 57, 0, -11599951, 536870971, 0, -10682529, 58, 0, -10289181, 59, 0, -10354635, 57, 0, -9895990, 536870970, 0, -9371599, 17, 0, -9371591, 17, 0, -9306071, 17, 0, -9306065, 17, 0, -9306064, 17, 0, -9306063, 17, 0, -9306059, 17, 0, -9306057, 17, 0, -9306055, 17, 0, -9306053, 17, 0, -9240535, 17, 0, -9240534, 17, 0, -9240533, 17, 0, -9240529, 17, 0, -9240528, 17, 0, -9240527, 17, 0, -9240523, 17, 0, -9240521, 17, 0, -9240517, 17, 0, -9174999, 17, 0, -9174998, 17, 0, -9174997, 17, 0, -9174993, 17, 0, -9174991, 17, 0, -9174987, 17, 0, -9174985, 17, 0, -9174981, 17, 0, -9109463, 17, 0, -9109462, 17, 0, -9109461, 17, 0, -9109457, 17, 0, -9109455, 17, 0, -9109451, 17, 0, -9109449, 17, 0, -9109445, 17, 0, -8978463, 57, 0, -9043927, 17, 0, -9043926, 17, 0, -9043925, 17, 0, -9043921, 17, 0, -9043919, 17, 0, -9043915, 17, 0, -9043913, 17, 0, -9043909, 17, 0, -8978391, 17, 0, -8978390, 17, 0, -8978389, 17, 0, -8978385, 17, 0, -8978383, 17, 0, -8978379, 17, 0, -8978377, 17, 0, -8978373, 17, 0, -8912855, 17, 0, -8912854, 17, 0, -8912853, 17, 0, -8912849, 17, 0, -8912847, 17, 0, -8912843, 17, 0, -8912841, 17, 0, -8912837, 17, 0, -8716484, 59, 0, -7274620, 58, 0, -7274580, 59, 0, -6881457, 536870969, 0, -6881451, 536870970, 0, -5963919, 59, 0, -3407858, 59, 0, -3211429, 59, 0, -2818235, 536870969, 0, -2097101, 58, 0, -2097060, 57, 0, -1638457, 57, 0, 1769398, 536870970, 0, 1835052, 58, 0, 4587541, 536870971, 0, 5046194, 536870969, 0, 5046224, 536870969, 0 )
 
 [node name="ScreenShake" parent="." instance=ExtResource( 7 )]
+
+[node name="AreaRelampago" type="Area2D" parent="."]
+position = Vector2( -350, 400 )
+collision_layer = 4
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RelampagoCollision" type="CollisionShape2D" parent="AreaRelampago"]
+shape = SubResource( 5 )
+
+[node name="HomemSuperArea2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 260.626, -1092.58 )
+shape = SubResource( 5 )
+
+[node name="MagaSupremaArea" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1804.1, -1508.3 )
+shape = SubResource( 5 )

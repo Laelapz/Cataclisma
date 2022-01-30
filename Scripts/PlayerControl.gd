@@ -5,7 +5,7 @@ var life = 1000
 onready var sprite = $Position2D/Sprite
 onready var eye_sprite = $Position2D/EyeSprite
 onready var position2D = $Position2D
-var mov = null
+var mov = Vector2(0,0)
 var FPS = 60
 var FPS_counter = 0
 var can_move = false
@@ -17,7 +17,7 @@ var legsColliding = false
 var evolucao = 0
 
 const POLICE = preload("res://Cenas/Police.tscn")
-
+const BLOOD = preload("res://Cenas/BloodParticleCreature.tscn")
 	
 func update_frame(limit):
 	if (FPS_counter > limit):
@@ -56,8 +56,8 @@ func _physics_process(delta):
 #			$"/root/SpawnManager"._spawnBoss(global_position, 1)
 #			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 #			$"/root/SpawnManager"._spawnNPCs(10, global_position, 0)
-			$"/root/SpawnManager"._spawnBoss(global_position, 0)
-			$"/root/SpawnManager"._spawnBoss(global_position, 1)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 0)
+#			$"/root/SpawnManager"._spawnBoss(global_position, 1)
 			$"/root/SpawnManager"._spawnBoss(global_position, 2)
 
 		mov = mov.normalized()
@@ -82,6 +82,10 @@ func damage(damage):
 	if can_damage:
 		$"/root/AudioManager"._playerDamage()
 		get_parent().find_node("ScreenShake").screen_shake(1, 5, 1)
+		var blood = BLOOD.instance()
+		add_child(blood)
+		blood.emitting = true
+		blood.global_position = global_position
 		life -= damage
 		
 		if life <= 0:

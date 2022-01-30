@@ -10,7 +10,7 @@ min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0.00700934, -175.583 ), 0.0, 0.0, 0, 0, Vector2( 1, 142.454 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
+[sub_resource type="CurveTexture" id=11]
 curve = SubResource( 2 )
 
 [sub_resource type="Curve" id=4]
@@ -18,20 +18,20 @@ min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0.0257009, -61.8405 ), 0.0, 0.0, 0, 0, Vector2( 0.969626, 132.515 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=12]
 curve = SubResource( 4 )
 
 [sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.355556, 0.455556, 0.744444, 0.911111 )
 colors = PoolColorArray( 0.880083, 0.318604, 0.9375, 1, 0.38908, 0.282243, 0.8736, 0.824736, 0.905882, 0.476409, 0.266667, 0.67451, 0.19909, 0.170898, 0.875, 1, 0.843137, 0.741054, 0.0745098, 0.0352941 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=13]
 gradient = SubResource( 6 )
 
 [sub_resource type="Curve" id=8]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.932243, 0.403374 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=9]
+[sub_resource type="CurveTexture" id=14]
 curve = SubResource( 8 )
 
 [sub_resource type="ParticlesMaterial" id=10]
@@ -44,15 +44,15 @@ initial_velocity = 12.0
 initial_velocity_random = 0.11
 angular_velocity = 1.0
 angular_velocity_random = 0.14
-angular_velocity_curve = SubResource( 5 )
+angular_velocity_curve = SubResource( 12 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = -1.0
 angle = 45.0
-angle_curve = SubResource( 3 )
-scale = 10.0
-scale_curve = SubResource( 9 )
-color_ramp = SubResource( 7 )
+angle_curve = SubResource( 11 )
+scale = 11.0
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 13 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 16
@@ -82,6 +82,7 @@ __meta__ = {
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -0.212364, -0.646196 )
+z_index = 2
 amount = 40
 lifetime = 0.2
 local_coords = false
