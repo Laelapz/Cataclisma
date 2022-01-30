@@ -4,17 +4,17 @@
 [ext_resource path="res://Assets/Particles/puff_smooth.png" type="Texture" id=2]
 
 [sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 0.280682 ), 0.0, 0.0700246, 0, 0, Vector2( 1, 0 ), -1.0085, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.125524 ), 0.0, 0.0700246, 0, 0, Vector2( 0.552632, 0 ), -0.33187, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
+direction = Vector3( 0, 1, 0 )
 spread = 60.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 25.0
+initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale_curve = SubResource( 2 )
@@ -22,7 +22,7 @@ scale_curve = SubResource( 2 )
 [node name="RayCast2D" type="RayCast2D"]
 position = Vector2( 35.5959, 68.5675 )
 rotation = 6.28319
-cast_to = Vector2( 0, 100 )
+cast_to = Vector2( 0, 0 )
 collision_mask = 2
 script = ExtResource( 1 )
 __meta__ = {
@@ -60,3 +60,4 @@ texture = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

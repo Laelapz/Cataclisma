@@ -11,7 +11,7 @@ var can_shot = true
 var velocity = Vector2()
 var minimap_icon = "hero"
 var rng = RandomNumberGenerator.new()
-
+var lasers = 0
 var headColliding = false
 var legsColliding = false
 
@@ -40,7 +40,6 @@ func _process(delta):
 		$CollisionShape2D/AnimatedSprite.flip_h = false
 		
 	if player != null:
-		var num = 0
 		var dist_from_player = sqrt((pow((global_position.x - player.global_position.x), 2) + pow((global_position.y - player.global_position.y), 2)))
 		
 		if dist_from_player <= 250:
@@ -51,18 +50,14 @@ func _process(delta):
 				var random_vel = Vector2(my_random_x, my_random_y)
 				velocity = (player.global_position - global_position + random_vel).normalized() * speed
 				velocity = move_and_slide(velocity)
-			if dist_from_player <= 150 && can_shot && num == 0:
-				num += 1
-				shotInRay()
-#				shotInFan()
-#				var bullet = BULLET.instance()
-#				get_parent().add_child(bullet)
-#				bullet.damage = damage
-#				bullet.rotation_degrees = rotation_degrees
-#				bullet.global_position = global_position
-#				bullet.apply_impulse(Vector2(), Vector2(bullet.bullet_speed, 0).rotated(get_angle_to(player.global_position)))
-#				can_shot = false
-#				$ShotTimer.start()
+			if dist_from_player <= 150 && can_shot:
+				var num  = round(rand_range(1, 5))
+				if num == 1:
+					fastRay()
+				elif num == 2:
+					shotInRay()
+				else:
+					shotInFan()
 	else:
 		velocity = Vector2(x, y).normalized() * speed
 		velocity = move_and_slide(velocity)
@@ -103,9 +98,6 @@ func _on_Area2D_body_exited(body):
 
 func _on_ShotTimer_timeout():
 	can_shot = true
-	$LaserTimer.stop()
-	$RayCast2D._closeInkRay()
-	$RayCast2D/Line2D/ParticlesEye.emitting = false
 
 
 func _on_RunerTimer_timeout():
@@ -127,17 +119,27 @@ func shotInFan():
 		$ShotTimer.start()
 
 func shotInRay():
-	print("entrou")
 	$RayCast2D/Line2D.width = 5
 	$RayCast2D/Line2D/ParticlesEye.emitting = true
 	$RayCast2D/Line2D/Particles2D.scale = Vector2(0.01, 0.01)
-#	$RayCast2D.transform.rotated(get_angle_to(player.global_position))
 	$RayCast2D.rotation = (player.global_position - $RayCast2D.global_position).normalized().angle()
 	$RayCast2D.rotation_degrees += 230
 	$RayCast2D._openInkRay()
 	$LaserTimer.start()
 	can_shot = false
 	$ShotTimer.start(3)
+	
+func fastRay() -> void:
+	lasers += 1
+	$RayCast2D.enabled = false
+	$RayCast2D.fast = true
+	$RayCast2D/Line2D/ParticlesEye.emitting = true
+	$RayCast2D/Line2D/Particles2D.scale = Vector2(0.01, 0.01)
+	$RayCast2D.rotation = (player.global_position - $RayCast2D.global_position).normalized().angle()
+	$RayCast2D.rotation_degrees += 270
+	$RayCast2D._openInkRay()
+	can_shot = false
+	$LaserTimer.start(1.5)
 
 
 func _on_Head_body_entered(body):
@@ -157,4 +159,18 @@ func _on_Legs_body_exited(body):
 
 
 func _on_LaserTimer_timeout():
-	$RayCast2D.rotation_degrees += 3
+	if $RayCast2D.fast:
+		$RayCast2D._closeInkRay()
+		$LaserTimer.stop()
+	else:
+		$RayCast2D.rotation_degrees += 3
+
+
+func _on_RayCast2D_fechou():
+	if lasers > 3:
+		$LaserTimer.stop()
+		can_shot = true
+		lasers = 0
+		$RayCast2D/Line2D/ParticlesEye.emitting = false
+	else:
+		shotInRay()

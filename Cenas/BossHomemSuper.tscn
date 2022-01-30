@@ -83,7 +83,7 @@ material = SubResource( 2 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 7 )
 animation = "HomemSuper"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -109,7 +109,7 @@ script = SubResource( 10 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 material = SubResource( 11 )
-amount = 30
+amount = 20
 explosiveness = 0.44
 lifetime_randomness = 0.14
 emission_shape = 1
@@ -144,6 +144,7 @@ wait_time = 0.05
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
 [connection signal="timeout" from="RunerTimer" to="." method="_on_RunerTimer_timeout"]
+[connection signal="fechou" from="RayCast2D" to="." method="_on_RayCast2D_fechou"]
 [connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
 [connection signal="body_exited" from="Head" to="." method="_on_Head_body_exited"]
 [connection signal="body_entered" from="Legs" to="." method="_on_Legs_body_entered"]
