@@ -11,6 +11,8 @@ func _ready():
 #	dialog.connect("dialogic_signal", self, "_dialog_finished")
 	Input.set_custom_mouse_cursor(cursor)
 	$Player/Camera2D.limit_left
+	
+	$"/root/SpawnManager"._spawnBoss($AreaRelampago.position, 0)
 
 func _input(event):
 	if(event.is_pressed() && find_node("Player").is_dead):

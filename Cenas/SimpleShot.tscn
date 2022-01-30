@@ -82,6 +82,7 @@ __meta__ = {
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -0.212364, -0.646196 )
+z_index = 2
 amount = 40
 lifetime = 0.3
 local_coords = false

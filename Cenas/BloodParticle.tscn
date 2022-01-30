@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Curve" id=1]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.997664, 353.374 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.255556, 0.555556, 1 )
+colors = PoolColorArray( 0.666992, 0.130272, 0.130272, 1, 0.973541, 0.0836637, 0.0836637, 1, 0.825104, 0.138592, 0.138592, 1, 0.98526, 0.484933, 0.484933, 0.223529 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 80, 0 )
+initial_velocity = 40.0
+angular_velocity = 251.43
+angular_velocity_curve = SubResource( 2 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 3.17
+linear_accel_random = 0.03
+radial_accel = 25.4
+radial_accel_random = 0.37
+scale = 4.0
+color_ramp = SubResource( 4 )
+
+[node name="Particles2D" type="Particles2D"]
+z_index = 2
+emitting = false
+amount = 50
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+local_coords = false
+process_material = SubResource( 5 )

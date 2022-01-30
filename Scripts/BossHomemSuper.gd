@@ -18,6 +18,7 @@ var legsColliding = false
 signal removed
 
 const BULLET = preload("res://Cenas/HomemSuperShot.tscn")
+const BLOOD = preload("res://Cenas/BloodParticle.tscn")
 
 func _ready():
 	get_parent().find_node("MiniMap")._new_marker(self)
@@ -68,8 +69,11 @@ func _process(delta):
 
 func damage():
 	$"/root/AudioManager"._enemyDamage()
-	
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
+	var blood = BLOOD.instance()
+	add_child(blood)
+	blood.emitting = true
+	blood.global_position = global_position
 	life -= 1
 	
 	if life <= 0:

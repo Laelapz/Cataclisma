@@ -15,6 +15,7 @@ func _ready():
 	$Menu/Tween.interpolate_property($Menu/Path2D/PathFollow2D, "unit_offset", 0, 1, 50, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Menu/Tween.start()
 	
+	
 func _process(delta):
 	if $Menu/MarginContainer/VBoxContainer/HBoxContainer/Jogar.is_hovered():
 		$Menu/MarginContainer/VBoxContainer/HBoxContainer/Jogar.grab_focus()

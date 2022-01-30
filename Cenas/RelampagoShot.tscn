@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Assets/Particles/sparkle.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/SimpleShotEnemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -24,7 +23,7 @@ curve = SubResource( 4 )
 
 [sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.355556, 0.455556, 0.744444, 0.911111 )
-colors = PoolColorArray( 0.9375, 0.797281, 0.318604, 1, 0.8736, 0.767341, 0.282243, 0.824736, 0.905882, 0.476409, 0.266667, 0.67451, 0.875, 0.814491, 0.170898, 1, 0.843137, 0.741054, 0.0745098, 0.0352941 )
+colors = PoolColorArray( 1, 0.953094, 0.792969, 1, 1, 0.906647, 0.480469, 0.824736, 0.897461, 0.849922, 0.438213, 0.67451, 0.963867, 0.957072, 0.8848, 1, 0.843137, 0.741054, 0.0745098, 0.0352941 )
 
 [sub_resource type="GradientTexture" id=7]
 gradient = SubResource( 6 )
@@ -51,7 +50,7 @@ orbit_velocity_random = 0.0
 linear_accel = -1.0
 angle = 45.0
 angle_curve = SubResource( 3 )
-scale = 0.15
+scale = 8.0
 scale_curve = SubResource( 9 )
 color_ramp = SubResource( 7 )
 
@@ -80,14 +79,15 @@ __meta__ = {
 }
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -0.052556 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -0.212364, -0.646196 )
+scale = Vector2( 1, 10 )
 amount = 40
 lifetime = 0.2
 local_coords = false
 process_material = SubResource( 10 )
-texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_RigidBody2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
