@@ -77,9 +77,10 @@ func _physics_process(delta):
 		z_index = 1
 
 func updateLvl():
-	print("upou")
+	get_parent().find_node("HUD").lvlUpShow()
 	lvl += 1
 	playerDamage = 1 + 2*lvl
+	scale *= 1.05
 	life = 100 + 2*lvl
 	currentXP = 0
 	maxXP = pow(2, lvl)
@@ -90,10 +91,12 @@ func evolve():
 	var evo = $"/root/SpawnManager"._get_evolution()
 	if evo == 1:
 		sprite.texture = load("res://Assets/creature-sheet-evol-1.png")
-		self.scale = Vector2(1.25, 1.25)
-	elif evo == 2:
+		scale *= 1.2
+		$"/root/SpawnManager".player_evol += 1
+	elif evo == 3:
 		sprite.texture = load("res://Assets/creature-sheet-evol-2.png")
-		self.scale = Vector2(1.5, 1.5)
+		scale *= 1.2
+		$"/root/SpawnManager".player_evol += 1
 
 func damage(damage):
 	if can_damage:

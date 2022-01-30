@@ -33,7 +33,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var dist_from_origem = sqrt((pow((position.x - origem.x), 2) + pow((position.y - origem.y), 2)))
-	print(dist_from_origem)
 	
 	if(dist_from_origem + 5 >= raio_limite):
 		velocity = -(global_position - origem).normalized()

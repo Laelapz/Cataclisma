@@ -277,6 +277,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 39 )
 animation = "fbi1"
+frame = 2
 playing = true
 
 [node name="gun_sprite" type="Sprite" parent="CollisionShape2D/AnimatedSprite"]
