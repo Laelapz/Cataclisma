@@ -48,7 +48,7 @@ void fragment() {
 shader = SubResource( 1 )
 shader_param/bg_color = null
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 1, 1, 1, 1 )
@@ -57,7 +57,7 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 1, 1, 1, 1 )
@@ -65,28 +65,28 @@ shader_param/line_scale = 0.5
 shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 7 )
-region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
 } ]
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 1, 0.898039, 0.85098, 1 )
@@ -95,7 +95,7 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="ShaderMaterial" id=11]
+[sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 1, 1, 1, 1 )
@@ -104,11 +104,11 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=11]
 size = 120
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=12]
 length = 4.5
 loop = true
 tracks/0/type = "value"
@@ -204,7 +204,7 @@ format = 1
 tile_data = PoolIntArray( 1441830, 1, 0, 1441831, 1, 1, 1441832, 1, 1, 1441833, 1, 1, 1441834, 1, 1, 1441835, 1, 1, 1441836, 1, 1, 1441837, 1, 1, 1441838, 1, 1, 1441839, 1, 2, 1507366, 1, 131072, 1507367, 1, 131073, 1507368, 1, 131073, 1507369, 1, 131073, 1507370, 1, 131073, 1507371, 1, 131073, 1507372, 1, 131073, 1507373, 1, 131073, 1507374, 1, 131073, 1507375, 1, 131074, 1572902, 50, 65536, 1572903, 50, 65537, 1572904, 50, 65537, 1572905, 50, 65537, 1572906, 50, 65537, 1572907, 50, 65537, 1572908, 50, 65537, 1572909, 50, 65537, 1572910, 50, 65537, 1572911, 50, 65538, 1638438, 50, 65536, 1638439, 50, 65537, 1638440, 50, 65537, 1638441, 50, 65537, 1638442, 50, 65537, 1638443, 50, 65537, 1638444, 50, 65537, 1638445, 50, 65537, 1638446, 50, 65537, 1638447, 50, 65538, 1703974, 50, 65536, 1703975, 21, 0, 1703976, 50, 65537, 1703977, 21, 0, 1703978, 50, 65537, 1703979, 50, 65537, 1703980, 21, 0, 1703981, 50, 65537, 1703982, 21, 0, 1703983, 50, 65538, 1769510, 50, 65536, 1769512, 50, 65537, 1769514, 50, 65537, 1769515, 50, 65537, 1769517, 50, 65537, 1769519, 50, 65538, 1769525, 6, 131072, 1769526, 6, 131073, 1769527, 6, 131073, 1769528, 6, 131073, 1769529, 6, 131073, 1769530, 6, 131073, 1769531, 6, 131073, 1769532, 6, 131073, 1769533, 6, 131073, 1769534, 6, 131073, 1769535, 6, 131074, 1835046, 50, 65536, 1835047, 50, 65537, 1835048, 50, 65537, 1835049, 50, 65537, 1835050, 50, 65537, 1835051, 50, 65537, 1835052, 50, 65537, 1835053, 50, 65537, 1835054, 50, 65537, 1835055, 50, 65538, 1835061, 6, 262144, 1835062, 6, 262145, 1835063, 6, 262145, 1835064, 6, 262145, 1835065, 6, 262145, 1835066, 6, 262145, 1835067, 6, 262145, 1835068, 6, 262145, 1835069, 6, 262145, 1835070, 6, 262145, 1835071, 6, 262146, 1900582, 50, 65536, 1900583, 50, 65537, 1900584, 50, 65537, 1900585, 50, 65537, 1900586, 50, 65537, 1900587, 50, 65537, 1900588, 50, 65537, 1900589, 50, 65537, 1900590, 50, 65537, 1900591, 50, 65537, 1900592, 1, 0, 1900593, 1, 1, 1900594, 1, 1, 1900595, 1, 2, 1900597, 0, 0, 1900598, 0, 1, 1900599, 0, 1, 1900600, 0, 1, 1900601, 0, 1, 1900602, 0, 1, 1900603, 0, 1, 1900604, 0, 1, 1900605, 0, 1, 1900606, 0, 1, 1900607, 0, 2, 1966118, 50, 65536, 1966119, 21, 0, 1966120, 50, 65537, 1966121, 21, 0, 1966122, 50, 65537, 1966123, 50, 65537, 1966124, 21, 0, 1966125, 50, 65537, 1966126, 21, 0, 1966127, 50, 65537, 1966128, 1, 131072, 1966129, 1, 131073, 1966130, 1, 131073, 1966131, 1, 131074, 1966133, 0, 0, 1966134, 0, 1, 1966135, 28, 0, 1966137, 0, 1, 1966138, 0, 1, 1966139, 0, 1, 1966140, 28, 0, 1966142, 0, 1, 1966143, 0, 2, 2031654, 50, 65536, 2031656, 50, 65537, 2031658, 50, 65537, 2031659, 50, 65537, 2031661, 50, 65537, 2031663, 50, 65537, 2031664, 50, 65537, 2031665, 50, 65537, 2031666, 50, 65537, 2031667, 50, 65538, 2031669, 0, 0, 2031670, 0, 1, 2031671, 0, 1, 2031672, 0, 1, 2031673, 0, 1, 2031674, 0, 1, 2031675, 0, 1, 2031676, 0, 1, 2031677, 0, 1, 2031678, 0, 1, 2031679, 0, 2 )
 
 [node name="Sprite" type="Sprite" parent="ColorRect"]
-material = SubResource( 14 )
+material = SubResource( 3 )
 position = Vector2( 477.916, 304.156 )
 scale = Vector2( 20, 20 )
 texture = ExtResource( 4 )
@@ -254,34 +254,34 @@ texture = ExtResource( 11 )
 hframes = 4
 
 [node name="Fogo" type="AnimatedSprite" parent="ColorRect"]
-material = SubResource( 9 )
+material = SubResource( 4 )
 position = Vector2( 908.306, 449.212 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 6 )
+frames = SubResource( 8 )
 playing = true
 
 [node name="Fogo2" type="AnimatedSprite" parent="ColorRect/Fogo"]
-material = SubResource( 10 )
+material = SubResource( 9 )
 position = Vector2( -227.102, 50.501 )
 scale = Vector2( 3, 3 )
 z_index = 1
-frames = SubResource( 6 )
+frames = SubResource( 8 )
 playing = true
 flip_h = true
 
 [node name="Fogo4" type="AnimatedSprite" parent="ColorRect/Fogo"]
-material = SubResource( 11 )
+material = SubResource( 10 )
 position = Vector2( -29.7668, 19.9411 )
 scale = Vector2( 0.866667, 0.85625 )
-frames = SubResource( 6 )
+frames = SubResource( 8 )
 frame = 2
 playing = true
 
 [node name="Fogo5" type="AnimatedSprite" parent="ColorRect/Fogo"]
-material = SubResource( 11 )
+material = SubResource( 10 )
 position = Vector2( -50.4335, 17.9411 )
 scale = Vector2( 0.866667, 0.85625 )
-frames = SubResource( 6 )
+frames = SubResource( 8 )
 frame = 2
 playing = true
 
@@ -292,7 +292,7 @@ margin_right = 900.348
 margin_bottom = 582.775
 rect_min_size = Vector2( 300, 200 )
 rect_clip_content = false
-custom_fonts/normal_font = SubResource( 13 )
+custom_fonts/normal_font = SubResource( 11 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
@@ -307,7 +307,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Destruicao = SubResource( 8 )
+anims/Destruicao = SubResource( 12 )
 
 [node name="ScreenShake" parent="." instance=ExtResource( 2 )]
 

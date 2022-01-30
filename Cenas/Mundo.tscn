@@ -352,7 +352,7 @@ shader_param/heightOffset = 0.465
 shader_param/offset = 0.0
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 450.0
+radius = 500.0
 
 [node name="Mundo" type="Node2D"]
 script = ExtResource( 4 )
@@ -396,7 +396,7 @@ player = NodePath("../../Player")
 [node name="PauseScreen" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -113.924, 53.768 )
+position = Vector2( -2.03899, -583.555 )
 z_index = 1
 
 [node name="Postes" type="TileMap" parent="."]
@@ -453,23 +453,14 @@ tile_data = PoolIntArray( -16711876, 58, 0, -15007886, 57, 0, -14614647, 5368709
 
 [node name="ScreenShake" parent="." instance=ExtResource( 7 )]
 
-[node name="AreaRelampago" type="Area2D" parent="."]
-position = Vector2( -350, 400 )
-collision_layer = 4
-collision_mask = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="RelampagoCollision" type="CollisionShape2D" parent="AreaRelampago"]
+[node name="RelampagoArea" type="CollisionShape2D" parent="."]
+position = Vector2( -320, 405 )
 shape = SubResource( 5 )
 
-[node name="HomemSuperArea2" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 260.626, -1092.58 )
+[node name="HomemSuperArea" type="CollisionShape2D" parent="."]
+position = Vector2( 138, -1050 )
 shape = SubResource( 5 )
 
 [node name="MagaSupremaArea" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -1804.1, -1508.3 )
+position = Vector2( -1350, -1750 )
 shape = SubResource( 5 )
