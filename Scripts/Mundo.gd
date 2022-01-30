@@ -10,8 +10,9 @@ func _ready():
 #	add_child(dialog)
 #	dialog.connect("dialogic_signal", self, "_dialog_finished")
 	Input.set_custom_mouse_cursor(cursor)
-	$Player/Camera2D.limit_left
+
 	
+<<<<<<< HEAD
 	#Spawn Bosses
 	$"/root/SpawnManager"._spawnBoss($RelampagoArea.position, 0)
 	$"/root/SpawnManager"._spawnBoss($HomemSuperArea.position, 1)
@@ -20,6 +21,8 @@ func _ready():
 	#Spawn NPCs
 	
 	#Spawn Enemies
+=======
+>>>>>>> c59cfadc74121b4f7f465bbf1b6bc456805f9e55
 
 func _input(event):
 	if(event.is_pressed() && find_node("Player").is_dead):

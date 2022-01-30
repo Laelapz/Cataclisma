@@ -366,11 +366,10 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="Water"]
 material = SubResource( 2 )
-margin_left = -2137.84
-margin_top = -2518.91
-margin_right = 1690.16
-margin_bottom = 1069.09
-rect_rotation = -0.0255202
+margin_left = -2161.0
+margin_top = -2510.0
+margin_right = 1667.0
+margin_bottom = 1078.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -382,10 +381,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 170.352
-margin_top = -313.435
-margin_right = 370.352
-margin_bottom = -113.435
+margin_left = 178.352
+margin_top = -310.435
+margin_right = 378.352
+margin_bottom = -110.435
 mouse_filter = 1
 player = NodePath("../../Player")
 
@@ -396,7 +395,7 @@ player = NodePath("../../Player")
 [node name="PauseScreen" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2.03899, -583.555 )
+position = Vector2( 38.4233, -93.0512 )
 z_index = 1
 
 [node name="Postes" type="TileMap" parent="."]

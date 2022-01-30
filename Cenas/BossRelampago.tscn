@@ -42,7 +42,7 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 12 )
 shader_param/rainbow = false
 shader_param/line_color = Color( 0.909804, 0.219608, 0.196078, 1 )
@@ -51,7 +51,7 @@ shader_param/frequency = 0.5
 shader_param/light_offset = 0.5
 shader_param/alpha = 1.0
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=9]
 script/source = "extends Sprite
 
 var global_position_y = -16
@@ -61,17 +61,22 @@ func _process(delta):
 	pass
 "
 
-[sub_resource type="Gradient" id=11]
+[sub_resource type="Gradient" id=10]
 colors = PoolColorArray( 0.94902, 0.321569, 0.0784314, 0, 0.898039, 0.647059, 0.054902, 1 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 15.8216, 10.5797 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 15.7554, 4.15129 )
 
+<<<<<<< HEAD
 [sub_resource type="CircleShape2D" id=14]
 radius = 378.626
+=======
+[sub_resource type="CircleShape2D" id=13]
+radius = 199.004
+>>>>>>> c59cfadc74121b4f7f465bbf1b6bc456805f9e55
 
 [node name="Boss" type="KinematicBody2D" groups=[
 "minimap_objects",
@@ -89,7 +94,11 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
+<<<<<<< HEAD
 frame = 3
+=======
+frame = 1
+>>>>>>> c59cfadc74121b4f7f465bbf1b6bc456805f9e55
 playing = true
 
 [node name="ShotTimer" type="Timer" parent="."]
@@ -101,10 +110,10 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Atention" type="Sprite" parent="."]
-material = SubResource( 9 )
+material = SubResource( 8 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
-script = SubResource( 10 )
+script = SubResource( 9 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 40
@@ -125,7 +134,7 @@ z_index = -1
 points = PoolVector2Array( 117.613, 49.1675 )
 width = 15.0
 default_color = Color( 0.898039, 0.647059, 0.054902, 1 )
-gradient = SubResource( 11 )
+gradient = SubResource( 10 )
 targetPath = NodePath("..")
 traillen = 100
 
@@ -135,7 +144,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
 position = Vector2( 0, -0.458142 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="Legs" type="Area2D" parent="."]
 collision_layer = 2
@@ -143,14 +152,14 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Legs"]
 position = Vector2( -0.463513, 14.3027 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
 [connection signal="timeout" from="RunerTimer" to="." method="_on_RunerTimer_timeout"]

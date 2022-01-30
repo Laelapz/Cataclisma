@@ -6,6 +6,7 @@ export var life = 5
 export var speed = 40
 export var damage = 1
 export var type = ""
+var lvl = 0
 var player = null
 var can_shot = true
 var velocity = Vector2()
@@ -15,7 +16,7 @@ var rng = RandomNumberGenerator.new()
 var headColliding = false
 var legsColliding = false
 
-var atributes = {"police": {"life": 5, "speed": 40, "damage": 0}, "sheriff": {"life": 10, "speed": 20, "damage": 2}, "mercenary": {"life": 5, "speed": 60, "damage": 1}, "soldier": {"life": 10, "speed": 40, "damage": 3}, "robot": {"life": 15, "speed": 20, "damage": 4}, "fbi": {"life": 5, "speed": 70, "damage": 2}}
+var atributes = {"police": {"life": 5, "speed": 40, "damage": 0, "lvl": 1}, "sheriff": {"life": 10, "speed": 20, "damage": 2, "lvl": 1}, "mercenary": {"life": 5, "speed": 60, "damage": 1, "lvl": 2}, "soldier": {"life": 10, "speed": 40, "damage": 3, "lvl": 2}, "robot": {"life": 15, "speed": 20, "damage": 4, "lvl": 1}, "fbi": {"life": 5, "speed": 70, "damage": 2, "lvl": 1}}
 
 signal removed
 
@@ -33,6 +34,7 @@ func _setStatus(type):
 	life = atributes[type].life
 	speed = atributes[type].speed
 	damage = atributes[type].damage
+	lvl = atributes[type].lvl
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -91,6 +93,8 @@ func damage():
 		dead()
 
 func dead():
+	get_parent().find_node("Player").life += 5
+	get_parent().find_node("Player").currentXP += 2*lvl
 	emit_signal ("removed", self)
 	queue_free()
 
