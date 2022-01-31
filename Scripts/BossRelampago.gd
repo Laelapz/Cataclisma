@@ -6,9 +6,9 @@ var returning = false
 
 var x = 1
 var y = 1
-var life = 150
+var life = 1500
 var speed = 0
-var damage = 0
+var damage = 5
 export var type = ""
 var player = null
 var can_shot = true
@@ -51,9 +51,12 @@ func _process(delta):
 		var angle = rng.randf_range(0, PI/2)
 		
 		if player_dist_from_origem < raio_limite:
-			get_parent().find_node("HUD")._showBossBar(150)
-			get_parent().find_node("HUD")._actualBossLife(life)
-			
+				get_parent().find_node("HUD")._showBossBar(1500)
+				get_parent().find_node("HUD")._actualBossLife(life)
+				
+		if (player_dist_from_origem > raio_limite):
+			get_parent().find_node("HUD")._hideBossBar()
+		
 		var dirx = abs( (player.mov).x )
 		var diry = abs( (player.mov).y )
 		var maxdir = max(dirx, diry) 
@@ -68,6 +71,8 @@ func _process(delta):
 		var R = 120
 		var destino = Vector2(player.global_position.x + dir*R*cos(angle), player.global_position.y + dir*R*sin(angle) )
 		var dist_from_player = sqrt((pow((global_position.x - destino.x), 2) + pow((global_position.y - destino.y), 2)))
+		
+		
 		
 		if dist_from_player <= 240 and (player_dist_from_origem < raio_limite):
 			if dist_from_player >= 100:
@@ -88,7 +93,6 @@ func _process(delta):
 				can_shot = false
 				$ShotTimer.start()
 		else:
-			get_parent().find_node("HUD")._hideBossBar()
 			velocity = Vector2(x, y).normalized() * speed
 			velocity = move_and_slide(velocity)
 	else:
@@ -100,7 +104,7 @@ func _process(delta):
 	else:
 		z_index = 0
 
-func damage():
+func damage(damage):
 	get_parent().find_node("HUD")._actualBossLife(life)
 	$"/root/AudioManager"._enemyDamage()
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
@@ -108,12 +112,13 @@ func damage():
 	add_child(blood)
 	blood.emitting = true
 	blood.global_position = global_position
-	life -= 1
+	life -= damage
 	
 	if life <= 0:
 		dead()
 
 func dead():
+	get_parent().find_node("HUD")._hideBossBar()
 	get_parent().find_node("Player").life += 50
 	get_parent().find_node("Player").currentXP += 50
 	emit_signal ("removed", self)

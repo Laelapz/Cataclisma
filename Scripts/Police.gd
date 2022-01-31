@@ -16,7 +16,7 @@ var rng = RandomNumberGenerator.new()
 var headColliding = false
 var legsColliding = false
 
-var atributes = {"police": {"life": 5, "speed": 40, "damage": 1, "lvl": 1}, "sheriff": {"life": 10, "speed": 20, "damage": 2, "lvl": 1}, "mercenary": {"life": 5, "speed": 60, "damage": 1, "lvl": 2}, "soldier": {"life": 10, "speed": 40, "damage": 3, "lvl": 2}, "robot": {"life": 15, "speed": 20, "damage": 4, "lvl": 1}, "fbi": {"life": 5, "speed": 70, "damage": 2, "lvl": 1}}
+var atributes = {"police": {"life": 35, "speed": 40, "damage": 1, "lvl": 1}, "sheriff": {"life": 40, "speed": 20, "damage": 2, "lvl": 1}, "mercenary": {"life": 40, "speed": 60, "damage": 1, "lvl": 2}, "soldier": {"life": 50, "speed": 40, "damage": 3, "lvl": 2}, "robot": {"life": 60, "speed": 20, "damage": 4, "lvl": 1}, "fbi": {"life": 40, "speed": 70, "damage": 2, "lvl": 1}}
 
 signal removed
 
@@ -80,14 +80,14 @@ func _process(delta):
 	else:
 		self.z_index = 0
 
-func damage():
+func damage(damage):
 	$"/root/AudioManager"._enemyDamage()
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
 	var blood = BLOOD.instance()
 	add_child(blood)
 	blood.emitting = true
 	blood.global_position = global_position
-	life -= 1
+	life -= damage
 	
 	if life <= 0:
 		dead()

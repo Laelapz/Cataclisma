@@ -71,7 +71,7 @@ extents = Vector2( 15.8216, 10.5797 )
 extents = Vector2( 15.7554, 4.15129 )
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 510.0
+radius = 1500.0
 
 [node name="Boss" type="KinematicBody2D" groups=[
 "minimap_objects",
@@ -89,11 +89,11 @@ material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Relampago"
-frame = 1
+frame = 3
 playing = true
 
 [node name="ShotTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [node name="RunerTimer" type="Timer" parent="."]

@@ -11,6 +11,9 @@ func _ready():
 func _process(delta):
 	$LifeBar.value = get_parent().find_node("Player").life
 	
+func _setPlayerMax(life):
+	print("setando maximo: ", life)
+	$LifeBar.max_value = life
 
 func lvlUpShow():
 	$Tween.interpolate_property($LvlUpSign, "rect_position:x", -150, 50, 3,Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)

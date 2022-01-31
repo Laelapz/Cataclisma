@@ -34,6 +34,8 @@ func atirar():
 	var mouse_pos = get_local_mouse_position().normalized()
 	
 	bullet_inst.position = position
+	print(get_parent().playerDamage)
+	bullet_inst.damage = get_parent().playerDamage
 	bullet_inst.rotation_degrees = rotation_degrees
 	bullet_inst.apply_impulse(Vector2(), Vector2(bullet_inst.bullet_speed,0).rotated(rotation))
 	get_parent().add_child(bullet_inst)
