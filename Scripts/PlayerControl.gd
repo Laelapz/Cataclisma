@@ -82,6 +82,7 @@ func updateLvl():
 	playerDamage = 1 + 2*lvl
 	scale *= 1.05
 	life = 500 + 2*lvl
+	get_parent().find_node("HUD")._setPlayerMax(life)
 	currentXP = currentXP - maxXP
 	maxXP = pow(2, lvl)
 	print("lvl: ", lvl," damage: ", playerDamage, " life:", life)
@@ -95,8 +96,8 @@ func evolve():
 		$"/root/SpawnManager".player_evol += 1
 		for i in range(1, 7):
 			var pos = get_parent().find_node("EnemySpawns").get_child(i).position
-			$"/root/SpawnManager"._spawnEnemys(5, pos, 0)
-			$"/root/SpawnManager"._spawnEnemys(7, pos, 1)
+			$"/root/SpawnManager"._spawnEnemys(3, pos, 0)
+			$"/root/SpawnManager"._spawnEnemys(9, pos, 1)
 	elif evo == 3:
 		sprite.texture = load("res://Assets/creature-sheet-evol-2.png")
 		scale *= 1.2
@@ -105,7 +106,7 @@ func evolve():
 			var pos = get_parent().find_node("EnemySpawns").get_child(i).position
 			$"/root/SpawnManager"._spawnEnemys(1, pos, 0)
 			$"/root/SpawnManager"._spawnEnemys(3, pos, 1)
-			$"/root/SpawnManager"._spawnEnemys(6, pos, 1)
+			$"/root/SpawnManager"._spawnEnemys(6, pos, 2)
 	elif evo == 5:
 		can_move = false
 		can_damage = false

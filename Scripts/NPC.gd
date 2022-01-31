@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var x = 1
 var y = 1
-export var life = 5
+export var life = 15
 export var speed = 40
 export var damage = 1
 export var type = ""
@@ -62,14 +62,14 @@ func _process(delta):
 	else:
 		self.z_index = 0
 
-func damage():
+func damage(damage):
 	$"/root/AudioManager"._enemyDamage()
 	get_parent().find_node("ScreenShake").screen_shake(1, 3, 1)
 	var blood = BLOOD.instance()
 	add_child(blood)
 	blood.emitting = true
 	blood.global_position = global_position
-	life -= 1
+	life -= damage
 	
 	if life <= 0:
 		dead()

@@ -20,14 +20,14 @@ func _ready():
 	#Spawn NPCs
 	for i in range(1, 11):
 		var pos = $NPCsSpawns.get_child(i).position
-		for j in range(0, 30):
+		for j in range(0, 20):
 			var tipo = round(rng.randf_range(0, 2))
 			$"/root/SpawnManager"._spawnNPCs(1, pos, tipo)
 		
 	#Spawn Enemies
 	for i in range(1, 7):
 		var pos = $EnemySpawns.get_child(i).position
-		$"/root/SpawnManager"._spawnEnemys(7, pos, 0)
+		$"/root/SpawnManager"._spawnEnemys(5, pos, 0)
 
 func _input(event):
 	if(event.is_pressed() && find_node("Player").is_dead):

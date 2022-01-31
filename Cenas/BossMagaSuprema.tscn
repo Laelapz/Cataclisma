@@ -92,7 +92,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=17]
-radius = 500.0
+radius = 1000.0
 
 [sub_resource type="ShaderMaterial" id=18]
 shader = ExtResource( 12 )
@@ -144,7 +144,7 @@ position = Vector2( -112.551, -11.5 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 16 )
 animation = "MagaSuprema"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 80.3934, 8.21428 )
 
